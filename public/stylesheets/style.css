@@ -1,0 +1,58 @@
+/* Global Styles */
+html {
+  background-color: #303030;
+}
+
+.card-container {
+  border: 1px solid GhostWhite;
+}
+
+.toolbar-container-items {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+
+
+/* Smartphones (portrait and landscape) */
+@media only screen and (min-device-width : 0px) and (max-device-width : 599px) {
+
+  .landing-page-main-btn {
+    margin-left: 3vw;
+    margin-right: 3vw;
+    margin-top: 8vh;
+    margin-bottom: 8vh;
+    width: 96%;
+  }
+
+}
+
+/* Tablets portrait */
+@media only screen and (min-device-width : 600px) and (max-device-width : 899px) {
+
+  .landing-page-main-btn-container {
+    display: none;
+  }
+
+}
+
+/* Tablets landscape */
+@media only screen and (min-device-width : 900px) and (max-device-width : 1199px) {
+
+  .landing-page-main-btn-container {
+    display: none;
+  }
+
+}
+
+/* Desktops and Large Laptops */
+@media only screen and (min-device-width : 1200px) {
+
+  .landing-page-main-btn-container {
+    display: none;
+  }
+
+}
