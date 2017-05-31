@@ -15,7 +15,45 @@ html {
   justify-content: space-between;
 }
 
+.footer {
+  position: absolute;
+  bottom: 20px;
+  width: 99vw;
+}
 
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-items-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-items-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.desktop-form-container {
+  margin: 12px;
+  padding: 12px;
+}
+
+/*these containers may end up being identical....
+.incident-container {
+
+}
+
+.perpetrator-container {
+
+}
+
+.support-container {
+
+}
+*/
 
 /* Smartphones (portrait and landscape) */
 @media only screen and (min-device-width : 0px) and (max-device-width : 599px) {
@@ -23,9 +61,13 @@ html {
   .landing-page-main-btn {
     margin-left: 3vw;
     margin-right: 3vw;
-    margin-top: 8vh;
-    margin-bottom: 8vh;
+    margin-top: 3vh;
+    margin-bottom: 1vh;
     width: 96%;
+  }
+
+  .desktop-landing-message {
+    display: none;
   }
 
 }

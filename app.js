@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('cors')
 const path = require('path')
 const favicon = require('serve-favicon')
 const logger = require('morgan')
@@ -9,7 +10,6 @@ const webpackMiddleware = require('webpack-dev-middleware')
 const webpackConfig = require('./webpack.config.js')
 
 const app = express()
-
 const compiler = webpack(webpackConfig)
 
 // uncomment after placing your favicon in /public
@@ -19,6 +19,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.static(path.join(__dirname, 'public/dist')))
+// app.use(cors())
 
 app.get('*', (req, res, next) => {
   res.sendFile(path.join(__dirname, 'client/index.html'))
