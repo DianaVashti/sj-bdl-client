@@ -1,9 +1,12 @@
 import React from 'react';
-import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
+import PropTypes from 'prop-types';
+import {
+  Card,
+  CardActions,
+  CardHeader,
+  CardText
+} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
-import injectTapEventPlugin from 'react-tap-event-plugin';
-
-injectTapEventPlugin();
 
 const ExpandableCard = () => (
   <Card className="card-container">
