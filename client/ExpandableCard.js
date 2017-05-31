@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -14,7 +15,7 @@ const ExpandableCard = () => (
       }}
       subtitle="May 17, 2017"
       actAsExpander={true}
-      showExpandableButton={true}
+      showExpandableButton={true}]
     />
     <CardText expandable={true}>
       Client gave gifts to dancers then reported them stolen to SFPD.
