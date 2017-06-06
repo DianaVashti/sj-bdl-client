@@ -11,21 +11,23 @@ import Paper from 'material-ui/Paper';
 export default class ViewReports extends Component {
   constructor(props) {
     super(props);
-  }
-
-  componentWillMount(){
-    let self = this
-    axios({
-      method:'get',
-      url:'https://sjibdl.herokuapp.com/api',
-    })
-    .then(data => {
-      console.log("This app is so Fetch")
-    })
+		this.state = {
+			reports: []
+		}
   }
 
   componentDidMount(){
-    console.log("Component Mounted")
+    let self = this
+    axios({
+      method:'get',
+      url:'http://localhost:8080/api/reports',
+    })
+    .then(reports => {
+      console.log(reports)
+      this.setState({
+        reports: reports.data
+      })
+    })
   }
 
   render() {
@@ -39,10 +41,10 @@ export default class ViewReports extends Component {
                 Exmple: Name, Vehicle type etc..."
               fullWidth={true} />
           </div>
-          <ExpandableCard />
+          <ExpandableCard reports={this.state.reports} />
           <Footer />
         </div>
-      </Paper>  
+      </Paper>
     )
   }
 }
