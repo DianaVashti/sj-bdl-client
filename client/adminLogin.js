@@ -9,9 +9,30 @@ import Paper from 'material-ui/Paper';
  * A modal dialog can only be closed by selecting one of the actions.
  */
 export default class AdminLogin extends React.Component {
-  state = {
-    open: true,
-  };
+  constructor(props) {
+    super(props)
+    this.state = {
+      open: true,
+      email: '',
+      password: ''
+    };
+    this.handleEmailChange = this.handleEmailChange.bind(this);
+    this.handlePasswordChange = this.handlePasswordChange.bind(this);
+    this.handleSubmitButtonTap = this.handleSubmitButtonTap.bind(this);
+  }
+
+  handleEmailChange(event) {
+    this.setState({ email: event.target.value })
+  }
+
+  handlePasswordChange(event) {
+    this.setState({ password: event.target.value })
+  }
+
+  handleSubmitButtonTap() {
+    console.log(this.state.email)
+    console.log(this.state.password)
+  }
 
   render() {
     const actions = [
@@ -25,7 +46,7 @@ export default class AdminLogin extends React.Component {
         label="Submit"
         primary={true}
         disabled={false}
-        onTouchTap={this.handleClose}
+        onTouchTap={this.handleSubmitButtonTap}
         containerElement={<Link to="/admin-reports" />}
       />,
     ];
@@ -40,17 +61,19 @@ export default class AdminLogin extends React.Component {
             open={this.state.open}
           >
             <TextField
-              hintText="Username"
-              floatingLabelText="Username"
-              value="username"
+              hintText="Email"
+              floatingLabelText="Email"
+              value={this.state.email}
+              onChange={this.handleEmailChange}
               type="text" /><br />
             <TextField
               hintText="Password Field"
               floatingLabelText="Password"
-              value="password"
+              value={this.state.password}
+              onChange={this.handlePasswordChange}
               type="password" /><br />
           </Dialog>
-        </Paper>  
+        </Paper>
       </div>
     );
   }

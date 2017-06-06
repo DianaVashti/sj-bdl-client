@@ -56405,23 +56405,39 @@
 	var AdminLogin = function (_React$Component) {
 	  _inherits(AdminLogin, _React$Component);
 	
-	  function AdminLogin() {
-	    var _ref;
-	
-	    var _temp, _this, _ret;
-	
+	  function AdminLogin(props) {
 	    _classCallCheck(this, AdminLogin);
 	
-	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-	      args[_key] = arguments[_key];
-	    }
+	    var _this = _possibleConstructorReturn(this, (AdminLogin.__proto__ || Object.getPrototypeOf(AdminLogin)).call(this, props));
 	
-	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = AdminLogin.__proto__ || Object.getPrototypeOf(AdminLogin)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-	      open: true
-	    }, _temp), _possibleConstructorReturn(_this, _ret);
+	    _this.state = {
+	      open: true,
+	      email: '',
+	      password: ''
+	    };
+	    _this.handleEmailChange = _this.handleEmailChange.bind(_this);
+	    _this.handlePasswordChange = _this.handlePasswordChange.bind(_this);
+	    _this.handleSubmitButtonTap = _this.handleSubmitButtonTap.bind(_this);
+	    return _this;
 	  }
 	
 	  _createClass(AdminLogin, [{
+	    key: 'handleEmailChange',
+	    value: function handleEmailChange(event) {
+	      this.setState({ email: event.target.value });
+	    }
+	  }, {
+	    key: 'handlePasswordChange',
+	    value: function handlePasswordChange(event) {
+	      this.setState({ password: event.target.value });
+	    }
+	  }, {
+	    key: 'handleSubmitButtonTap',
+	    value: function handleSubmitButtonTap() {
+	      console.log(this.state.email);
+	      console.log(this.state.password);
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var actions = [_react2.default.createElement(_FlatButton2.default, {
@@ -56433,7 +56449,7 @@
 	        label: 'Submit',
 	        primary: true,
 	        disabled: false,
-	        onTouchTap: this.handleClose,
+	        onTouchTap: this.handleSubmitButtonTap,
 	        containerElement: _react2.default.createElement(_reactRouter.Link, { to: '/admin-reports' })
 	      })];
 	
@@ -56452,15 +56468,17 @@
 	              open: this.state.open
 	            },
 	            _react2.default.createElement(_TextField2.default, {
-	              hintText: 'Username',
-	              floatingLabelText: 'Username',
-	              value: 'username',
+	              hintText: 'Email',
+	              floatingLabelText: 'Email',
+	              value: this.state.email,
+	              onChange: this.handleEmailChange,
 	              type: 'text' }),
 	            _react2.default.createElement('br', null),
 	            _react2.default.createElement(_TextField2.default, {
 	              hintText: 'Password Field',
 	              floatingLabelText: 'Password',
-	              value: 'password',
+	              value: this.state.password,
+	              onChange: this.handlePasswordChange,
 	              type: 'password' }),
 	            _react2.default.createElement('br', null)
 	          )
