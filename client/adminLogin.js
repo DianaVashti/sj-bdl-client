@@ -4,6 +4,7 @@ import FlatButton from 'material-ui/FlatButton';
 import TextField from 'material-ui/TextField';
 import {Link} from 'react-router'
 import Paper from 'material-ui/Paper';
+import axios from 'axios';
 
 /**
  * A modal dialog can only be closed by selecting one of the actions.
@@ -14,7 +15,7 @@ export default class AdminLogin extends React.Component {
     this.state = {
       open: true,
       email: '',
-      password: ''
+      password: '',
     };
     this.handleEmailChange = this.handleEmailChange.bind(this);
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
@@ -30,8 +31,16 @@ export default class AdminLogin extends React.Component {
   }
 
   handleSubmitButtonTap() {
-    console.log(this.state.email)
-    console.log(this.state.password)
+    axios.post('http://localhost:8080/api/admins/login', {
+      email: this.state.email,
+      password: this.state.password
+    })
+    .then((response) => {
+      console.log(response)
+    })
+    .catch((error) => {
+      console.log('Something went wrong ', error)
+    })
   }
 
   render() {
