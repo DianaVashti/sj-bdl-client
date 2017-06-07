@@ -22569,6 +22569,16 @@
 	  }
 	
 	  _createClass(ReactRouter, [{
+	    key: 'requireAuth',
+	    value: function requireAuth(nextState, replace) {
+	      var isLoggedIn = sessionStorage.getItem('auth');
+	      if (isLoggedIn === null) {
+	        replace({
+	          pathname: '/admin-login'
+	        });
+	      }
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	
@@ -22601,7 +22611,7 @@
 	          _react2.default.createElement(_reactRouter.Route, { path: '/', component: landingPageComponent }),
 	          _react2.default.createElement(_reactRouter.Route, { path: '/view-reports', component: viewReportsComponent }),
 	          _react2.default.createElement(_reactRouter.Route, { path: '/admin-login', component: adminLoginComponent }),
-	          _react2.default.createElement(_reactRouter.Route, { path: '/admin-reports', component: adminReportsComponent }),
+	          _react2.default.createElement(_reactRouter.Route, { path: '/admin-reports', component: adminReportsComponent, onEnter: this.requireAuth }),
 	          _react2.default.createElement(_reactRouter.Route, { path: '/submit-report', component: desktopFormComponent })
 	        )
 	      );
@@ -53192,8 +53202,6 @@
 	  _createClass(AdminReports, [{
 	    key: 'render',
 	    value: function render() {
-	      console.log('This is the session object', sessionStorage.getItem('auth'));
-	
 	      return _react2.default.createElement(
 	        _Paper2.default,
 	        { zDepth: 3, rounded: false },
@@ -56444,9 +56452,7 @@
 	        email: this.state.email,
 	        password: this.state.password
 	      }).then(function (response) {
-	        sessionStorage.setItem('auth', response.headers['x-auth']
-	        // console.log('This is the session object', sessionStorage.getItem('auth'))
-	        );
+	        sessionStorage.setItem('auth', response.headers['x-auth']);
 	      }).catch(function (error) {
 	        console.log('Something went wrong ', error);
 	      });

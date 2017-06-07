@@ -37,7 +37,6 @@ export default class AdminLogin extends React.Component {
     })
     .then((response) => {
 			sessionStorage.setItem('auth', response.headers['x-auth'])
-			// console.log('This is the session object', sessionStorage.getItem('auth'))
     })
     .catch((error) => {
       console.log('Something went wrong ', error)

@@ -17,6 +17,15 @@ export default class ReactRouter extends Component {
     super(props)
   }
 
+  requireAuth(nextState, replace) {
+    let isLoggedIn = sessionStorage.getItem('auth');
+    if (isLoggedIn === null) {
+      replace({
+        pathname: '/admin-login'
+      })
+    }
+  }
+
   render() {
 
     const landingPageComponent = (props, state, params) =>
@@ -40,7 +49,7 @@ export default class ReactRouter extends Component {
           <Route path="/" component={landingPageComponent} />
           <Route path="/view-reports" component={viewReportsComponent} />
           <Route path="/admin-login" component={adminLoginComponent} />
-          <Route path="/admin-reports" component={adminReportsComponent} />
+          <Route path="/admin-reports" component={adminReportsComponent} onEnter={this.requireAuth} />
           <Route path="/submit-report" component={desktopFormComponent} />
         </Router>
       </MuiThemeProvider>
