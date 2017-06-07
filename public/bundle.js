@@ -56417,11 +56417,13 @@
 	    _this.state = {
 	      open: true,
 	      email: '',
-	      password: ''
+	      password: '',
+	      header: ''
 	    };
 	    _this.handleEmailChange = _this.handleEmailChange.bind(_this);
 	    _this.handlePasswordChange = _this.handlePasswordChange.bind(_this);
 	    _this.handleSubmitButtonTap = _this.handleSubmitButtonTap.bind(_this);
+	    _this.checkAuth = _this.checkAuth.bind(_this);
 	    return _this;
 	  }
 	
@@ -56438,14 +56440,27 @@
 	  }, {
 	    key: 'handleSubmitButtonTap',
 	    value: function handleSubmitButtonTap() {
+	      var _this2 = this;
+	
 	      _axios2.default.post('http://localhost:8080/api/admins/login', {
 	        email: this.state.email,
 	        password: this.state.password
 	      }).then(function (response) {
-	        console.log(response);
+	        _this2.setState({
+	          headers: response.headers['x-auth']
+	        });
 	      }).catch(function (error) {
 	        console.log('Something went wrong ', error);
 	      });
+	    }
+	  }, {
+	    key: 'checkAuth',
+	    value: function checkAuth() {
+	      if (this.state.header !== '') {
+	        return _react2.default.createElement(_reactRouter.Link, { to: '/admin-reports', auth: this.state.header });
+	      } else {
+	        return _react2.default.createElement(_reactRouter.Link, { to: '/admin-reports' });
+	      }
 	    }
 	  }, {
 	    key: 'render',
@@ -56460,7 +56475,7 @@
 	        primary: true,
 	        disabled: false,
 	        onTouchTap: this.handleSubmitButtonTap,
-	        containerElement: _react2.default.createElement(_reactRouter.Link, { to: '/admin-reports' })
+	        containerElement: this.checkAuth
 	      })];
 	
 	      return _react2.default.createElement(

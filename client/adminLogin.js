@@ -16,6 +16,7 @@ export default class AdminLogin extends React.Component {
       open: true,
       email: '',
       password: '',
+      header: ''
     };
     this.handleEmailChange = this.handleEmailChange.bind(this);
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
@@ -36,7 +37,9 @@ export default class AdminLogin extends React.Component {
       password: this.state.password
     })
     .then((response) => {
-      console.log(response)
+      this.setState({
+        headers: response.headers['x-auth']
+      })
     })
     .catch((error) => {
       console.log('Something went wrong ', error)
