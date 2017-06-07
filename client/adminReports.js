@@ -11,6 +11,8 @@ export default class AdminReports extends Component {
   }
 
   render() {
+    console.log('This is the session object', sessionStorage.getItem('auth'))
+
     return (
       <Paper zDepth={3} rounded={false} >
         <div>

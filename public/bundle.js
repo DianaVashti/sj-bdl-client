@@ -53192,6 +53192,8 @@
 	  _createClass(AdminReports, [{
 	    key: 'render',
 	    value: function render() {
+	      console.log('This is the session object', sessionStorage.getItem('auth'));
+	
 	      return _react2.default.createElement(
 	        _Paper2.default,
 	        { zDepth: 3, rounded: false },
@@ -56417,13 +56419,11 @@
 	    _this.state = {
 	      open: true,
 	      email: '',
-	      password: '',
-	      header: ''
+	      password: ''
 	    };
 	    _this.handleEmailChange = _this.handleEmailChange.bind(_this);
 	    _this.handlePasswordChange = _this.handlePasswordChange.bind(_this);
 	    _this.handleSubmitButtonTap = _this.handleSubmitButtonTap.bind(_this);
-	    _this.checkAuth = _this.checkAuth.bind(_this);
 	    return _this;
 	  }
 	
@@ -56440,27 +56440,16 @@
 	  }, {
 	    key: 'handleSubmitButtonTap',
 	    value: function handleSubmitButtonTap() {
-	      var _this2 = this;
-	
 	      _axios2.default.post('http://localhost:8080/api/admins/login', {
 	        email: this.state.email,
 	        password: this.state.password
 	      }).then(function (response) {
-	        _this2.setState({
-	          headers: response.headers['x-auth']
-	        });
+	        sessionStorage.setItem('auth', response.headers['x-auth']
+	        // console.log('This is the session object', sessionStorage.getItem('auth'))
+	        );
 	      }).catch(function (error) {
 	        console.log('Something went wrong ', error);
 	      });
-	    }
-	  }, {
-	    key: 'checkAuth',
-	    value: function checkAuth() {
-	      if (this.state.header !== '') {
-	        return _react2.default.createElement(_reactRouter.Link, { to: '/admin-reports', auth: this.state.header });
-	      } else {
-	        return _react2.default.createElement(_reactRouter.Link, { to: '/admin-reports' });
-	      }
 	    }
 	  }, {
 	    key: 'render',
@@ -56475,7 +56464,7 @@
 	        primary: true,
 	        disabled: false,
 	        onTouchTap: this.handleSubmitButtonTap,
-	        containerElement: this.checkAuth
+	        containerElement: _react2.default.createElement(_reactRouter.Link, { to: '/admin-reports' })
 	      })];
 	
 	      return _react2.default.createElement(
