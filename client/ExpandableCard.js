@@ -11,14 +11,14 @@ import Paper from 'material-ui/Paper';
 
 const ExpandableCard = (props) => {
   const reports = props.reports.map((report) => {
-    return <Paper zDepth={3} rounded={false} key={report._id} >
+    return <Paper zDepth={3} rounded={false} key={report.id} >
       <Card className="card-container">
         <CardHeader
           title={report.title}
           titleStyle={{
             font: '3em "Open Sans"',
           }}
-          subtitle="May 17, 2017"
+          subtitle={report.date}
           actAsExpander={true}
           showExpandableButton={true}
         />

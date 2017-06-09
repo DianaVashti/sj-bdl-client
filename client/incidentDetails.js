@@ -1,11 +1,11 @@
-import React, {Component}  from 'react'
+import React, { Component }  from 'react'
 import PropTypes from 'prop-types';
 import Paper from 'material-ui/Paper';
 import TextField from 'material-ui/TextField';
 import Subheader from 'material-ui/Subheader';
-import {List, ListItem} from 'material-ui/List';
+import { List, ListItem } from 'material-ui/List';
 import Checkbox from 'material-ui/Checkbox';
-import {orange500, blue500} from 'material-ui/styles/colors';
+import { orange500, blue500 } from 'material-ui/styles/colors';
 import DatePicker from 'material-ui/DatePicker';
 
 const style = {

@@ -2,7 +2,7 @@ import ReactDom from 'react-dom'
 import {Component} from 'react'
 import React from 'react'
 import PropTypes from 'prop-types';
-import { Router, Route, browserHistory } from 'react-router'
+import { Router, Route, browserHistory } from 'react-router';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
@@ -19,7 +19,7 @@ export default class ReactRouter extends Component {
 
   requireAuth(nextState, replace) {
     let isLoggedIn = sessionStorage.getItem('auth');
-    if (isLoggedIn === null) {
+    if (isLoggedIn === null || isLoggedIn === undefined) {
       replace({
         pathname: '/admin-login'
       })

@@ -1,6 +1,6 @@
-const axios = require('axios')
 import React, {Component}  from 'react'
 import PropTypes from 'prop-types';
+import axios from 'axios';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import ToolBarHeader from './toolBarHeader'
@@ -17,17 +17,15 @@ export default class ViewReports extends Component {
   }
 
   componentDidMount(){
-    let self = this
-    axios({
-      method:'get',
-      url:'http://localhost:8080/api/reports',
-    })
-    .then(reports => {
-      console.log(reports)
-      this.setState({
-        reports: reports.data
+    axios.get('http://localhost:8080/api/reports')
+      .then(reports => {
+        this.setState({
+          reports: reports.data
+        })
       })
-    })
+      .catch((error) => {
+        console.log('There was an error ', error)
+      })
   }
 
   render() {

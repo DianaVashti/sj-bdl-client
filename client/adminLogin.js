@@ -2,7 +2,7 @@ import React from 'react';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import TextField from 'material-ui/TextField';
-import {Link} from 'react-router'
+import { Link, browserHistory } from 'react-router'
 import Paper from 'material-ui/Paper';
 import axios from 'axios';
 
@@ -36,10 +36,13 @@ export default class AdminLogin extends React.Component {
       password: this.state.password
     })
     .then((response) => {
-			sessionStorage.setItem('auth', response.headers['x-auth'])
+			sessionStorage.setItem('auth', response.headers['x-auth']);
+      browserHistory.push('/admin-reports')
     })
     .catch((error) => {
       console.log('Something went wrong ', error)
+      browserHistory.push('/admin-login')
+      // Post some popup saying that login failed
     })
   }
 
@@ -56,7 +59,7 @@ export default class AdminLogin extends React.Component {
         primary={true}
         disabled={false}
         onTouchTap={this.handleSubmitButtonTap}
-        containerElement={<Link to="/admin-reports" />}
+        // containerElement={<Link to="/admin-reports" />}
       />,
     ];
 

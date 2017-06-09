@@ -57,21 +57,34 @@ const tableData = [
  * A more complex example, allowing the table height to be set, and key boolean properties to be toggled.
  */
 export default class ReportsTable extends Component {
-  state = {
-    fixedHeader: true,
-    fixedFooter: true,
-    stripedRows: true,
-    showRowHover: true,
-    selectable: true,
-    multiSelectable: false,
-    enableSelectAll: false,
-    deselectOnClickaway: true,
-    showCheckboxes: false,
-    height: '300px',
-  };
+  constructor(props) {
+    super(props)
 
+    this.state = {
+      fixedHeader: true,
+      fixedFooter: true,
+      stripedRows: true,
+      showRowHover: true,
+      selectable: true,
+      multiSelectable: false,
+      enableSelectAll: false,
+      deselectOnClickaway: true,
+      showCheckboxes: false,
+      height: '300px',
+    };
+  }
+
+  populateTable() {
+    const reports = props.reports.map((reports) => {
+      return <TableRow key={index}>
+        <TableRowColumn>{row.name}</TableRowColumn>
+        <TableRowColumn>{row.status}</TableRowColumn>
+      </TableRow>
+    })
+  }
 
   render() {
+    console.log('this is from the reports table ', sessionStorage.getItem('auth'))
     return (
       <div>
         <Paper zDepth={3} rounded={false} >
