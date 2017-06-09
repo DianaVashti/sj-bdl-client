@@ -53213,7 +53213,6 @@
 	      var _this2 = this;
 	
 	      var jwt = sessionStorage.getItem('auth');
-	      console.log('this is from the http get req ', sessionStorage.getItem('auth'));
 	
 	      var config = {
 	        headers: { 'x-auth': jwt }
@@ -53231,7 +53230,6 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      console.log('this is from the admin reports ', sessionStorage.getItem('auth'));
 	
 	      return _react2.default.createElement(
 	        _Paper2.default,
@@ -53299,30 +53297,6 @@
 	    margin: '20px auto 10px'
 	  }
 	};
-	
-	var tableData = [{
-	  name: 'John Smith',
-	  status: 'Edited'
-	}, {
-	  name: 'Randal White',
-	  status: 'Unedited'
-	}, {
-	  name: 'Stephanie Sanders',
-	  status: 'Edited'
-	}, {
-	  name: 'Steve Brown',
-	  status: 'Edited'
-	}, {
-	  name: 'Joyce Whitten',
-	  status: 'Edited'
-	}, {
-	  name: 'Samuel Roberts',
-	  status: 'Edited'
-	}, {
-	  name: 'Adam Moore',
-	  status: 'Edited'
-	}];
-	
 	/**
 	 * A more complex example, allowing the table height to be set, and key boolean properties to be toggled.
 	 */
@@ -53353,19 +53327,19 @@
 	  _createClass(ReportsTable, [{
 	    key: 'populateTable',
 	    value: function populateTable() {
-	      var reports = props.reports.map(function (reports) {
+	      return this.props.reports.map(function (report) {
 	        return _react2.default.createElement(
 	          _Table.TableRow,
-	          { key: index },
+	          { key: report._id },
 	          _react2.default.createElement(
 	            _Table.TableRowColumn,
 	            null,
-	            row.name
+	            report.perpetrator.name
 	          ),
 	          _react2.default.createElement(
 	            _Table.TableRowColumn,
 	            null,
-	            row.status
+	            report.edited.toString()
 	          )
 	        );
 	      });
@@ -53373,7 +53347,6 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      console.log('this is from the reports table ', sessionStorage.getItem('auth'));
 	      return _react2.default.createElement(
 	        'div',
 	        null,
@@ -53428,22 +53401,7 @@
 	                showRowHover: this.state.showRowHover,
 	                stripedRows: this.state.stripedRows
 	              },
-	              tableData.map(function (row, index) {
-	                return _react2.default.createElement(
-	                  _Table.TableRow,
-	                  { key: index },
-	                  _react2.default.createElement(
-	                    _Table.TableRowColumn,
-	                    null,
-	                    row.name
-	                  ),
-	                  _react2.default.createElement(
-	                    _Table.TableRowColumn,
-	                    null,
-	                    row.status
-	                  )
-	                );
-	              })
+	              this.populateTable()
 	            ),
 	            _react2.default.createElement(
 	              _Table.TableFooter,
@@ -56473,22 +56431,10 @@
 	
 	    _this.state = {
 	      open: true
-	      // email: '',
-	      // password: '',
 	    };
-	    // this.handleEmailChange = this.handleEmailChange.bind(this);
-	    // this.handlePasswordChange = this.handlePasswordChange.bind(this);
 	    _this.handleSubmitButtonTap = _this.handleSubmitButtonTap.bind(_this);
 	    return _this;
 	  }
-	
-	  // handleEmailChange(event) {
-	  //   this.setState({ email: event.target.value })
-	  // }
-	  //
-	  // handlePasswordChange(event) {
-	  //   this.setState({ password: event.target.value })
-	  // }
 	
 	  _createClass(AdminLogin, [{
 	    key: 'handleSubmitButtonTap',
@@ -56537,19 +56483,15 @@
 	            },
 	            _react2.default.createElement(_TextField2.default, {
 	              hintText: 'Email',
-	              floatingLabelText: 'Email'
-	              // value={this.state.email}
-	              , ref: 'email'
-	              // onChange={this.handleEmailChange}
-	              , type: 'text' }),
+	              floatingLabelText: 'Email',
+	              ref: 'email',
+	              type: 'text' }),
 	            _react2.default.createElement('br', null),
 	            _react2.default.createElement(_TextField2.default, {
 	              hintText: 'Password Field',
 	              floatingLabelText: 'Password',
-	              ref: 'password'
-	              // value={this.state.password}
-	              // onChange={this.handlePasswordChange}
-	              , type: 'password' }),
+	              ref: 'password',
+	              type: 'password' }),
 	            _react2.default.createElement('br', null)
 	          )
 	        )

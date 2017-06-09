@@ -14,28 +14,26 @@ export default class AdminReports extends Component {
     }
   }
 
-  // componentDidMount() {
-  //   const jwt = sessionStorage.getItem('auth');
-  //   console.log('this is from the http get req ', sessionStorage.getItem('auth'))
-  //
-  //   const config = {
-  //     headers: { 'x-auth': jwt }
-  //   }
-  //
-  //   axios.get('http://localhost:8080/api/admins/reports', config)
-  //     .then((response) => {
-  //       console.log(response)
-  //       this.setState({
-  //         reports: response.data
-  //       })
-  //     })
-  //     .catch((error) => {
-  //       console.log('There was an error ', error)
-  //     })
-  // }
+  componentDidMount() {
+    const jwt = sessionStorage.getItem('auth');
+
+    const config = {
+      headers: { 'x-auth': jwt }
+    }
+
+    axios.get('http://localhost:8080/api/admins/reports', config)
+      .then((response) => {
+        console.log(response)
+        this.setState({
+          reports: response.data
+        })
+      })
+      .catch((error) => {
+        console.log('There was an error ', error)
+      })
+  }
 
   render() {
-    console.log('this is from the admin reports ', sessionStorage.getItem('auth'))
 
     return (
       <Paper zDepth={3} rounded={false} >

@@ -21,38 +21,6 @@ const styles = {
     margin: '20px auto 10px',
   },
 };
-
-const tableData = [
-  {
-    name: 'John Smith',
-    status: 'Edited',
-  },
-  {
-    name: 'Randal White',
-    status: 'Unedited',
-  },
-  {
-    name: 'Stephanie Sanders',
-    status: 'Edited',
-  },
-  {
-    name: 'Steve Brown',
-    status: 'Edited',
-  },
-  {
-    name: 'Joyce Whitten',
-    status: 'Edited',
-  },
-  {
-    name: 'Samuel Roberts',
-    status: 'Edited',
-  },
-  {
-    name: 'Adam Moore',
-    status: 'Edited',
-  },
-];
-
 /**
  * A more complex example, allowing the table height to be set, and key boolean properties to be toggled.
  */
@@ -75,16 +43,17 @@ export default class ReportsTable extends Component {
   }
 
   populateTable() {
-    const reports = props.reports.map((reports) => {
-      return <TableRow key={index}>
-        <TableRowColumn>{row.name}</TableRowColumn>
-        <TableRowColumn>{row.status}</TableRowColumn>
-      </TableRow>
-    })
+    return (
+      this.props.reports.map((report) => (
+        <TableRow key={report._id}>
+          <TableRowColumn>{report.perpetrator.name}</TableRowColumn>
+          <TableRowColumn>{report.edited.toString()}</TableRowColumn>
+        </TableRow>
+        ))
+    )
   }
 
   render() {
-    console.log('this is from the reports table ', sessionStorage.getItem('auth'))
     return (
       <div>
         <Paper zDepth={3} rounded={false} >
@@ -116,12 +85,7 @@ export default class ReportsTable extends Component {
               showRowHover={this.state.showRowHover}
               stripedRows={this.state.stripedRows}
             >
-              {tableData.map( (row, index) => (
-                <TableRow key={index}>
-                  <TableRowColumn>{row.name}</TableRowColumn>
-                  <TableRowColumn>{row.status}</TableRowColumn>
-                </TableRow>
-                ))}
+              {this.populateTable()}
             </TableBody>
             <TableFooter
               adjustForCheckbox={this.state.showCheckboxes}
