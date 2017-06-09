@@ -53207,27 +53207,28 @@
 	    return _this;
 	  }
 	
-	  // componentDidMount() {
-	  //   const jwt = sessionStorage.getItem('auth');
-	  //   console.log('this is from the http get req ', sessionStorage.getItem('auth'))
-	  //
-	  //   const config = {
-	  //     headers: { 'x-auth': jwt }
-	  //   }
-	  //
-	  //   axios.get('http://localhost:8080/api/admins/reports', config)
-	  //     .then((response) => {
-	  //       console.log(response)
-	  //       this.setState({
-	  //         reports: response.data
-	  //       })
-	  //     })
-	  //     .catch((error) => {
-	  //       console.log('There was an error ', error)
-	  //     })
-	  // }
-	
 	  _createClass(AdminReports, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var _this2 = this;
+	
+	      var jwt = sessionStorage.getItem('auth');
+	      console.log('this is from the http get req ', sessionStorage.getItem('auth'));
+	
+	      var config = {
+	        headers: { 'x-auth': jwt }
+	      };
+	
+	      _axios2.default.get('http://localhost:8080/api/admins/reports', config).then(function (response) {
+	        console.log(response);
+	        _this2.setState({
+	          reports: response.data
+	        });
+	      }).catch(function (error) {
+	        console.log('There was an error ', error);
+	      });
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      console.log('this is from the admin reports ', sessionStorage.getItem('auth'));
@@ -56471,32 +56472,30 @@
 	    var _this = _possibleConstructorReturn(this, (AdminLogin.__proto__ || Object.getPrototypeOf(AdminLogin)).call(this, props));
 	
 	    _this.state = {
-	      open: true,
-	      email: '',
-	      password: ''
+	      open: true
+	      // email: '',
+	      // password: '',
 	    };
-	    _this.handleEmailChange = _this.handleEmailChange.bind(_this);
-	    _this.handlePasswordChange = _this.handlePasswordChange.bind(_this);
+	    // this.handleEmailChange = this.handleEmailChange.bind(this);
+	    // this.handlePasswordChange = this.handlePasswordChange.bind(this);
 	    _this.handleSubmitButtonTap = _this.handleSubmitButtonTap.bind(_this);
 	    return _this;
 	  }
 	
+	  // handleEmailChange(event) {
+	  //   this.setState({ email: event.target.value })
+	  // }
+	  //
+	  // handlePasswordChange(event) {
+	  //   this.setState({ password: event.target.value })
+	  // }
+	
 	  _createClass(AdminLogin, [{
-	    key: 'handleEmailChange',
-	    value: function handleEmailChange(event) {
-	      this.setState({ email: event.target.value });
-	    }
-	  }, {
-	    key: 'handlePasswordChange',
-	    value: function handlePasswordChange(event) {
-	      this.setState({ password: event.target.value });
-	    }
-	  }, {
 	    key: 'handleSubmitButtonTap',
 	    value: function handleSubmitButtonTap() {
 	      _axios2.default.post('http://localhost:8080/api/admins/login', {
-	        email: this.state.email,
-	        password: this.state.password
+	        email: this.refs.email.getValue(),
+	        password: this.refs.password.getValue()
 	      }).then(function (response) {
 	        sessionStorage.setItem('auth', response.headers['x-auth']);
 	        _reactRouter.browserHistory.push('/admin-reports');
@@ -56520,7 +56519,6 @@
 	        primary: true,
 	        disabled: false,
 	        onTouchTap: this.handleSubmitButtonTap
-	        // containerElement={<Link to="/admin-reports" />}
 	      })];
 	
 	      return _react2.default.createElement(
@@ -56539,17 +56537,19 @@
 	            },
 	            _react2.default.createElement(_TextField2.default, {
 	              hintText: 'Email',
-	              floatingLabelText: 'Email',
-	              value: this.state.email,
-	              onChange: this.handleEmailChange,
-	              type: 'text' }),
+	              floatingLabelText: 'Email'
+	              // value={this.state.email}
+	              , ref: 'email'
+	              // onChange={this.handleEmailChange}
+	              , type: 'text' }),
 	            _react2.default.createElement('br', null),
 	            _react2.default.createElement(_TextField2.default, {
 	              hintText: 'Password Field',
 	              floatingLabelText: 'Password',
-	              value: this.state.password,
-	              onChange: this.handlePasswordChange,
-	              type: 'password' }),
+	              ref: 'password'
+	              // value={this.state.password}
+	              // onChange={this.handlePasswordChange}
+	              , type: 'password' }),
 	            _react2.default.createElement('br', null)
 	          )
 	        )

@@ -13,27 +13,15 @@ export default class AdminLogin extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      open: true,
-      email: '',
-      password: '',
+      open: true
     };
-    this.handleEmailChange = this.handleEmailChange.bind(this);
-    this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.handleSubmitButtonTap = this.handleSubmitButtonTap.bind(this);
-  }
-
-  handleEmailChange(event) {
-    this.setState({ email: event.target.value })
-  }
-
-  handlePasswordChange(event) {
-    this.setState({ password: event.target.value })
   }
 
   handleSubmitButtonTap() {
     axios.post('http://localhost:8080/api/admins/login', {
-      email: this.state.email,
-      password: this.state.password
+      email: this.refs.email.getValue(),
+      password: this.refs.password.getValue()
     })
     .then((response) => {
 			sessionStorage.setItem('auth', response.headers['x-auth']);
@@ -59,7 +47,6 @@ export default class AdminLogin extends React.Component {
         primary={true}
         disabled={false}
         onTouchTap={this.handleSubmitButtonTap}
-        // containerElement={<Link to="/admin-reports" />}
       />,
     ];
 
@@ -75,14 +62,12 @@ export default class AdminLogin extends React.Component {
             <TextField
               hintText="Email"
               floatingLabelText="Email"
-              value={this.state.email}
-              onChange={this.handleEmailChange}
+              ref='email'
               type="text" /><br />
             <TextField
               hintText="Password Field"
               floatingLabelText="Password"
-              value={this.state.password}
-              onChange={this.handlePasswordChange}
+              ref='password'
               type="password" /><br />
           </Dialog>
         </Paper>
