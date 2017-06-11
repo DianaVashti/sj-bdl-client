@@ -1,6 +1,6 @@
-const axios = require('axios')
 import React, {Component}  from 'react'
 import PropTypes from 'prop-types';
+import axios from 'axios';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import ToolBarHeader from './toolBarHeader'
@@ -11,21 +11,21 @@ import Paper from 'material-ui/Paper';
 export default class ViewReports extends Component {
   constructor(props) {
     super(props);
-  }
-
-  componentWillMount(){
-    let self = this
-    axios({
-      method:'get',
-      url:'https://sjibdl.herokuapp.com/api',
-    })
-    .then(data => {
-      console.log("This app is so Fetch")
-    })
+		this.state = {
+			reports: []
+		}
   }
 
   componentDidMount(){
-    console.log("Component Mounted")
+    axios.get('http://localhost:8080/api/reports')
+      .then(reports => {
+        this.setState({
+          reports: reports.data
+        })
+      })
+      .catch((error) => {
+        console.log('There was an error ', error)
+      })
   }
 
   render() {
@@ -39,10 +39,10 @@ export default class ViewReports extends Component {
                 Exmple: Name, Vehicle type etc..."
               fullWidth={true} />
           </div>
-          <ExpandableCard />
+          <ExpandableCard reports={this.state.reports} />
           <Footer />
         </div>
-      </Paper>  
+      </Paper>
     )
   }
 }

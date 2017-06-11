@@ -2,7 +2,7 @@ import ReactDom from 'react-dom'
 import {Component} from 'react'
 import React from 'react'
 import PropTypes from 'prop-types';
-import { Router, Route, browserHistory } from 'react-router'
+import { Router, Route, browserHistory } from 'react-router';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
@@ -15,6 +15,15 @@ import DesktopForm from './desktopOnly/desktopForm'
 export default class ReactRouter extends Component {
   constructor(props) {
     super(props)
+  }
+
+  requireAuth(nextState, replace) {
+    let isLoggedIn = sessionStorage.getItem('auth');
+    if (isLoggedIn === null || isLoggedIn === undefined) {
+      replace({
+        pathname: '/admin-login'
+      })
+    }
   }
 
   render() {
@@ -40,7 +49,7 @@ export default class ReactRouter extends Component {
           <Route path="/" component={landingPageComponent} />
           <Route path="/view-reports" component={viewReportsComponent} />
           <Route path="/admin-login" component={adminLoginComponent} />
-          <Route path="/admin-reports" component={adminReportsComponent} />
+          <Route path="/admin-reports" component={adminReportsComponent} onEnter={this.requireAuth} />
           <Route path="/submit-report" component={desktopFormComponent} />
         </Router>
       </MuiThemeProvider>
