@@ -50217,8 +50217,11 @@
 	    var _this = _possibleConstructorReturn(this, (ViewReports.__proto__ || Object.getPrototypeOf(ViewReports)).call(this, props));
 	
 	    _this.state = {
-	      reports: []
+	      reports: [],
+	      searchTerms: ''
 	    };
+	    _this.onFormSubmit = _this.onFormSubmit.bind(_this);
+	    _this.onInputChange = _this.onInputChange.bind(_this);
 	    return _this;
 	  }
 	
@@ -50236,6 +50239,47 @@
 	      });
 	    }
 	  }, {
+	    key: 'createSearchQuery',
+	    value: function createSearchQuery(terms) {
+	      var queryString = 'http://localhost:8080/api/reports/search?keywords=';
+	      // could probably refactor this
+	      for (var i = 0; i < terms.length; i++) {
+	        if (i !== terms.length - 1) {
+	          queryString += terms[i] + '+';
+	        } else {
+	          queryString += '' + terms[i];
+	        }
+	      }
+	      return queryString;
+	    }
+	  }, {
+	    key: 'fetchSearchResults',
+	    value: function fetchSearchResults(url) {
+	      var _this3 = this;
+	
+	      _axios2.default.get(url).then(function (reports) {
+	        _this3.setState({
+	          reports: reports.data,
+	          searchTerm: ''
+	        });
+	      }).catch(function (error) {
+	        console.log('There was an error ', error);
+	      });
+	    }
+	  }, {
+	    key: 'onFormSubmit',
+	    value: function onFormSubmit(event) {
+	      event.preventDefault();
+	      var searchQuery = this.createSearchQuery(this.state.searchTerms.split(' '));
+	      this.fetchSearchResults(searchQuery);
+	      this.setState({ searchTerms: '' });
+	    }
+	  }, {
+	    key: 'onInputChange',
+	    value: function onInputChange(event) {
+	      this.setState({ searchTerms: event.target.value });
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
@@ -50248,9 +50292,16 @@
 	          _react2.default.createElement(
 	            'div',
 	            null,
-	            _react2.default.createElement(_TextField2.default, {
-	              hintText: 'Enter any terms you wish to search by. Exmple: Name, Vehicle type etc...',
-	              fullWidth: true })
+	            _react2.default.createElement(
+	              'form',
+	              { onSubmit: this.onFormSubmit },
+	              _react2.default.createElement(_TextField2.default, {
+	                hintText: 'Enter any terms you wish to search by. Exmple: Name, Vehicle type etc...',
+	                fullWidth: true,
+	                value: this.state.searchTerms,
+	                onChange: this.onInputChange
+	              })
+	            )
 	          ),
 	          _react2.default.createElement(_expandableCard2.default, { reports: this.state.reports }),
 	          _react2.default.createElement(_footer2.default, null)
