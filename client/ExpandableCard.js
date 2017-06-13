@@ -8,6 +8,7 @@ import {
 } from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import Paper from 'material-ui/Paper';
+import GoogleMap from './googleMap'
 
 const ExpandableCard = (props) => {
   const reports = props.reports.map((report) => {
@@ -24,6 +25,7 @@ const ExpandableCard = (props) => {
         />
         <CardText expandable={true}>
           {report.content}
+          <GoogleMap lng={Number(report.coordinates[0])} lat={Number(report.coordinates[1])}/>
         </CardText>
       </Card>
     </Paper>

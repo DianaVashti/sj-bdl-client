@@ -64,6 +64,11 @@ html {
   margin: 6px;
 }
 
+#map {
+  height: 200px;
+  width: 250px;
+}
+
 p {
   font-size: .8em;
 }
