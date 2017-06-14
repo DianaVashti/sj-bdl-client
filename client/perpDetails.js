@@ -7,7 +7,8 @@ import {List, ListItem} from 'material-ui/List';
 import Checkbox from 'material-ui/Checkbox';
 import {orange500, blue500} from 'material-ui/styles/colors';
 import DatePicker from 'material-ui/DatePicker';
-import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
+import DropDownMenu from 'material-ui/DropDownMenu';
+import MenuItem from 'material-ui/MenuItem';
 
 const style = {
   marginLeft: 20,
@@ -35,19 +36,27 @@ const styles = {
   textFieldWidth: {
     width: "96%",
   },
+  customWidth: {
+    width: 200,
+  },
 };
 
 export default class PerpDetails extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      value: 1
+    };
   }
+
+  handleChange = (event, index, value) => this.setState({value});
 
   render() {
     return(
       <div>
         <div className="incident-container">
           <Paper zDepth={2}>
-            <div className="desktop-form-container" >
+            <div className="form-container" >
               <TextField
                 floatingLabelText="Perpetrator's name"
                 floatingLabelStyle={styles.floatingLabelStyle}
@@ -68,31 +77,17 @@ export default class PerpDetails extends Component {
                 floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
                 fullWidth={true} /><br />
               <br />
-              <List>
-                <Subheader>Perpetrator was a (choose one):</Subheader>
-                <div className="form-container">
-                  <div className="form-items-column">
-                    <div className="form-items-row">
-                      <ListItem
-                        leftCheckbox={<Checkbox />}
-                        primaryText="predator posing as client"
-                      />
-                      <ListItem
-                        leftCheckbox={<Checkbox />}
-                        primaryText="cop"
-                      />
-                      <ListItem
-                        leftCheckbox={<Checkbox />}
-                        primaryText="manager/pimp"
-                      />
-                    </div>
-                    <ListItem
-                      leftCheckbox={<Checkbox />}
-                      primaryText="Other"
-                    />
-                  </div>
-                </div>
-              </List>
+              <Subheader>Perp Type</Subheader>
+              <DropDownMenu
+                value={this.state.value}
+                onChange={this.handleChange}
+                style={styles.customWidth}
+                autoWidth={false} >
+                <MenuItem value={1} primaryText="predator posing as client" />
+                <MenuItem value={2} primaryText="cop" />
+                <MenuItem value={3} primaryText="manager/pimp" />
+                <MenuItem value={4} primaryText="Other" />
+              </DropDownMenu>
               <TextField
                 floatingLabelText="Did perpetrator contact you through an ad?"
                 hintText="(if so, please list advertising website)"
@@ -112,36 +107,19 @@ export default class PerpDetails extends Component {
                 floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
                 fullWidth={true} /><br />
               <br />
-              <RadioButtonGroup
-                name="lefty"
-                labelPosition="left"
-                style={styles.block}
-                defaultSelected="White" >
-                <RadioButton
-                  value="Asian/Pacific Islander"
-                  label="Asian/Pacific Islander"
-                  style={styles.radioButton} />
-                <RadioButton
-                  value="Black"
-                  label="Black"
-                  style={styles.radioButton} />
-                <RadioButton
-                  value="Hispanic/Latino"
-                  label="Hispanic/Latino"
-                  style={styles.radioButton} />
-                <RadioButton
-                  value="Middle Eastern"
-                  label="Middle Eastern"
-                  style={styles.radioButton} />
-                <RadioButton
-                  value="White"
-                  label="White"
-                  style={styles.radioButton} />
-                <RadioButton
-                  value="Other"
-                  label="Other"
-                  style={styles.radioButton} />
-              </RadioButtonGroup>
+              <Subheader>Perp Ethnicity</Subheader>
+              <DropDownMenu
+                value={this.state.value}
+                onChange={this.handleChange}
+                style={styles.customWidth}
+                autoWidth={false} >
+                <MenuItem value={1} primaryText="Asian/Pacific Islander" />
+                <MenuItem value={2} primaryText="Black" />
+                <MenuItem value={3} primaryText="Hispanic/Latino" />
+                <MenuItem value={4} primaryText="Middle Eastern" />
+                <MenuItem value={5} primaryText="White" />
+                <MenuItem value={6} primaryText="Other" />
+              </DropDownMenu>
               <TextField
                 floatingLabelText="Perpetrator height"
                 floatingLabelStyle={styles.floatingLabelStyle}

@@ -40,7 +40,7 @@ export default class SupportDetails extends Component {
       <div>
         <div className="incident-container">
           <Paper zDepth={2}>
-            <div className="desktop-form-container" >
+            <div className="form-container" >
               <TextField
                 floatingLabelText="Do you need support? If yes, what kind of support do you need?"
                 floatingLabelStyle={styles.floatingLabelStyle}
@@ -69,7 +69,7 @@ export default class SupportDetails extends Component {
                 floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
                 fullWidth={true} /><br />
               <br />
-            </div>  
+            </div>
           </Paper>
         </div>
       </div>

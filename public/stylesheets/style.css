@@ -24,6 +24,8 @@ html {
 .form-container {
   display: flex;
   flex-direction: column;
+  margin: 12px;
+  padding: 12px;
 }
 
 .form-items-column {
@@ -89,12 +91,20 @@ p {
     display: none;
   }
 
+  .desktop-form-container {
+    display: none;
+  }
+
 }
 
 /* Tablets portrait */
 @media only screen and (min-device-width : 600px) and (max-device-width : 899px) {
 
   .landing-page-main-btn-container {
+    display: none;
+  }
+
+  .mobile-form-container {
     display: none;
   }
 
@@ -107,12 +117,20 @@ p {
     display: none;
   }
 
+  .mobile-form-container {
+    display: none;
+  }
+
 }
 
 /* Desktops and Large Laptops */
 @media only screen and (min-device-width : 1200px) {
 
   .landing-page-main-btn-container {
+    display: none;
+  }
+
+  .mobile-form-container {
     display: none;
   }
 

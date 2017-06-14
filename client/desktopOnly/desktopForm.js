@@ -9,7 +9,6 @@ import {orange500, blue500} from 'material-ui/styles/colors';
 import RaisedButton from 'material-ui/RaisedButton';
 import DatePicker from 'material-ui/DatePicker';
 import {Link} from 'react-router'
-import ToolBarHeader from '../toolBarHeader'
 import IncidentDetails from '../incidentDetails'
 import PerpDetails from '../perpDetails'
 import SupportDetails from '../supportDetails'
@@ -18,7 +17,7 @@ const style = {
   margin: 12,
 };
 
-export default class desktopForm extends Component {
+export default class DesktopForm extends Component {
   constructor(props){
     super(props);
   }
@@ -26,7 +25,6 @@ export default class desktopForm extends Component {
   render() {
     return(
       <div>
-        <ToolBarHeader />
         <IncidentDetails />
         <PerpDetails />
         <SupportDetails />

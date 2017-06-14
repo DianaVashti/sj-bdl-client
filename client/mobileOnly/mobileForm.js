@@ -15,7 +15,6 @@ import {
   Stepper,
   StepLabel,
 } from 'material-ui/Stepper';
-import ToolBarHeader from '../toolBarHeader'
 import IncidentDetails from '../incidentDetails'
 import PerpDetails from '../perpDetails'
 import SupportDetails from '../supportDetails'

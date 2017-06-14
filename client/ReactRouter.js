@@ -10,9 +10,8 @@ import LandingPage from './landingPage'
 import ViewReports from './viewReports'
 import AdminReports from './adminReports'
 import AdminLogin from './adminLogin'
-import DesktopForm from './desktopOnly/desktopForm'
-import MobileForm from './mobileOnly/mobileForm'
 import AdminForm from './adminForm'
+import FileReport from './fileReport'
 
 export default class ReactRouter extends Component {
   constructor(props) {
@@ -42,11 +41,8 @@ export default class ReactRouter extends Component {
     const adminLoginComponent = (props, state, params) =>
       <AdminLogin />
 
-    const desktopFormComponent = (props, state, params) =>
-      <DesktopForm />
-
-    const mobileFormComponent = (props, state, params) =>
-      <MobileForm />
+    const fileReportComponent = (props, state, params) =>
+      <FileReport />
 
     return (
       <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
@@ -55,8 +51,7 @@ export default class ReactRouter extends Component {
           <Route path="/view-reports" component={viewReportsComponent} />
           <Route path="/admin-login" component={adminLoginComponent} />
           <Route path="/admin-reports" component={adminReportsComponent} onEnter={this.requireAuth} />
-          <Route path="/submit-report" component={desktopFormComponent} />
-          <Route path="/mobile-form" component={mobileFormComponent} />
+          <Route path="/submit-report" component={fileReportComponent} />
         </Router>
       </MuiThemeProvider>
     )

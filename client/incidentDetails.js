@@ -7,6 +7,8 @@ import { List, ListItem } from 'material-ui/List';
 import Checkbox from 'material-ui/Checkbox';
 import { orange500, blue500 } from 'material-ui/styles/colors';
 import DatePicker from 'material-ui/DatePicker';
+import DropDownMenu from 'material-ui/DropDownMenu';
+import MenuItem from 'material-ui/MenuItem';
 
 const style = {
   marginLeft: 20,
@@ -28,19 +30,25 @@ const styles = {
   textFieldWidth: {
     width: "96%",
   },
+  customWidth: {
+    width: 200,
+  },
 };
 
 export default class IncidentDetails extends Component {
   constructor(props) {
     super(props);
+    this.state = {value: 1};
   }
+
+  handleChange = (event, index, value) => this.setState({value});
 
   render() {
     return(
       <div>
         <div className="incident-container">
           <Paper zDepth={2}>
-            <div className="desktop-form-container" >
+            <div className="form-container" >
               <TextField
                 floatingLabelText="What city did the incident take place?"
                 floatingLabelStyle={styles.floatingLabelStyle}
@@ -49,42 +57,20 @@ export default class IncidentDetails extends Component {
               <br />
               <List>
                 <Subheader>Where did it happen?</Subheader>
-                <div className="form-container">
-                  <div className="form-items-row">
-                    <div className="form-items-column">
-                      <ListItem
-                        leftCheckbox={<Checkbox />}
-                        primaryText="Parlor"
-                      />
-                      <ListItem
-                        leftCheckbox={<Checkbox />}
-                        primaryText="Hotel/Motel"
-                      />
-                      <ListItem
-                        leftCheckbox={<Checkbox />}
-                        primaryText="Client's House"
-                      />
-                    </div>
-                    <div className="form-items-column">
-                      <ListItem
-                        leftCheckbox={<Checkbox />}
-                        primaryText="Worker's House"
-                      />
-                      <ListItem
-                        leftCheckbox={<Checkbox />}
-                        primaryText="Street"
-                      />
-                      <ListItem
-                        leftCheckbox={<Checkbox />}
-                        primaryText="Club"
-                      />
-                    </div>
-                  </div>
-                  <ListItem
-                    leftCheckbox={<Checkbox />}
-                    primaryText="Other"
-                  />
-                </div>
+                <DropDownMenu
+                  value={this.state.value}
+                  onChange={this.handleChange}
+                  style={styles.customWidth}
+                  autoWidth={false}
+                  labelStyle={styles.floatingLabelStyle} >
+                  <MenuItem value={1} primaryText="Parlor" />
+                  <MenuItem value={2} primaryText="Hotel/Motel" />
+                  <MenuItem value={3} primaryText="Client's House" />
+                  <MenuItem value={4} primaryText="Worker's House" />
+                  <MenuItem value={5} primaryText="Street" />
+                  <MenuItem value={6} primaryText="Club" />
+                  <MenuItem value={6} primaryText="Other" />
+                </DropDownMenu>
               </List>
               <TextField
                 floatingLabelText="In what area did the incident take place?"
