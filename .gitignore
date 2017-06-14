@@ -57,3 +57,6 @@ typings/
 # dotenv environment variables file
 .env
 
+# buldle.js webpack generated files
+bundle.js
+bundle.js.map
