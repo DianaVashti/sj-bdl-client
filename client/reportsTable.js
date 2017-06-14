@@ -21,9 +21,7 @@ const styles = {
     margin: '20px auto 10px',
   },
 };
-/**
- * A more complex example, allowing the table height to be set, and key boolean properties to be toggled.
- */
+
 export default class ReportsTable extends Component {
   constructor(props) {
     super(props)
@@ -49,7 +47,7 @@ export default class ReportsTable extends Component {
           <TableRowColumn>{report.perpetrator.name}</TableRowColumn>
           <TableRowColumn>{report.edited.toString()}</TableRowColumn>
         </TableRow>
-        ))
+      ))
     )
   }
 

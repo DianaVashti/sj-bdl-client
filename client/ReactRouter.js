@@ -12,6 +12,7 @@ import AdminReports from './adminReports'
 import AdminLogin from './adminLogin'
 import DesktopForm from './desktopOnly/desktopForm'
 import MobileForm from './mobileOnly/mobileForm'
+import AdminForm from './adminForm'
 
 export default class ReactRouter extends Component {
   constructor(props) {
@@ -47,6 +48,9 @@ export default class ReactRouter extends Component {
     const mobileFormComponent = (props, state, params) =>
       <MobileForm />
 
+    const adminFormComponent = (props, state, params) =>
+      <AdminForm />
+
     return (
       <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
         <Router history={browserHistory}>
@@ -56,6 +60,7 @@ export default class ReactRouter extends Component {
           <Route path="/admin-reports" component={adminReportsComponent} onEnter={this.requireAuth} />
           <Route path="/submit-report" component={desktopFormComponent} />
           <Route path="/mobile-form" component={mobileFormComponent} />
+          <Route path="/admin-form" component={adminFormComponent} />
         </Router>
       </MuiThemeProvider>
     )
