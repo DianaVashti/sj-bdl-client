@@ -9,10 +9,12 @@ import {
   TableRow,
   TableRowColumn,
 } from 'material-ui/Table';
+import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import IncidentDetails from './incidentDetails'
 import PerpDetails from './perpDetails'
 import SupportDetails from './supportDetails'
+import EditedReportForm from './editedReportForm'
 
 const style = {
   margin: 20,
@@ -27,125 +29,138 @@ export default class AdminForm extends Component {
     return(
       <div>
         <Paper style={style} zDepth={5} >
-          <div className="admin-form-container">
-            <Paper style={style} zDepth={1} >
-              <Table>
-                <TableHeader
-                  adjustForCheckbox={false}
-                  displaySelectAll={false}
-                  enableSelectAll={false} >
-                  <TableRow>
-                    <TableHeaderColumn>Field</TableHeaderColumn>
-                    <TableHeaderColumn>Data</TableHeaderColumn>
-                  </TableRow>
-                </TableHeader>
-                <TableBody displayRowCheckbox={false}>
-                  <TableRow>
-                    <TableRowColumn>City</TableRowColumn>
-                    <TableRowColumn>Text</TableRowColumn>
-                  </TableRow>
-                  <TableRow>
-                    <TableRowColumn>Where</TableRowColumn>
-                    <TableRowColumn>Dropdown Select</TableRowColumn>
-                  </TableRow>
-                  <TableRow>
-                    <TableRowColumn>Location</TableRowColumn>
-                    <TableRowColumn>Long Text</TableRowColumn>
-                  </TableRow>
-                  <TableRow>
-                    <TableRowColumn>When</TableRowColumn>
-                    <TableRowColumn>Date</TableRowColumn>
-                  </TableRow>
-                  <TableRow>
-                    <TableRowColumn>Gender</TableRowColumn>
-                    <TableRowColumn>Text</TableRowColumn>
-                  </TableRow>
-                  <TableRow>
-                    <TableRowColumn>Description</TableRowColumn>
-                    <TableRowColumn>LONG Text</TableRowColumn>
-                  </TableRow>
-                  <TableRow>
-                    <TableRowColumn>Perp Name</TableRowColumn>
-                    <TableRowColumn>Text</TableRowColumn>
-                  </TableRow>
-                  <TableRow>
-                    <TableRowColumn>Perp #</TableRowColumn>
-                    <TableRowColumn>Text</TableRowColumn>
-                  </TableRow>
-                  <TableRow>
-                    <TableRowColumn>Perp E-mail</TableRowColumn>
-                    <TableRowColumn>Text</TableRowColumn>
-                  </TableRow>
-                  <TableRow>
-                    <TableRowColumn>Perp Type</TableRowColumn>
-                    <TableRowColumn>Dropdown Select</TableRowColumn>
-                  </TableRow>
-                  <TableRow>
-                    <TableRowColumn>Ad?</TableRowColumn>
-                    <TableRowColumn>Text or Empty</TableRowColumn>
-                  </TableRow>
-                </TableBody>
-              </Table>
-            </Paper>
-            <Paper style={style} zDepth={1} >
-              <Table>
-                <TableHeader
-                  adjustForCheckbox={false}
-                  displaySelectAll={false}
-                  enableSelectAll={false} >
-                  <TableRow>
-                    <TableHeaderColumn>Field</TableHeaderColumn>
-                    <TableHeaderColumn>Data</TableHeaderColumn>
-                  </TableRow>
-                </TableHeader>
-                <TableBody displayRowCheckbox={false}>
-                  <TableRow>
-                    <TableRowColumn>Perp Gender</TableRowColumn>
-                    <TableRowColumn>Text</TableRowColumn>
-                  </TableRow>
-                  <TableRow>
-                    <TableRowColumn>Perp Age</TableRowColumn>
-                    <TableRowColumn>Text</TableRowColumn>
-                  </TableRow>
-                  <TableRow>
-                    <TableRowColumn>Perp Ethnicity</TableRowColumn>
-                    <TableRowColumn>Dropdown Select</TableRowColumn>
-                  </TableRow>
-                  <TableRow>
-                    <TableRowColumn>Perp Height</TableRowColumn>
-                    <TableRowColumn>Text</TableRowColumn>
-                  </TableRow>
-                  <TableRow>
-                    <TableRowColumn>Perp Hair</TableRowColumn>
-                    <TableRowColumn>Long Text</TableRowColumn>
-                  </TableRow>
-                  <TableRow>
-                    <TableRowColumn>Attributes</TableRowColumn>
-                    <TableRowColumn>Long Text</TableRowColumn>
-                  </TableRow>
-                  <TableRow>
-                    <TableRowColumn>Vehicle</TableRowColumn>
-                    <TableRowColumn>Long Text</TableRowColumn>
-                  </TableRow>
-                  <TableRow>
-                    <TableRowColumn>Support Needed?</TableRowColumn>
-                    <TableRowColumn>Long Text</TableRowColumn>
-                  </TableRow>
-                  <TableRow>
-                    <TableRowColumn>Preferred Contact Name</TableRowColumn>
-                    <TableRowColumn>Long Text</TableRowColumn>
-                  </TableRow>
-                  <TableRow>
-                    <TableRowColumn>Preferred Contact</TableRowColumn>
-                    <TableRowColumn>Long Text</TableRowColumn>
-                  </TableRow>
-                  <TableRow>
-                    <TableRowColumn>Say SJI?</TableRowColumn>
-                    <TableRowColumn>Long Text</TableRowColumn>
-                  </TableRow>
-                </TableBody>
-              </Table>
-            </Paper>
+          <div className="admin-ui-container">
+            <div className="admin-form-left">
+              <Paper style={style} zDepth={1} >
+                <Table>
+                  <TableHeader
+                    adjustForCheckbox={false}
+                    displaySelectAll={false}
+                    enableSelectAll={false} >
+                    <TableRow>
+                      <TableHeaderColumn>Field</TableHeaderColumn>
+                      <TableHeaderColumn>Data</TableHeaderColumn>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody displayRowCheckbox={false}>
+                    <TableRow>
+                      <TableRowColumn>City</TableRowColumn>
+                      <p className="admin-form-item">Long Text</p>
+                    </TableRow>
+                    <TableRow>
+                      <TableRowColumn>Where</TableRowColumn>
+                      <p className="admin-form-item">Dropdown Select</p>
+                    </TableRow>
+                    <TableRow>
+                      <TableRowColumn>When</TableRowColumn>
+                      <p className="admin-form-item">Date</p>
+                    </TableRow>
+                    <TableRow>
+                      <TableRowColumn>Gender</TableRowColumn>
+                      <p className="admin-form-item">Text</p>
+                    </TableRow>
+                    <TableRow>
+                      <TableRowColumn>Perp Name</TableRowColumn>
+                      <p className="admin-form-item">Text</p>
+                    </TableRow>
+                    <TableRow>
+                      <TableRowColumn>Perp #</TableRowColumn>
+                      <p className="admin-form-item">Text</p>
+                    </TableRow>
+                    <TableRow>
+                      <TableRowColumn>Perp E-mail</TableRowColumn>
+                      <p className="admin-form-item">Text</p>
+                    </TableRow>
+                    <TableRow>
+                      <TableRowColumn>Perp Type</TableRowColumn>
+                      <p className="admin-form-item">Dropdown Select</p>
+                    </TableRow>
+                    <TableRow>
+                      <TableRowColumn>Ad?</TableRowColumn>
+                      <p className="admin-form-item">Long Text or empty</p>
+                    </TableRow>
+                    <TableRow>
+                      <TableRowColumn>Perp Gender</TableRowColumn>
+                      <p className="admin-form-item">Text</p>
+                    </TableRow>
+                    <TableRow>
+                      <TableRowColumn>Perp Age</TableRowColumn>
+                      <p className="admin-form-item">Text</p>
+                    </TableRow>
+                    <TableRow>
+                      <TableRowColumn>Perp Ethnicity</TableRowColumn>
+                      <p className="admin-form-item">Dropdown Select</p>
+                    </TableRow>
+                    <TableRow>
+                      <TableRowColumn>Perp Height</TableRowColumn>
+                      <p className="admin-form-item">Text</p>
+                    </TableRow>
+                    <TableRow>
+                      <TableRowColumn>Perp Hair</TableRowColumn>
+                      <p className="admin-form-item">Long Text</p>
+                    </TableRow>
+                    <TableRow>
+                      <TableRowColumn>Say SJI?</TableRowColumn>
+                      <p className="admin-form-item">text</p>
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              </Paper>
+            </div>
+            <div className="admin-form-right">
+              <Paper style={style} zDepth={1} >
+                <Table>
+                  <TableHeader
+                    adjustForCheckbox={false}
+                    displaySelectAll={false}
+                    enableSelectAll={false} >
+                    <TableRow>
+                      <TableHeaderColumn>Field</TableHeaderColumn>
+                      <TableHeaderColumn>Data</TableHeaderColumn>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody displayRowCheckbox={false}>
+                    <TableRow>
+                      <TableRowColumn>Location</TableRowColumn>
+                      <p className="admin-form-item">Long Text</p>
+                    </TableRow>
+                    <TableRow>
+                      <TableRowColumn>Perp Hair</TableRowColumn>
+                      <p className="admin-form-item">Long Text</p>
+                    </TableRow>
+                    <TableRow>
+                      <TableRowColumn>Perp Attributes</TableRowColumn>
+                      <p className="admin-form-item">Long Text</p>
+                    </TableRow>
+                    <TableRow>
+                      <TableRowColumn>Perp Vehicle</TableRowColumn>
+                      <p className="admin-form-item">Long Text</p>
+                    </TableRow>
+                    <TableRow>
+                      <TableRowColumn>Support needed?</TableRowColumn>
+                      <p className="admin-form-item">Long Text</p>
+                    </TableRow>
+                    <TableRow>
+                      <TableRowColumn>Preferred name</TableRowColumn>
+                      <p className="admin-form-item">Long Text</p>
+                    </TableRow>
+                    <TableRow>
+                      <TableRowColumn>contact means?</TableRowColumn>
+                      <p className="admin-form-item">Long Text</p>
+                    </TableRow>
+                    <TableRow>
+                      <TableRowColumn>Description</TableRowColumn>
+                      <p className="admin-form-item">Long Text</p>
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              </Paper>
+              <Paper style={style} zDepth={1} >
+                <div>
+                  <EditedReportForm />
+                </div>  
+              </Paper>
+            </div>
           </div>
           <div>
             <RaisedButton

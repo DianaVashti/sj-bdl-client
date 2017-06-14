@@ -41,10 +41,25 @@ html {
   padding: 12px;
 }
 
-.admin-form-container {
+.admin-form-left {
   display: flex;
   flex-direction: row;
 }
+
+.admin-ui-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.admin-form-item {
+  padding: 6px;
+  margin: 6px;
+}
+
+p {
+  font-size: .8em;
+}
+
 /*these containers may end up being identical....
 .incident-container {
 
