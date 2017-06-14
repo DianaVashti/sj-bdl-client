@@ -10,6 +10,7 @@ import {
 } from 'material-ui/Table';
 import TextField from 'material-ui/TextField';
 import Paper from 'material-ui/Paper';
+import AdminForm from './adminForm'
 
 const styles = {
   propContainer: {
@@ -92,6 +93,7 @@ export default class ReportsTable extends Component {
               </TableRow>
             </TableFooter>
           </Table>
+          <AdminForm />
         </Paper >
       </div>
     );

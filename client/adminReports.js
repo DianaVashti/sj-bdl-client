@@ -10,7 +10,8 @@ export default class AdminReports extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      reports: []
+      reports: [],
+      
     }
   }
 
