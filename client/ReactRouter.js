@@ -10,7 +10,6 @@ import LandingPage from './landingPage'
 import ViewReports from './viewReports'
 import AdminReports from './adminReports'
 import AdminLogin from './adminLogin'
-import AdminForm from './adminForm'
 import FileReport from './fileReport'
 
 export default class ReactRouter extends Component {

@@ -10,7 +10,7 @@ import {
 } from 'material-ui/Table';
 import TextField from 'material-ui/TextField';
 import Paper from 'material-ui/Paper';
-import AdminForm from './adminForm'
+import AdminForm from './Form/adminForm'
 
 const styles = {
   propContainer: {
