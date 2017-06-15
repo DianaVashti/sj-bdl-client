@@ -35,10 +35,15 @@ export default class AdminForm extends Component {
   }
 
   handleClose = () => {
-    this.setState({open:false});
+    this.setState({open: false});
   }
 
   render() {
+    const { report } = this.props;
+    let { perpetrator, support } = this.props.report;
+    if (support === undefined) {
+      support = {}
+    }
     const actions = [
       <FlatButton
         label="Cancel"
@@ -53,7 +58,7 @@ export default class AdminForm extends Component {
 
     return(
       <div>
-        <RaisedButton label="Open Model" onTouchTap={this.handleOpen} />
+        <RaisedButton label="Edit" onTouchTap={this.handleOpen} />
         <Dialog
           actions={actions}
           modal={true}
@@ -75,63 +80,71 @@ export default class AdminForm extends Component {
                     <TableBody displayRowCheckbox={false}>
                       <TableRow>
                         <TableRowColumn>City</TableRowColumn>
-                        <p className="admin-form-item">Long Text</p>
+                        <p className="admin-form-item">{report.city}</p>
                       </TableRow>
                       <TableRow>
                         <TableRowColumn>Where</TableRowColumn>
-                        <p className="admin-form-item">Dropdown Select</p>
+                        <p className="admin-form-item">{report.locationType}</p>
                       </TableRow>
                       <TableRow>
                         <TableRowColumn>When</TableRowColumn>
-                        <p className="admin-form-item">Date</p>
+                        <p className="admin-form-item">{report.date}</p>
                       </TableRow>
                       <TableRow>
                         <TableRowColumn>Gender</TableRowColumn>
-                        <p className="admin-form-item">Text</p>
+                        <p className="admin-form-item">{report.gender}</p>
                       </TableRow>
                       <TableRow>
                         <TableRowColumn>Perp Name</TableRowColumn>
-                        <p className="admin-form-item">Text</p>
+                        <p className="admin-form-item">{perpetrator.name}</p>
                       </TableRow>
                       <TableRow>
                         <TableRowColumn>Perp #</TableRowColumn>
-                        <p className="admin-form-item">Text</p>
+                        <p className="admin-form-item">{perpetrator.phone}</p>
                       </TableRow>
                       <TableRow>
                         <TableRowColumn>Perp E-mail</TableRowColumn>
-                        <p className="admin-form-item">Text</p>
+                        <p className="admin-form-item">{perpetrator.email}</p>
                       </TableRow>
                       <TableRow>
                         <TableRowColumn>Perp Type</TableRowColumn>
-                        <p className="admin-form-item">Dropdown Select</p>
+                        <p className="admin-form-item">{perpetrator.perpType}</p>
                       </TableRow>
                       <TableRow>
                         <TableRowColumn>Ad?</TableRowColumn>
-                        <p className="admin-form-item">Long Text or empty</p>
+                        <p className="admin-form-item">{perpetrator.adServiceUsed ? perpetrator.adServiceUsed : ''}</p>
                       </TableRow>
                       <TableRow>
                         <TableRowColumn>Perp Gender</TableRowColumn>
-                        <p className="admin-form-item">Text</p>
+                        <p className="admin-form-item">{perpetrator.gender}</p>
                       </TableRow>
                       <TableRow>
                         <TableRowColumn>Perp Age</TableRowColumn>
-                        <p className="admin-form-item">Text</p>
+                        <p className="admin-form-item">{perpetrator.age}</p>
                       </TableRow>
                       <TableRow>
                         <TableRowColumn>Perp Ethnicity</TableRowColumn>
-                        <p className="admin-form-item">Dropdown Select</p>
+                        <p className="admin-form-item">{perpetrator.race}</p>
                       </TableRow>
                       <TableRow>
                         <TableRowColumn>Perp Height</TableRowColumn>
-                        <p className="admin-form-item">Text</p>
+                        <p className="admin-form-item">{perpetrator.height}</p>
                       </TableRow>
                       <TableRow>
                         <TableRowColumn>Perp Hair</TableRowColumn>
-                        <p className="admin-form-item">Long Text</p>
+                        <p className="admin-form-item">{perpetrator.hair}</p>
                       </TableRow>
                       <TableRow>
-                        <TableRowColumn>Say SJI?</TableRowColumn>
-                        <p className="admin-form-item">text</p>
+                        <TableRowColumn>Perp Attributes</TableRowColumn>
+                        <p className="admin-form-item">{perpetrator.attributes}</p>
+                      </TableRow>
+                      <TableRow>
+                        <TableRowColumn>Perp Vehicle</TableRowColumn>
+                        <p className="admin-form-item">{perpetrator.vehicle ? perpetrator.vehicle : ''}</p>
+                      </TableRow>
+                      <TableRow>
+                        <TableRowColumn>Description</TableRowColumn>
+                        <p className="admin-form-item">{report.assaultDescription}</p>
                       </TableRow>
                     </TableBody>
                   </Table>
@@ -155,32 +168,20 @@ export default class AdminForm extends Component {
                         <p className="admin-form-item">Long Text</p>
                       </TableRow>
                       <TableRow>
-                        <TableRowColumn>Perp Hair</TableRowColumn>
-                        <p className="admin-form-item">Long Text</p>
-                      </TableRow>
-                      <TableRow>
-                        <TableRowColumn>Perp Attributes</TableRowColumn>
-                        <p className="admin-form-item">Long Text</p>
-                      </TableRow>
-                      <TableRow>
-                        <TableRowColumn>Perp Vehicle</TableRowColumn>
-                        <p className="admin-form-item">Long Text</p>
-                      </TableRow>
-                      <TableRow>
                         <TableRowColumn>Support needed?</TableRowColumn>
-                        <p className="admin-form-item">Long Text</p>
+                        <p className="admin-form-item">{support.needSupport ? support.needSupport : ''}</p>
                       </TableRow>
                       <TableRow>
-                        <TableRowColumn>Preferred name</TableRowColumn>
-                        <p className="admin-form-item">Long Text</p>
+                        <TableRowColumn>Preferred name?</TableRowColumn>
+                        <p className="admin-form-item">{support.name ? support.name : ''}</p>
                       </TableRow>
                       <TableRow>
-                        <TableRowColumn>contact means?</TableRowColumn>
-                        <p className="admin-form-item">Long Text</p>
+                        <TableRowColumn>Contact means?</TableRowColumn>
+                        <p className="admin-form-item">{support.contact ? support.contact : ''}</p>
                       </TableRow>
                       <TableRow>
-                        <TableRowColumn>Description</TableRowColumn>
-                        <p className="admin-form-item">Long Text</p>
+                        <TableRowColumn>Say SJI?</TableRowColumn>
+                        <p className="admin-form-item">{support.callingFrom ? support.callingFrom : ''}</p>
                       </TableRow>
                     </TableBody>
                   </Table>
@@ -191,11 +192,6 @@ export default class AdminForm extends Component {
                 </div>
               </Paper>
             </div>
-          </div>
-          <div>
-            <RaisedButton
-              style={style}
-              label="Submit" />
           </div>
         </Dialog>
       </div>

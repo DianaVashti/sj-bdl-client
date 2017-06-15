@@ -24,6 +24,7 @@ const styles = {
 };
 
 export default class ReportsTable extends Component {
+
   constructor(props) {
     super(props)
 
@@ -38,8 +39,23 @@ export default class ReportsTable extends Component {
       deselectOnClickaway: true,
       showCheckboxes: false,
       height: '300px',
+      open: false
     };
+
+		this.handleOnClick = this.handleOnClick.bind(this);
   }
+
+  handleOpen = () => {
+    this.setState({open: true});
+  }
+
+  handleClose = () => {
+    this.setState({open:false});
+  }
+
+	handleOnClick(event) {
+		console.log('button clicked')
+	}
 
   populateTable() {
     return (
@@ -47,6 +63,9 @@ export default class ReportsTable extends Component {
         <TableRow key={report._id}>
           <TableRowColumn>{report.perpetrator.name}</TableRowColumn>
           <TableRowColumn>{report.edited.toString()}</TableRowColumn>
+          <TableRowColumn>
+            <AdminForm report={report}/>
+          </TableRowColumn>
         </TableRow>
       ))
     )
@@ -62,6 +81,7 @@ export default class ReportsTable extends Component {
             fixedFooter={this.state.fixedFooter}
             selectable={this.state.selectable}
             multiSelectable={this.state.multiSelectable}
+            onCellClick={this.handleOnClick}
           >
             <TableHeader
               displaySelectAll={this.state.showCheckboxes}
@@ -93,7 +113,6 @@ export default class ReportsTable extends Component {
               </TableRow>
             </TableFooter>
           </Table>
-          <AdminForm />
         </Paper >
       </div>
     );
