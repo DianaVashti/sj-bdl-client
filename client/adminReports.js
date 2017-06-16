@@ -11,11 +11,12 @@ export default class AdminReports extends Component {
     super(props);
     this.state = {
       reports: [],
-      
     }
+
+    this.fetchReports = this.fetchReports.bind(this);
   }
 
-  componentDidMount() {
+  fetchReports() {
     const jwt = sessionStorage.getItem('auth');
 
     const config = {
@@ -34,13 +35,17 @@ export default class AdminReports extends Component {
       })
   }
 
+  componentDidMount() {
+    this.fetchReports()
+  }
+
   render() {
 
     return (
       <Paper zDepth={3} rounded={false} >
         <div>
           <ToolBarHeader />
-          <ReportsTable reports={this.state.reports} />
+          <ReportsTable reports={this.state.reports} fetchReports={this.fetchReports} />
           <Footer />
         </div>
       </Paper>

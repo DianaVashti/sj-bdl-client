@@ -45,12 +45,7 @@ export default class AdminForm extends Component {
       <FlatButton
         label="Cancel"
         primary={true}
-        onTouchTap={this.handleClose} />,
-      <FlatButton
-        label="Submit"
-        primary={true}
-        disabled={true}
-        onTouchTap={this.handleClose} />,
+        onTouchTap={this.handleClose} />
     ]
 
     return(
@@ -185,7 +180,7 @@ export default class AdminForm extends Component {
                 </Paper>
               <Paper style={style} zDepth={1} >
                 <div>
-                  <EditedReportContainer report={report}/>
+                  <EditedReportContainer report={report} handleClose={this.handleClose} fetchReports={this.props.fetchReports}/>
                 </div>
               </Paper>
             </div>
