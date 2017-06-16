@@ -38,8 +38,17 @@ export default class ReportsTable extends Component {
       deselectOnClickaway: true,
       showCheckboxes: false,
       height: '300px',
+      open: false
     };
   }
+
+  handleOpen = () => {
+    this.setState({open: true});
+  }
+
+  handleClose = () => {
+    this.setState({open:false});
+  }   
 
   populateTable() {
     return (
@@ -47,6 +56,7 @@ export default class ReportsTable extends Component {
         <TableRow key={report._id}>
           <TableRowColumn>{report.perpetrator.name}</TableRowColumn>
           <TableRowColumn>{report.edited.toString()}</TableRowColumn>
+          <AdminForm report={report}/>
         </TableRow>
       ))
     )
@@ -62,6 +72,7 @@ export default class ReportsTable extends Component {
             fixedFooter={this.state.fixedFooter}
             selectable={this.state.selectable}
             multiSelectable={this.state.multiSelectable}
+            onCellClick={this.handleOnClick}
           >
             <TableHeader
               displaySelectAll={this.state.showCheckboxes}
@@ -93,7 +104,6 @@ export default class ReportsTable extends Component {
               </TableRow>
             </TableFooter>
           </Table>
-          <AdminForm />
         </Paper >
       </div>
     );
