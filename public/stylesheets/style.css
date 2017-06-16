@@ -62,6 +62,11 @@ p {
   font-size: .8em;
 }
 
+.resource-item {
+  display: flex;
+  flex-direction: column;
+}
+
 /*these containers may end up being identical....
 .incident-container {
 

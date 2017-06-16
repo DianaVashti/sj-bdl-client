@@ -11,6 +11,7 @@ import ViewReports from './viewReports'
 import AdminReports from './adminReports'
 import AdminLogin from './adminLogin'
 import FileReport from './fileReport'
+import ResourcesContainer from './resourcesContainer'
 
 export default class ReactRouter extends Component {
   constructor(props) {
@@ -43,6 +44,9 @@ export default class ReactRouter extends Component {
     const fileReportComponent = (props, state, params) =>
       <FileReport />
 
+    const dummy = (props, state, params) =>
+      <ResourcesContainer />
+
     return (
       <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
         <Router history={browserHistory}>
@@ -51,6 +55,7 @@ export default class ReactRouter extends Component {
           <Route path="/admin-login" component={adminLoginComponent} />
           <Route path="/admin-reports" component={adminReportsComponent} onEnter={this.requireAuth} />
           <Route path="/submit-report" component={fileReportComponent} />
+          <Route path='/dummy' component={dummy} />
         </Router>
       </MuiThemeProvider>
     )
