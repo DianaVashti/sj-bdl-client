@@ -48,7 +48,7 @@ export default class ReportsTable extends Component {
 
   handleClose = () => {
     this.setState({open:false});
-  }   
+  }
 
   populateTable() {
     return (
@@ -56,7 +56,7 @@ export default class ReportsTable extends Component {
         <TableRow key={report._id}>
           <TableRowColumn>{report.perpetrator.name}</TableRowColumn>
           <TableRowColumn>{report.edited.toString()}</TableRowColumn>
-          <AdminForm report={report}/>
+          <AdminForm report={report} fetchReports={this.props.fetchReports}/>
         </TableRow>
       ))
     )
