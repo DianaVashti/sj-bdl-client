@@ -13,10 +13,7 @@ import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
-import IncidentDetails from './incidentDetails'
-import PerpDetails from './perpDetails'
-import SupportDetails from './supportDetails'
-import EditedReportForm from './editedReportForm'
+import EditedReportContainer from './Containers/editedReportContainer'
 
 const style = {
   margin: 20,
@@ -187,7 +184,7 @@ export default class AdminForm extends Component {
                 </Paper>
               <Paper style={style} zDepth={1} >
                 <div>
-                  <EditedReportForm />
+                  <EditedReportContainer />
                 </div>
               </Paper>
             </div>

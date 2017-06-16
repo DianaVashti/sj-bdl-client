@@ -1,36 +1,72 @@
 import React, {Component}  from 'react'
 import PropTypes from 'prop-types';
 import {Link} from 'react-router'
-import Paper from 'material-ui/Paper';
-import TextField from 'material-ui/TextField';
-import Subheader from 'material-ui/Subheader';
-import {List, ListItem} from 'material-ui/List';
-import Checkbox from 'material-ui/Checkbox';
-import {orange500, blue500} from 'material-ui/styles/colors';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
-import DatePicker from 'material-ui/DatePicker';
 import {
   Step,
   Stepper,
   StepLabel,
 } from 'material-ui/Stepper';
-import ToolBarHeader from '../toolBarHeader'
-import IncidentDetails from '../incidentDetails'
-import PerpDetails from '../perpDetails'
-import SupportDetails from '../supportDetails'
+import SupportReportContainer from './Containers/SupportReportContainer'
+import IncidentReportContainer from './Containers/incidentReportContainer'
+import PerpReportContainer from './Containers/perpReportContainer'
 
 const style = {
   margin: 12,
 };
 
-export default class MobileForm extends Component {
+export default class ReportForm extends Component {
   constructor(props){
     super(props);
     this.state = {
       finished: false,
       stepIndex: 0,
+      incidentDetails: {
+        city: "",
+        locationType: "",
+        gender: "",
+        assaultType: [],
+        date: {},
+        assaultDescription: ""
+      },
+      perpDetails: {
+        name: "",
+        phone: "",
+        email: "",
+        perpType: "",
+        adServiceUsed: "",
+        gender: "",
+        age: "",
+        race: "",
+        height: "",
+        hair: "",
+        attributes: "",
+        vehicle: ""
+      },
+      supportDetails: {
+        needSupport: "",
+        name: "",
+        contact: "",
+        callingFrom: ""
+      },
     };
+  }
+
+  handleIncidentStateUpdate = (data, viewIndex) => {
+    if (viewIndex === 0){
+      this.setState({
+        incidentDetails: data
+      })
+    } else if (viewIndex === 1){
+      this.setState({
+        perpDetails: data
+      })
+    } else if (viewIndex === 2){
+      this.setState({
+        supportDetails: data
+      })
+    }
   }
 
   handleNext = () => {
@@ -51,11 +87,17 @@ export default class MobileForm extends Component {
   getStepContent(stepIndex) {
     switch (stepIndex) {
       case 0:
-        return <IncidentDetails />;
+        return <IncidentReportContainer
+          currentState={this.state.incidentDetails}
+          updateOnDismount={this.handleIncidentStateUpdate}  />;
       case 1:
-        return <PerpDetails />;
+        return <PerpReportContainer
+          currentState={this.state.perpDetails}
+          updateOnDismount={this.handleIncidentStateUpdate}/>;
       case 2:
-        return <SupportDetails />;
+        return <SupportReportContainer
+          currentState={this.state.supportDetails}
+          updateOnDismount={this.handleIncidentStateUpdate}/>;
       default:
         return 'Error error errrrorrrrr';
     }
@@ -114,6 +156,12 @@ export default class MobileForm extends Component {
             label="Home"
             containerElement={<Link to="/" />} />
         </div>
+        <p>
+          <b>Current State:</b>
+        </p>
+        <pre>
+          {JSON.stringify(this.state, null, 2)}
+        </pre>
       </div>
     )
   }
