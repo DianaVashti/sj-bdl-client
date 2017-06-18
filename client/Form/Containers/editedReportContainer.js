@@ -36,12 +36,6 @@ export default class EditedReportContainer extends Component {
           <Field fieldName='content' label='Edited Report Content' type={Textarea} row={7} />
         </Form>
         <br/>
-        <p>
-          <b>Current State:</b>
-        </p>
-        <pre>
-          {JSON.stringify(this.state, null, 2)}
-        </pre>
       </div>
     )
   }
