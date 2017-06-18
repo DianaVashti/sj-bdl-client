@@ -16,13 +16,16 @@ export default class EditedReportContainer extends Component {
     axios.defaults.headers.common['x-auth'] = sessionStorage.getItem('auth');
     axios.post(`http://localhost:8080/api/reports/${this.props.report._id}`, this.state)
       .then((res) => {
-        this.props.handleClose();
         this.props.fetchReports();
         browserHistory.push('/admin-reports');
       })
       .catch((error) => {
         console.log(error)
       })
+  }
+
+  componentWillUnmount() {
+    this.postEditedReport()
   }
 
   render () {
@@ -32,9 +35,6 @@ export default class EditedReportContainer extends Component {
           <Field fieldName='title' label='Title' type={Textarea} row={2} />
           <Field fieldName='content' label='Edited Report Content' type={Textarea} row={7} />
         </Form>
-        <div>
-          <RaisedButton label="Submit" onTouchTap={this.postEditedReport} />
-        </div>
         <br/>
         <p>
           <b>Current State:</b>

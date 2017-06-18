@@ -45,6 +45,11 @@ export default class AdminForm extends Component {
       <FlatButton
         label="Cancel"
         primary={true}
+        onTouchTap={this.handleClose} />,
+      <FlatButton
+        label="Submit"
+        primary={true}
+        // disabled={this.state.disabled}
         onTouchTap={this.handleClose} />
     ]
 
