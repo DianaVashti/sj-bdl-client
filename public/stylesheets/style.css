@@ -64,7 +64,7 @@ p {
 
 .resource-item {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 /*these containers may end up being identical....

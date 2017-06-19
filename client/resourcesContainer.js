@@ -38,10 +38,18 @@ export default class ResourcesContainer extends Component {
             secondaryText="Work"
           />
         </List>
-        <Divider inset={true} />
-        <List>
+        <List className="resource-item">
           <ListItem
-            leftIcon={<CommunicationEmail color={indigo500} />}
+            leftIcon={<CommunicationCall color={indigo500} />}
+            primaryText="(650) 555 - 1234"
+            secondaryText="Mobile"
+          />
+          <ListItem
+            insetChildren={true}
+            primaryText="(323) 555 - 6789"
+            secondaryText="Work"
+          />
+          <ListItem
             primaryText="aliconnors@example.com"
             secondaryText="Personal"
           />
@@ -51,6 +59,7 @@ export default class ResourcesContainer extends Component {
             secondaryText="Work"
           />
         </List>
+        <Divider inset={true} />
       </Paper>
     )
   }
