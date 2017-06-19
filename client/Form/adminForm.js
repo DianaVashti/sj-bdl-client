@@ -41,9 +41,14 @@ export default class AdminForm extends Component {
     if (support === undefined) {
       support = {}
     }
+    // add functionality to be able to run a verification on change
     const actions = [
       <FlatButton
         label="Cancel"
+        primary={true}
+        onTouchTap={this.handleClose} />,
+      <FlatButton
+        label="Submit"
         primary={true}
         onTouchTap={this.handleClose} />
     ]
