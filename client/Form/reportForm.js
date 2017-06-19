@@ -11,6 +11,7 @@ import {
 import SupportReportContainer from './Containers/SupportReportContainer'
 import IncidentReportContainer from './Containers/incidentReportContainer'
 import PerpReportContainer from './Containers/perpReportContainer';
+import GeolocationReportContainer from './Containers/geolocationReportContainer'
 import axios from 'axios';
 import { browserHistory } from 'react-router';
 
@@ -77,7 +78,7 @@ export default class ReportForm extends Component {
     const {stepIndex} = this.state;
     this.setState({
       stepIndex: stepIndex + 1,
-      finished: stepIndex >= 2,
+      finished: stepIndex >= 3,
     });
   };
 
@@ -102,6 +103,8 @@ export default class ReportForm extends Component {
         return <SupportReportContainer
           currentState={this.state.supportDetails}
           updateOnDismount={this.handleIncidentStateUpdate}/>;
+      case 3:
+        return <GeolocationReportContainer />;
       default:
         return 'Error error errrrorrrrr';
     }
@@ -152,7 +155,10 @@ export default class ReportForm extends Component {
               <StepLabel>Perpetrator Details</StepLabel>
             </Step>
             <Step>
-              <StepLabel>Submit</StepLabel>
+              <StepLabel>Support Details</StepLabel>
+            </Step>
+            <Step>
+              <StepLabel>Geolocation</StepLabel>
             </Step>
           </Stepper>
           <div style={contentStyle}>
@@ -175,9 +181,9 @@ export default class ReportForm extends Component {
                     style={{marginRight: 12}}
                   />
                   <RaisedButton
-                    label={stepIndex === 2 ? 'Finish' : 'Next'}
+                    label={stepIndex === 3 ? 'Finish' : 'Next'}
                     primary={true}
-                    onTouchTap={stepIndex === 2 ? this.handleSubmitOnFinishBtnTap : this.handleNext}
+                    onTouchTap={stepIndex === 3 ? this.handleSubmitOnFinishBtnTap : this.handleNext}
                   />
                 </div>
               </div>
