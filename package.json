@@ -7,7 +7,8 @@
     "start": "webpack-dev-server",
     "start:dev": "./node_modules/.bin/webpack -d && nodemon ./bin/www --exec babel-node",
     "build": "./node_modules/.bin/webpack -d",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --watch"
   },
   "dependencies": {
     "axios": "^0.16.1",
