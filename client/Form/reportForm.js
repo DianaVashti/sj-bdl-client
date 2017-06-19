@@ -10,7 +10,9 @@ import {
 } from 'material-ui/Stepper';
 import SupportReportContainer from './Containers/SupportReportContainer'
 import IncidentReportContainer from './Containers/incidentReportContainer'
-import PerpReportContainer from './Containers/perpReportContainer'
+import PerpReportContainer from './Containers/perpReportContainer';
+import axios from 'axios';
+import { browserHistory } from 'react-router';
 
 const style = {
   margin: 12,
@@ -51,6 +53,8 @@ export default class ReportForm extends Component {
         callingFrom: ""
       },
     };
+
+    this.handleSubmitOnFinishBtnTap = this.handleSubmitOnFinishBtnTap.bind(this);
   }
 
   handleIncidentStateUpdate = (data, viewIndex) => {
@@ -103,6 +107,36 @@ export default class ReportForm extends Component {
     }
   }
 
+  handleSubmitOnFinishBtnTap() {
+    this.handleNext
+    const { incidentDetails, perpDetails, supportDetails } = this.state;
+    axios.post('http://localhost:8080/api/reports/new', {
+      city: incidentDetails.city,
+      locationType: incidentDetails.locationType,
+      gender: incidentDetails.gender,
+      date: incidentDetails.date,
+      assaultType: incidentDetails.assaultType,
+      assaultDescription: incidentDetails.assaultDescription,
+      geolocation : {
+        coordinates : [
+            121.88,
+            37.33
+        ]
+      },
+      perpetrator: perpDetails,
+      support: supportDetails
+    })
+    .then((res) => {
+      // show a success message to user
+      console.log('Success', res)
+      browserHistory.push('/view-reports')
+    })
+    .catch((error) => {
+      // show error message to user
+      console.log('something went wrong ', error)
+    })
+  }
+
   render(){
     const {finished, stepIndex} = this.state;
     const contentStyle = {margin: '0 16px'};
@@ -143,7 +177,7 @@ export default class ReportForm extends Component {
                   <RaisedButton
                     label={stepIndex === 2 ? 'Finish' : 'Next'}
                     primary={true}
-                    onTouchTap={this.handleNext}
+                    onTouchTap={stepIndex === 2 ? this.handleSubmitOnFinishBtnTap : this.handleNext}
                   />
                 </div>
               </div>
