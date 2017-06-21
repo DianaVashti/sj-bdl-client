@@ -23,7 +23,7 @@ html {
 
 .footer {
   position: absolute;
-  bottom: 20px;
+  bottom: 2px;
   width: 99vw;
 }
 
@@ -89,22 +89,12 @@ p {
   width: 60%;
 }
 
-/*these containers may end up being identical....
-.incident-container {
-
-}
-
-.perpetrator-container {
-
-}
-
-.support-container {
-
-}
-*/
-
 /* Smartphones (portrait and landscape) */
 @media only screen and (min-device-width : 0px) and (max-device-width : 599px) {
+
+  .mobile-landing-container {
+    height: 92vh;
+  }
 
   .landing-page-main-btn {
     margin-left: 3vw;

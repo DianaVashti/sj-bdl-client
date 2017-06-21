@@ -1,12 +1,13 @@
 import React, {Component}  from 'react'
 import PropTypes from 'prop-types';
+import {Link} from 'react-router'
 import axios from 'axios';
-import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import ToolBarHeader from './toolBarHeader'
 import Footer from './footer'
 import ExpandableCard from './expandableCard'
 import Paper from 'material-ui/Paper';
+import RaisedButton from 'material-ui/RaisedButton';
 
 export default class ViewReports extends Component {
   constructor(props) {
@@ -70,24 +71,33 @@ export default class ViewReports extends Component {
 
   render() {
     return (
-      <Paper zDepth={3} rounded={false} >
-        <div>
-          <ToolBarHeader />
+      <div>
+        <Paper zDepth={3} rounded={false} >
           <div>
-            <form onSubmit={this.onFormSubmit}>
-              <TextField
-                hintText="Enter any terms you wish to search by.
-                  Exmple: Name, Vehicle type etc..."
-                fullWidth={true}
-                value={this.state.searchTerms}
-                onChange={this.onInputChange}
-              />
-            </form>
+            <ToolBarHeader />
+            <div>
+              <form onSubmit={this.onFormSubmit}>
+                <TextField
+                  hintText="Enter any terms you wish to search by.
+                    Exmple: Name, Vehicle type etc..."
+                  fullWidth={true}
+                  value={this.state.searchTerms}
+                  onChange={this.onInputChange}
+                />
+              </form>
+            </div>
+            <ExpandableCard reports={this.state.reports} />
+            <Footer />
           </div>
-          <ExpandableCard reports={this.state.reports} />
-          <Footer />
+        </Paper>
+        <div className="footer">
+          <RaisedButton
+            label="Home"
+            primary={true}
+            containerElement={<Link to="/" />}
+          />
         </div>
-      </Paper>
+      </div>
     )
   }
 }

@@ -20,7 +20,7 @@ export default class MobileLandingBtns extends Component {
 //react-router single page view
   render() {
     return (
-      <Paper zDepth={3} rounded={false} >
+      <Paper zDepth={3} rounded={false} className="mobile-landing-container">
         <div className="landing-page-main-btn-container">
           <RaisedButton
             className="landing-page-main-btn"
