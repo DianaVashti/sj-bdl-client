@@ -42,7 +42,7 @@ export default class MobileLandingBtns extends Component {
             secondary={true}
             labelStyle={labelStyle}
             buttonStyle={buttonStyle}
-            href="/" />
+            href="/support" />
         </div>
       </Paper>
     )

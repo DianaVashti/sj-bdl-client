@@ -1,6 +1,12 @@
 /* Global Styles */
 html {
-  background-color: #303030;
+  /*background-color: #303030;*/
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .card-container {
@@ -62,9 +68,25 @@ p {
   font-size: .8em;
 }
 
+.resources-container {
+  width: 95%;
+}
+
 .resource-item {
   display: flex;
   flex-direction: row;
+  width: 98%;
+}
+
+.resource-name {
+  width: 40%;
+}
+
+.svg-icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 60%;
 }
 
 /*these containers may end up being identical....
