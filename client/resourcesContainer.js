@@ -10,6 +10,7 @@ import ActionHome from 'material-ui/svg-icons/action/home';
 import ActionGrade from 'material-ui/svg-icons/action/grade';
 import {indigo500} from 'material-ui/styles/colors';
 import Popover from 'material-ui/Popover/Popover';
+import RaisedButton from 'material-ui/RaisedButton';
 
 const iconStyles = {
   marginRight: 24,
@@ -73,39 +74,48 @@ export default class ResourcesContainer extends Component {
 
   render(){
     return(
-      <div className="container">
-        <Paper zDepth={5} className="resources-container">
-          <List className="resource-item">
-            <div className="resource-name">
-              <ListItem
-                primaryText="St. James Infirmary"
-              />
-            </div>
-            <div className="svg-icons">
-              <ListItem
-                rightIcon={<CommunicationCall style={iconStyles} color={indigo500} />}
-              />
-              <ListItem
-                rightIcon={<ActionHome style={iconStyles}  />} />
-              <ListItem
-                rightIcon={<ActionGrade style={iconStyles} onTouchTap={this.handleTouchTap} />} />
-                <Popover
-                  open={this.state.open}
-                  anchorEl={this.state.anchorEl}
-                  anchorOrigin={this.state.anchorOrigin}
-                  targetOrigin={this.state.targetOrigin}
-                  onRequestClose={this.handleRequestClose} >
-                    <List>
-                      <ListItem disabled={true} primaryText="St. James Infirmary" />
-                      <ListItem disabled={true} primaryText="234 Eddy Street" />
-                      <ListItem disabled={true} primaryText="San Francisco, CA 94102" />
-                      <ListItem disabled={true} primaryText="(415) 554-8494" />
-                    </List>
-                </Popover>
-            </div>
-          </List>
-          <Divider inset={true} />
-        </Paper>
+      <div>
+        <div className="container">
+          <Paper zDepth={5} className="resources-container">
+            <List className="resource-item">
+              <div className="resource-name">
+                <ListItem
+                  primaryText="St. James Infirmary"
+                />
+              </div>
+              <div className="svg-icons">
+                <ListItem
+                  rightIcon={<CommunicationCall style={iconStyles} color={indigo500} />}
+                />
+                <ListItem
+                  rightIcon={<ActionHome style={iconStyles}  />} />
+                <ListItem
+                  rightIcon={<ActionGrade style={iconStyles} onTouchTap={this.handleTouchTap} />} />
+                  <Popover
+                    open={this.state.open}
+                    anchorEl={this.state.anchorEl}
+                    anchorOrigin={this.state.anchorOrigin}
+                    targetOrigin={this.state.targetOrigin}
+                    onRequestClose={this.handleRequestClose} >
+                      <List>
+                        <ListItem disabled={true} primaryText="St. James Infirmary" />
+                        <ListItem disabled={true} primaryText="234 Eddy Street" />
+                        <ListItem disabled={true} primaryText="San Francisco, CA 94102" />
+                        <ListItem disabled={true} primaryText="(415) 554-8494" />
+                      </List>
+                  </Popover>
+              </div>
+            </List>
+            <Divider inset={true} />
+          </Paper>
+        </div>
+        <div className="footer">
+          <RaisedButton
+            label="Home"
+            primary={true}
+            containerElement={<Link to="/" />}
+          />
+        </div>
       </div>
     )
   }
