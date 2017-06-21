@@ -56,7 +56,7 @@ export default class ToolBarHeader extends Component {
                 containerElement={<Link to="/submit-report" />} />
               <MenuItem
                 primaryText="Resources / Support"
-                containerElement={<Link to="/" />} />
+                containerElement={<Link to="/support" />} />
             </IconMenu>
           </ToolbarGroup>
         </Toolbar>

@@ -3,14 +3,15 @@ import {Component} from 'react'
 import React from 'react'
 import PropTypes from 'prop-types';
 import { Router, Route, browserHistory } from 'react-router';
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+// import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
+// import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import LandingPage from './landingPage'
 import ViewReports from './viewReports'
 import AdminReports from './adminReports'
 import AdminLogin from './adminLogin'
 import FileReport from './fileReport'
+import ResourcesContainer from './resourcesContainer'
 
 export default class ReactRouter extends Component {
   constructor(props) {
@@ -43,14 +44,18 @@ export default class ReactRouter extends Component {
     const fileReportComponent = (props, state, params) =>
       <FileReport />
 
+    const resourcesComponent = (props, state, params) =>
+      <ResourcesContainer />
+
     return (
-      <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
+      <MuiThemeProvider >
         <Router history={browserHistory}>
           <Route path="/" component={landingPageComponent} />
           <Route path="/view-reports" component={viewReportsComponent} />
           <Route path="/admin-login" component={adminLoginComponent} />
           <Route path="/admin-reports" component={adminReportsComponent} onEnter={this.requireAuth} />
           <Route path="/submit-report" component={fileReportComponent} />
+          <Route path="/support" component={resourcesComponent} />
         </Router>
       </MuiThemeProvider>
     )
