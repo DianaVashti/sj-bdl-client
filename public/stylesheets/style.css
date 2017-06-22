@@ -22,9 +22,15 @@ html {
 }
 
 .footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 25px;
+  padding-right: 25px;
   position: absolute;
   bottom: 2px;
-  width: 99vw;
+  width: 94%;
 }
 
 .form-container {
