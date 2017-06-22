@@ -34,12 +34,6 @@ export default class SupportReportContainer extends Component {
           <Field fieldName='callingFrom' label='If yes, can we say we are calling from St. James Infirmary? If no, where would you like us to say we are calling from?' type={Textarea} rows={3} />
         </Form>
         <br/>
-        <p>
-          <b>Current State:</b>
-        </p>
-        <pre>
-          {JSON.stringify(this.state, null, 2)}
-        </pre>
       </div>
     )
   }

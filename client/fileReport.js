@@ -11,20 +11,6 @@ const style = {
 export default class FileReport extends Component {
   constructor(props){
     super(props);
-    this.state = {
-    	name: "",
-    	phone: "",
-    	email: "",
-    	perpType: "",
-    	adServiceUsed: "",
-    	gender: "",
-    	age: "",
-    	race: "",
-    	height: "",
-    	hair: "",
-    	attributes: "",
-    	vehicle: ""
-    }
   }
 
   render(){

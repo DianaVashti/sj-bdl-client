@@ -1,10 +1,12 @@
 import React, {Component}  from 'react'
 import PropTypes from 'prop-types';
+import {Link} from 'react-router'
 import axios from 'axios';
 import ToolBarHeader from './toolBarHeader'
 import Footer from './footer'
 import ReportsTable from './reportsTable'
 import Paper from 'material-ui/Paper';
+import RaisedButton from 'material-ui/RaisedButton';
 
 export default class AdminReports extends Component {
   constructor(props) {
@@ -46,6 +48,11 @@ export default class AdminReports extends Component {
         <div>
           <ToolBarHeader />
           <ReportsTable reports={this.state.reports} fetchReports={this.fetchReports} />
+          <RaisedButton
+            label="Log Out"
+            primary={true}
+            containerElement={<Link to="/" />}
+          />
           <Footer />
         </div>
       </Paper>

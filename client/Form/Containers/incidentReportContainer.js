@@ -58,12 +58,6 @@ export default class IncidentReportContainer extends Component {
           <Field fieldName='assaultDescription' label='Please describe what happened.' type={Textarea} rows={5} />
         </Form>
         <br/>
-        <p>
-          <b>Current State:</b>
-        </p>
-        <pre>
-          {JSON.stringify(this.state, null, 2)}
-        </pre>
       </div>
     )
   }

@@ -196,12 +196,6 @@ export default class ReportForm extends Component {
             label="Home"
             containerElement={<Link to="/" />} />
         </div>
-        <p>
-          <b>Current State:</b>
-        </p>
-        <pre>
-          {JSON.stringify(this.state, null, 2)}
-        </pre>
       </div>
     )
   }
