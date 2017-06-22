@@ -8,6 +8,7 @@ import Footer from './footer'
 import ExpandableCard from './expandableCard'
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
+import GeolocationSearchContainer from './geolocationSearchContainer'
 
 export default class ViewReports extends Component {
   constructor(props) {
@@ -89,6 +90,9 @@ export default class ViewReports extends Component {
             <ExpandableCard reports={this.state.reports} />
             <Footer />
           </div>
+          <Paper zDepth={1}>
+            <GeolocationSearchContainer />
+          </Paper>  
         </Paper>
         <div className="footer">
           <RaisedButton
