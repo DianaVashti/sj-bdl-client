@@ -21,6 +21,7 @@ export default class SupportReportContainer extends Component {
   componentWillUnmount(){
     const viewIndex = 2
     this.props.updateOnDismount(this.state, viewIndex)
+    scroll(0,0)
   }
 
   render () {

@@ -51,6 +51,7 @@ export default class PerpReportContainer extends Component {
   componentWillUnmount(){
     const viewIndex = 1
     this.props.updateOnDismount(this.state, viewIndex)
+    scroll(0,0)
   }
 
   render () {

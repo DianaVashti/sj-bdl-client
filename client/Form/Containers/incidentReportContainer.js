@@ -43,6 +43,7 @@ export default class IncidentReportContainer extends Component {
   componentWillUnmount(){
     const viewIndex = 0
     this.props.updateOnDismount(this.state, viewIndex)
+    scroll(0,0)
   }
 
   render() {
