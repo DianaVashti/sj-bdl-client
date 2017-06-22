@@ -51,6 +51,7 @@ export default class PerpReportContainer extends Component {
   componentWillUnmount(){
     const viewIndex = 1
     this.props.updateOnDismount(this.state, viewIndex)
+    scroll(0,0)
   }
 
   render () {
@@ -72,12 +73,6 @@ export default class PerpReportContainer extends Component {
           <Field fieldName='vehicle' label='Perpetrator vehicle information (color, make, model)' type={Text}/>
         </Form>
         <br/>
-        <p>
-          <b>Current State:</b>
-        </p>
-        <pre>
-          {JSON.stringify(this.state, null, 2)}
-        </pre>
       </div>
     )
   }

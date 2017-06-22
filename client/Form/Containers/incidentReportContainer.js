@@ -43,6 +43,7 @@ export default class IncidentReportContainer extends Component {
   componentWillUnmount(){
     const viewIndex = 0
     this.props.updateOnDismount(this.state, viewIndex)
+    scroll(0,0)
   }
 
   render() {
@@ -58,12 +59,6 @@ export default class IncidentReportContainer extends Component {
           <Field fieldName='assaultDescription' label='Please describe what happened.' type={Textarea} rows={5} />
         </Form>
         <br/>
-        <p>
-          <b>Current State:</b>
-        </p>
-        <pre>
-          {JSON.stringify(this.state, null, 2)}
-        </pre>
       </div>
     )
   }
