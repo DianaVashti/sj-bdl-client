@@ -38,7 +38,6 @@ export default class AdminReports extends Component {
 
     axios.get('http://localhost:8080/api/admins/reports', config)
       .then((response) => {
-        console.log(response)
         this.setState({
           reports: response.data
         })

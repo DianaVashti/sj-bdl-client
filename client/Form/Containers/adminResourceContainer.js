@@ -9,30 +9,20 @@ export default class AdminResourceContainer extends Component {
   constructor(props){
     super(props);
     this.state = {
-      resource: {
-        name: "",
-        streetAddress: "",
-        city: "",
-        state: "",
-        zipCode: "",
-        phone: "",
-        type: ""
-      }
+      name: "",
+      streetAddress: "",
+      city: "",
+      state: "",
+      zipCode: "",
+      phone: "",
+      type: ""
     }
   }
 
-  handleOnSubmit = () => {
-    const {resource} = this.state
-
-    axios.post('http://localhost:8080/api/services', {
-      name: resource.name,
-      streetAddress: resource.streetAddress,
-      city: resource.city,
-      state: resource.state,
-      zipCode: resource.zipCode,
-      phone: resource.phone,
-      type: resource.type
-    })
+  handleOnSubmit() {
+    const data = this.state
+    axios.defaults.headers.common['x-auth'] = sessionStorage.getItem('auth');
+    axios.post('http://localhost:8080/api/services', data)
     .then((res) => {
       // show a success message to user
       console.log('Success', res)
@@ -42,6 +32,7 @@ export default class AdminResourceContainer extends Component {
       console.log('something went wrong ', error)
     })
   }
+
 
   render(){
     return(
