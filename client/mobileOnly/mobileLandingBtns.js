@@ -20,26 +20,23 @@ export default class MobileLandingBtns extends Component {
 //react-router single page view
   render() {
     return (
-      <Paper zDepth={3} rounded={false} className="mobile-landing-container">
+      <Paper zDepth={3} rounded={false} className="mobile-landing-container" >
         <div className="landing-page-main-btn-container">
           <RaisedButton
             className="landing-page-main-btn"
             label="Report a Bad Date"
-            primary={true}
             labelStyle={labelStyle}
             buttonStyle={buttonStyle}
             href="/submit-report" />
           <RaisedButton
             className="landing-page-main-btn"
             label="Read Reports"
-            backgroundColor="#a4c639"
             labelStyle={labelStyle}
             buttonStyle={buttonStyle}
             href="/view-reports" />
           <RaisedButton
             className="landing-page-main-btn"
             label="Get Support / Resources"
-            secondary={true}
             labelStyle={labelStyle}
             buttonStyle={buttonStyle}
             href="/support" />
