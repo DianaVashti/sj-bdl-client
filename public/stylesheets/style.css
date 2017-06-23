@@ -10,7 +10,7 @@ html {
 }
 
 .card-container {
-  border: 1px solid GhostWhite;
+  border: 1px solid #F8F8FF;
 }
 
 .toolbar-container-items {
@@ -19,6 +19,7 @@ html {
   flex-direction: row;
   align-items: stretch;
   justify-content: space-between;
+  background-color: #BFBEBD;
 }
 
 .footer {
@@ -28,9 +29,10 @@ html {
   align-items: center;
   padding-left: 25px;
   padding-right: 25px;
-  position: absolute;
+  position: fixed;
   bottom: 2px;
   width: 94%;
+  border: colors/red/900
 }
 
 .form-container {
@@ -87,6 +89,7 @@ p {
   display: flex;
   flex-direction: row;
   width: 98%;
+  background-color: #F0EBE9;
 }
 
 .resource-name {
@@ -108,6 +111,7 @@ p {
   }
 
   .landing-page-main-btn {
+    color: #BB2222;
     margin-left: 3vw;
     margin-right: 3vw;
     margin-top: 3vh;

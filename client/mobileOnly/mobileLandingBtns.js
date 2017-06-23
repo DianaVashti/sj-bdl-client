@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {Link} from 'react-router'
 import RaisedButton from 'material-ui/RaisedButton';
 import Paper from 'material-ui/Paper';
+import {red, grey} as Colors from 'material-ui/styles/colors';
 
 const labelStyle = {
   font: '2.7em "Open Sans"',
@@ -10,6 +11,7 @@ const labelStyle = {
 
 const buttonStyle = {
   height: '6vh',
+  font: '2.7em "Open Sans"',
 }
 
 export default class MobileLandingBtns extends Component {
@@ -32,7 +34,7 @@ export default class MobileLandingBtns extends Component {
           <RaisedButton
             className="landing-page-main-btn"
             label="Read Reports"
-            backgroundColor="#a4c639"
+            backgroundColor="#9E8F82"
             labelStyle={labelStyle}
             buttonStyle={buttonStyle}
             href="/view-reports" />
