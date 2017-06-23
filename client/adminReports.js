@@ -6,13 +6,24 @@ import ToolBarHeader from './toolBarHeader'
 import Footer from './footer'
 import ReportsTable from './reportsTable'
 import Paper from 'material-ui/Paper';
+import Popover from 'material-ui/Popover/Popover';
 import RaisedButton from 'material-ui/RaisedButton';
+import AdminResourceContainer from './Form/Containers/adminResourceContainer'
 
 export default class AdminReports extends Component {
   constructor(props) {
     super(props);
     this.state = {
       reports: [],
+      open: false,
+      anchorOrigin: {
+        horizontal: 'right',
+        vertical: 'bottom',
+      },
+      targetOrigin: {
+        horizontal: 'left',
+        vertical: 'bottom',
+      },
     }
 
     this.fetchReports = this.fetchReports.bind(this);
@@ -27,7 +38,6 @@ export default class AdminReports extends Component {
 
     axios.get('http://localhost:8080/api/admins/reports', config)
       .then((response) => {
-        console.log(response)
         this.setState({
           reports: response.data
         })
@@ -41,6 +51,39 @@ export default class AdminReports extends Component {
     this.fetchReports()
   }
 
+  handleTouchTap = (event) => {
+    // This prevents ghost click.
+    event.preventDefault();
+    this.setState({
+      open: true,
+      anchorEl: event.currentTarget,
+    });
+  };
+
+  handleRequestClose = () => {
+    this.setState({
+      open: false,
+    });
+  };
+
+  setAnchor = (positionElement, position) => {
+      const {anchorOrigin} = this.state;
+      anchorOrigin[positionElement] = position;
+
+      this.setState({
+        anchorOrigin: anchorOrigin,
+      });
+    };
+
+    setTarget = (positionElement, position) => {
+      const {targetOrigin} = this.state;
+      targetOrigin[positionElement] = position;
+
+      this.setState({
+        targetOrigin: targetOrigin,
+      });
+    };
+
   render() {
 
     return (
@@ -49,8 +92,21 @@ export default class AdminReports extends Component {
           <ToolBarHeader />
           <ReportsTable reports={this.state.reports} fetchReports={this.fetchReports} />
           <RaisedButton
-            label="Log Out"
+            label="Add Resource"
             primary={true}
+            onTouchTap={this.handleTouchTap}
+          />
+            <Popover
+              open={this.state.open}
+              anchorEl={this.state.anchorEl}
+              anchorOrigin={this.state.anchorOrigin}
+              targetOrigin={this.state.targetOrigin}
+              onRequestClose={this.handleRequestClose} >
+              <AdminResourceContainer />
+            </Popover>
+          <RaisedButton
+            label="Log Out"
+            primary={false}
             containerElement={<Link to="/" />}
           />
           <Footer />

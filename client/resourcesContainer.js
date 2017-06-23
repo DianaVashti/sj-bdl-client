@@ -72,6 +72,45 @@ export default class ResourcesContainer extends Component {
       });
     };
 
+    // populateResources() {
+    //   return(
+    //     this.props.resources.map((resource) => (
+    //       <Paper zDepth={5} className="resources-container">
+    //         <List className="resource-item">
+    //           <div className="resource-name">
+    //             <ListItem
+    //               primaryText=`"{resource.name}"`
+    //             />
+    //           </div>
+    //           <div className="svg-icons">
+    //             <ListItem
+    //               rightIcon={<CommunicationCall style={iconStyles} color={indigo500} />}
+    //             />
+    //             <ListItem
+    //               rightIcon={<ActionHome style={iconStyles}  />} />
+    //             <ListItem
+    //               rightIcon={<ActionGrade style={iconStyles} onTouchTap={this.handleTouchTap} />} />
+    //               <Popover
+    //                 open={this.state.open}
+    //                 anchorEl={this.state.anchorEl}
+    //                 anchorOrigin={this.state.anchorOrigin}
+    //                 targetOrigin={this.state.targetOrigin}
+    //                 onRequestClose={this.handleRequestClose} >
+    //                   <List>
+    //                     <ListItem disabled={true} primaryText=`"{resource.name}"` />
+    //                     <ListItem disabled={true} primaryText=`"{resource.streetAddress}"` />
+    //                     <ListItem disabled={true} primaryText=`"{resource.city}, {resource.state} {resource.zipCode}"` />
+    //                     <ListItem disabled={true} primaryText=`"{resource.phone}"` />
+    //                   </List>
+    //               </Popover>
+    //           </div>
+    //         </List>
+    //         <Divider inset={true} />
+    //       </Paper>
+    //     ))
+    //   )
+    // }
+
   render(){
     return(
       <div>
