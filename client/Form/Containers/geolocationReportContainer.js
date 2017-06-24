@@ -19,12 +19,11 @@ export default class GeolocationReportContainer extends Component {
 
   onMapCreated(map) {
     map.setOptions({
-      disableDefaultUI: true
+      disableDefaultUI: false
     });
   }
 
   onDragEnd(e) {
-    console.log(e)
     const viewIndex = 3
     let coordinates = this.state.coordinates.slice()
     coordinates = [e.latLng.lng(), e.latLng.lat()]
@@ -38,7 +37,7 @@ export default class GeolocationReportContainer extends Component {
         <h3>Please drag the pin to the approximate location where the incident occured</h3>
         <h5>You can zoom in to add a more specific location</h5>
         <Gmaps
-          height={'600px'}
+          height={'500px'}
           lat={coords.lat}
           lng={coords.lng}
           zoom={12}
