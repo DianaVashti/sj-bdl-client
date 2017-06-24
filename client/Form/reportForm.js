@@ -33,6 +33,10 @@ export default class ReportForm extends Component {
         date: {},
         assaultDescription: ""
       },
+      geolocationDetails: {
+        type: 'Point',
+        coordinates: []
+      },
       perpDetails: {
         name: "",
         phone: "",
@@ -71,6 +75,10 @@ export default class ReportForm extends Component {
       this.setState({
         supportDetails: data
       })
+    } else if (viewIndex === 3){
+      this.setState({
+        geolocationDetails: data
+      })
     }
   }
 
@@ -94,7 +102,7 @@ export default class ReportForm extends Component {
       case 0:
         return <IncidentReportContainer
           currentState={this.state.incidentDetails}
-          updateOnDismount={this.handleIncidentStateUpdate}  />;
+          updateOnDismount={this.handleIncidentStateUpdate}/>;
       case 1:
         return <PerpReportContainer
           currentState={this.state.perpDetails}
@@ -104,7 +112,9 @@ export default class ReportForm extends Component {
           currentState={this.state.supportDetails}
           updateOnDismount={this.handleIncidentStateUpdate}/>;
       case 3:
-        return <GeolocationReportContainer />;
+        return <GeolocationReportContainer
+          currentState={this.state.geolocationDetails}
+          updateOnDismount={this.handleIncidentStateUpdate}/>;
       default:
         return 'Error error errrrorrrrr';
     }
@@ -112,7 +122,7 @@ export default class ReportForm extends Component {
 
   handleSubmitOnFinishBtnTap() {
     this.handleNext
-    const { incidentDetails, perpDetails, supportDetails } = this.state;
+    const { incidentDetails, perpDetails, supportDetails, geolocationDetails } = this.state;
     axios.post('http://localhost:8080/api/reports/new', {
       city: incidentDetails.city,
       locationType: incidentDetails.locationType,
@@ -120,12 +130,7 @@ export default class ReportForm extends Component {
       date: incidentDetails.date,
       assaultType: incidentDetails.assaultType,
       assaultDescription: incidentDetails.assaultDescription,
-      geolocation : {
-        coordinates : [
-            121.88,
-            37.33
-        ]
-      },
+      geolocation : geolocationDetails,
       perpetrator: perpDetails,
       support: supportDetails
     })
