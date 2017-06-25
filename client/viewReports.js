@@ -72,24 +72,22 @@ export default class ViewReports extends Component {
   render() {
     return (
       <div>
-        <Paper zDepth={3} rounded={false} >
+        <div>
+          <ToolBarHeader />
           <div>
-            <ToolBarHeader />
-            <div>
-              <form onSubmit={this.onFormSubmit}>
-                <TextField
-                  hintText="Enter any terms you wish to search by.
-                    Exmple: Name, Vehicle type etc..."
-                  fullWidth={true}
-                  value={this.state.searchTerms}
-                  onChange={this.onInputChange}
-                />
-              </form>
-            </div>
-            <ExpandableCard reports={this.state.reports} />
-            <Footer />
+            <form onSubmit={this.onFormSubmit}>
+              <TextField
+                hintText="Enter any terms you wish to search by.
+                  Example: Name, Vehicle type etc..."
+                fullWidth={true}
+                value={this.state.searchTerms}
+                onChange={this.onInputChange}
+              />
+            </form>
           </div>
-        </Paper>
+          <ExpandableCard reports={this.state.reports} />
+          <Footer />
+        </div>
         <div className="footer">
           <RaisedButton
             label="Home"

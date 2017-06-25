@@ -1,11 +1,17 @@
 import React, {Component}  from 'react'
-import PropTypes from 'prop-types';
-import Paper from 'material-ui/Paper';
+import PropTypes from 'prop-types'
 import ToolBarHeader from './toolBarHeader'
 import ReportForm from './Form/reportForm'
+import WebFont from 'webfontloader'
+
+WebFont.load({
+  google: {
+    families: ['Open Sans:300,400,700', 'sans-serif']
+  }
+});
 
 const style = {
-  margin: 20,
+  margin: 20
 };
 
 export default class FileReport extends Component {
@@ -16,10 +22,8 @@ export default class FileReport extends Component {
   render(){
     return(
       <div>
-        <Paper style={style} zDepth={5} >
-          <ToolBarHeader />
-          <ReportForm />
-        </Paper>
+        <ToolBarHeader />
+        <ReportForm />
       </div>
     )
   }

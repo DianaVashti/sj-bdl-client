@@ -65,46 +65,44 @@ export default class ReportsTable extends Component {
   render() {
     return (
       <div>
-        <Paper zDepth={3} rounded={false} >
-          <Table
-            height={this.state.height}
-            fixedHeader={this.state.fixedHeader}
-            fixedFooter={this.state.fixedFooter}
-            selectable={this.state.selectable}
-            multiSelectable={this.state.multiSelectable}
-            onCellClick={this.handleOnClick}
+        <Table
+          height={this.state.height}
+          fixedHeader={this.state.fixedHeader}
+          fixedFooter={this.state.fixedFooter}
+          selectable={this.state.selectable}
+          multiSelectable={this.state.multiSelectable}
+          onCellClick={this.handleOnClick}
+        >
+          <TableHeader
+            displaySelectAll={this.state.showCheckboxes}
+            adjustForCheckbox={this.state.showCheckboxes}
+            enableSelectAll={this.state.enableSelectAll}
           >
-            <TableHeader
-              displaySelectAll={this.state.showCheckboxes}
-              adjustForCheckbox={this.state.showCheckboxes}
-              enableSelectAll={this.state.enableSelectAll}
-            >
-              <TableRow>
-                <TableHeaderColumn colSpan="3" tooltip="Super Header" style={{textAlign: 'center'}}>
-                  Super Header
-                </TableHeaderColumn>
-              </TableRow>
-              <TableRow>
-                <TableHeaderColumn tooltip="The Name">Name</TableHeaderColumn>
-                <TableHeaderColumn tooltip="The Status">Status</TableHeaderColumn>
-              </TableRow>
-            </TableHeader>
-            <TableBody
-              displayRowCheckbox={this.state.showCheckboxes}
-              deselectOnClickaway={this.state.deselectOnClickaway}
-              showRowHover={this.state.showRowHover}
-              stripedRows={this.state.stripedRows}
-            >
-              {this.populateTable()}
-            </TableBody>
-            <TableFooter
-              adjustForCheckbox={this.state.showCheckboxes}
-            >
-              <TableRow>
-              </TableRow>
-            </TableFooter>
-          </Table>
-        </Paper >
+            <TableRow>
+              <TableHeaderColumn colSpan="3" tooltip="Super Header" style={{textAlign: 'center'}}>
+                Super Header
+              </TableHeaderColumn>
+            </TableRow>
+            <TableRow>
+              <TableHeaderColumn tooltip="The Name">Name</TableHeaderColumn>
+              <TableHeaderColumn tooltip="The Status">Status</TableHeaderColumn>
+            </TableRow>
+          </TableHeader>
+          <TableBody
+            displayRowCheckbox={this.state.showCheckboxes}
+            deselectOnClickaway={this.state.deselectOnClickaway}
+            showRowHover={this.state.showRowHover}
+            stripedRows={this.state.stripedRows}
+          >
+            {this.populateTable()}
+          </TableBody>
+          <TableFooter
+            adjustForCheckbox={this.state.showCheckboxes}
+          >
+            <TableRow>
+            </TableRow>
+          </TableFooter>
+        </Table>
       </div>
     );
   }

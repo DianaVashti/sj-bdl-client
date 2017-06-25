@@ -12,12 +12,12 @@ import GoogleMap from './googleMap'
 
 const ExpandableCard = (props) => {
   const reports = props.reports.map((report) => {
-    return <Paper zDepth={3} rounded={false} key={report.id} >
-      <Card className="card-container">
+    return  (
+      <Card className="card-container" key={report.id}>
         <CardHeader
           title={report.title}
           titleStyle={{
-            font: '3em "Open Sans"',
+            font: '3em',
           }}
           subtitle={report.date}
           actAsExpander={true}
@@ -28,7 +28,7 @@ const ExpandableCard = (props) => {
           <GoogleMap lng={Number(report.coordinates[0])} lat={Number(report.coordinates[1])}/>
         </CardText>
       </Card>
-    </Paper>
+    )
   });
 
   return (
