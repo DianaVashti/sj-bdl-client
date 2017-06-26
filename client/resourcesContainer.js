@@ -4,14 +4,14 @@ import {Link} from 'react-router'
 import axios from 'axios';
 import {List, ListItem} from 'material-ui/List';
 import Divider from 'material-ui/Divider';
-// import Paper from 'material-ui/Paper';
+import Paper from 'material-ui/Paper';
 import Subheader from 'material-ui/Subheader';
 import CommunicationCall from 'material-ui/svg-icons/communication/call';
 import ActionHome from 'material-ui/svg-icons/action/home';
 import ActionGrade from 'material-ui/svg-icons/action/grade';
 import {indigo500} from 'material-ui/styles/colors';
 import Popover from 'material-ui/Popover/Popover';
-// import RaisedButton from 'material-ui/RaisedButton';
+import RaisedButton from 'material-ui/RaisedButton';
 
 const displayRowStyle = {
   display: 'flex',
