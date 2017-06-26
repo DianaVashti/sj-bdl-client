@@ -118,7 +118,7 @@ export default class ReportForm extends Component {
   handleSubmitOnFinishBtnTap() {
     this.handleNext
     const { incidentDetails, perpDetails, supportDetails, geolocationDetails } = this.state;
-    axios.post('http://localhost:8080/api/reports/new', {
+    axios.post('https://sj-bdl-api.herokuapp.com/api/reports/new', {
       city: incidentDetails.city,
       locationType: incidentDetails.locationType,
       gender: incidentDetails.gender,
