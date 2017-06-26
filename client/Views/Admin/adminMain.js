@@ -2,15 +2,17 @@ import React, {Component}  from 'react'
 import PropTypes from 'prop-types';
 import {Link} from 'react-router'
 import axios from 'axios';
-import ToolBarHeader from './toolBarHeader'
-import Footer from './footer'
-import ReportsTable from './reportsTable'
+
 import Paper from 'material-ui/Paper';
 import Popover from 'material-ui/Popover/Popover';
 import RaisedButton from 'material-ui/RaisedButton';
-import AdminResourceContainer from './Form/Containers/adminResourceContainer'
 
-export default class AdminReports extends Component {
+import AdminResourceForm from './adminResourceForm'
+import Footer from '../../footer'
+import ReportsTable from './reportsTable'
+import Header from '../../header'
+
+export default class AdminMain extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -88,7 +90,6 @@ export default class AdminReports extends Component {
 
     return (
       <div>
-        <ToolBarHeader />
         <ReportsTable reports={this.state.reports} fetchReports={this.fetchReports} />
         <RaisedButton
           label="Add Resource"
@@ -101,14 +102,13 @@ export default class AdminReports extends Component {
             anchorOrigin={this.state.anchorOrigin}
             targetOrigin={this.state.targetOrigin}
             onRequestClose={this.handleRequestClose} >
-            <AdminResourceContainer />
+            <AdminResourceForm />
           </Popover>
         <RaisedButton
           label="Log Out"
           primary={false}
           containerElement={<Link to="/" />}
         />
-        <Footer />
       </div>
     )
   }

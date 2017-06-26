@@ -1,11 +1,13 @@
 import React, {Component}  from 'react'
+import PropTypes from 'prop-types';
+import { browserHistory } from 'react-router';
+import axios from 'axios';
+
 import {Form, Field} from 'simple-react-form'
 import RaisedButton from 'material-ui/RaisedButton';
 import Textarea from 'simple-react-form-material-ui/lib/textarea';
-import axios from 'axios';
-import { browserHistory } from 'react-router';
 
-export default class EditedReportContainer extends Component {
+export default class EditedReportForm extends Component {
   constructor (props) {
     super(props)
     this.state = {}

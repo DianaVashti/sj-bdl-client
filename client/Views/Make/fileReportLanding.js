@@ -1,8 +1,11 @@
 import React, {Component}  from 'react'
 import PropTypes from 'prop-types'
-import ToolBarHeader from './toolBarHeader'
-import ReportForm from './Form/reportForm'
 import WebFont from 'webfontloader'
+
+import ReportForm from './reportForm'
+import Header from '../../header'
+import Footer from '../../footer'
+
 
 WebFont.load({
   google: {
@@ -14,7 +17,7 @@ const style = {
   margin: 20
 };
 
-export default class FileReport extends Component {
+export default class FileReportLanding extends Component {
   constructor(props){
     super(props);
   }
@@ -22,8 +25,11 @@ export default class FileReport extends Component {
   render(){
     return(
       <div>
-        <ToolBarHeader />
-        <ReportForm />
+        <Header />
+        <div>
+          <ReportForm />
+        </div>  
+        <Footer />
       </div>
     )
   }

@@ -1,8 +1,8 @@
 import React, {Component}  from 'react'
 import {Form, Field} from 'simple-react-form'
+import Radio from 'simple-react-form-material-ui/lib/radio'
 import Text from 'simple-react-form-material-ui/lib/text'
 import Textarea from 'simple-react-form-material-ui/lib/textarea'
-import Radio from 'simple-react-form-material-ui/lib/radio'
 
 export default class PerpReportContainer extends Component {
 

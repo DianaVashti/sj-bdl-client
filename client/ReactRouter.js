@@ -6,12 +6,12 @@ import { Router, Route, browserHistory } from 'react-router';
 // import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 // import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import LandingPage from './landingPage'
-import ViewReports from './viewReports'
-import AdminReports from './adminReports'
-import AdminLogin from './adminLogin'
-import FileReport from './fileReport'
-import ResourcesContainer from './resourcesContainer'
+import LandingPage from './Views/Home/landingPage'
+import ViewReportsLanding from './Views/Read/viewReportsLanding'
+import AdminLanding from './Views/Admin/adminLanding'
+import AdminLogin from './Views/Admin/adminLogin'
+import FileReportLanding from './Views/Make/fileReportLanding'
+import ResourcesLanding from './Views/Support/resourcesLanding'
 
 export default class ReactRouter extends Component {
   constructor(props) {
@@ -33,19 +33,19 @@ export default class ReactRouter extends Component {
       <LandingPage />
 
     const viewReportsComponent = (props, state, params) =>
-      <ViewReports />
+      <ViewReportsLanding />
 
     const adminReportsComponent = (props, state, params) =>
-      <AdminReports />
+      <AdminLanding />
 
     const adminLoginComponent = (props, state, params) =>
       <AdminLogin />
 
     const fileReportComponent = (props, state, params) =>
-      <FileReport />
+      <FileReportLanding />
 
     const resourcesComponent = (props, state, params) =>
-      <ResourcesContainer />
+      <ResourcesLanding />
 
     return (
       <MuiThemeProvider >

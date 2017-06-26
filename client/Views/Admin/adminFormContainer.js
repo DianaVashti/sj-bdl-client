@@ -1,5 +1,9 @@
 import React, {Component}  from 'react'
 import PropTypes from 'prop-types';
+
+import Dialog from 'material-ui/Dialog';
+import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton';
 import {
   Table,
   TableBody,
@@ -9,16 +13,13 @@ import {
   TableRowColumn,
 } from 'material-ui/Table';
 import TextField from 'material-ui/TextField';
-import RaisedButton from 'material-ui/RaisedButton';
-import FlatButton from 'material-ui/FlatButton';
-import Dialog from 'material-ui/Dialog';
-import EditedReportContainer from './Containers/editedReportContainer'
+import EditedReportForm from './editedReportForm'
 
 const style = {
   margin: 20,
 };
 
-export default class AdminForm extends Component {
+export default class AdminFormContainer extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -179,7 +180,7 @@ export default class AdminForm extends Component {
                   </TableBody>
                 </Table>
               <div>
-                <EditedReportContainer report={report} handleClose={this.handleClose} fetchReports={this.props.fetchReports}/>
+                <EditedReportForm report={report} handleClose={this.handleClose} fetchReports={this.props.fetchReports}/>
               </div>
             </div>
           </div>

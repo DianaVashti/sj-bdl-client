@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-class GoogleMap extends Component {
+export default class GoogleMap extends Component {
 	componentDidMount() {
     const incidentLocation = { lat: this.props.lat, lng: this.props.lng }
 		const map = new google.maps.Map(this.refs.map, {
@@ -17,5 +18,3 @@ class GoogleMap extends Component {
 		return <div id='map' ref='map'></div>;
 	}
 }
-
-export default GoogleMap;

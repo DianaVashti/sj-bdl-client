@@ -1,9 +1,9 @@
 import React, {Component}  from 'react'
 import PropTypes from 'prop-types';
-import ToolBarHeader from './toolBarHeader'
-import MobileLandingBtns from './mobileOnly/mobileLandingBtns'
-import DesktopLanding from './desktopOnly/desktopLanding'
-import Footer from './footer'
+import Header from '../../header'
+import MobileLanding from './mobileLanding'
+import DesktopLanding from './desktopLanding'
+import Footer from '../../footer'
 import WebFont from 'webfontloader'
 import {red500, red900, grey300, grey400} from 'material-ui/styles/colors';
 // import getMuiTheme from 'material-ui/styles/getMuiTheme';
@@ -23,9 +23,11 @@ export default class LandingPage extends Component {
   render() {
     return (
       <div>
-        <ToolBarHeader />
-        <MobileLandingBtns />
-        <DesktopLanding />
+        <Header />
+        <div>
+          <MobileLanding />
+          <DesktopLanding />
+        </div>  
         <Footer />
       </div>
     )

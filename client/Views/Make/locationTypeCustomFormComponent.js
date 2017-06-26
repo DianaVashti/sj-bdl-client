@@ -12,7 +12,7 @@ const locationTypeOptions = [
   {locationType: 'Other'}
 ]
 
-export default class LocationType extends Component {
+export default class LocationTypeCustomFormComponent extends Component {
 
   constructor (props) {
     super(props)
