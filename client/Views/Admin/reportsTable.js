@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+
+import Paper from 'material-ui/Paper';
 import {
   Table,
   TableBody,
@@ -9,8 +12,8 @@ import {
   TableRowColumn,
 } from 'material-ui/Table';
 import TextField from 'material-ui/TextField';
-import Paper from 'material-ui/Paper';
-import AdminForm from './Form/adminForm'
+
+import AdminFormContainer from './adminFormContainer'
 
 const styles = {
   propContainer: {
@@ -56,7 +59,7 @@ export default class ReportsTable extends Component {
         <TableRow key={report._id}>
           <TableRowColumn>{report.perpetrator.name}</TableRowColumn>
           <TableRowColumn>{report.edited.toString()}</TableRowColumn>
-          <AdminForm report={report} fetchReports={this.props.fetchReports}/>
+          <AdminFormContainer report={report} fetchReports={this.props.fetchReports}/>
         </TableRow>
       ))
     )

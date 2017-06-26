@@ -1,13 +1,14 @@
 import React, {Component}  from 'react'
+import PropTypes from 'prop-types'
+import WebFont from 'webfontloader'
 import {Form, Field} from 'simple-react-form'
 import DatePicker from 'simple-react-form-material-ui/lib/date-picker'
+import FlatButton from 'material-ui/FlatButton';
 import MultipleCheckbox from 'simple-react-form-material-ui/lib/multiple-checkbox'
+import RaisedButton from 'material-ui/RaisedButton'
 import Text from 'simple-react-form-material-ui/lib/text'
 import Textarea from 'simple-react-form-material-ui/lib/textarea'
-import FlatButton from 'material-ui/FlatButton';
-import RaisedButton from 'material-ui/RaisedButton'
-import LocationType from '../Components/locationType'
-import WebFont from 'webfontloader'
+import LocationTypeCustomFormComponent from './locationTypeCustomFormComponent'
 
 WebFont.load({
   google: {
@@ -59,7 +60,7 @@ export default class IncidentReportContainer extends Component {
         <h1 className="incident">Incident Details</h1>
         <Form state={this.state} onChange={changes => this.setState(changes)}>
           <Field fieldName='city' label='What city did the incident take place?' type={Text}/>
-          <Field fieldName='locationType' label='Where did it happen?' type={LocationType}/>
+          <Field fieldName='locationType' label='Where did it happen?' type={LocationTypeCustomFormComponent}/>
           <Field fieldName='gender' label='Your gender (this helps us organize reports) ' type={Text}/>
           <Field fieldName='assaultType' label='What happened? (select all that apply)' type={MultipleCheckbox} options={this.getAssaultTypeOptions()}/>
           <Field fieldName='date' label='What day did it happen? (can be an estimation)' type={DatePicker}/>

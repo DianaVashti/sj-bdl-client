@@ -4,6 +4,23 @@ html {
   font-size: 18px;
 }
 
+body {
+  height: 100vh;
+}
+
+ul,menu,dir {
+  -webkit-padding-start: 0px;
+}
+
+.footer-navbar{
+  position: fixed;
+  bottom: 0;
+  width: 99vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .container {
   display: flex;
   align-items: center;
@@ -105,6 +122,10 @@ p {
 
 .resource-name {
   width: 40%;
+}
+
+.view-reports-container {
+
 }
 
 .svg-icons {

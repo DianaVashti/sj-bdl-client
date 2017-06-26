@@ -18,7 +18,7 @@ WebFont.load({
 });
 
 
-export default class ToolBarHeader extends Component {
+export default class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -43,31 +43,10 @@ export default class ToolBarHeader extends Component {
           <RaisedButton
             label="Report a Bad Date"
             labelColor="#fff"
-            // primary={true}
             backgroundColor= "#D32F2F"
             color= "#FAFAFA"
             containerElement={<Link to="/submit-report" />}
           />
-          <IconMenu
-            iconButtonElement={
-              <IconButton touch={true}>
-                <NavigationExpandMoreIcon />
-              </IconButton>
-            }
-          >
-            <MenuItem
-              primaryText="Home"
-              containerElement={<Link to="/" />} />
-            <MenuItem
-              primaryText="View and Search Reports"
-              containerElement={<Link to="/view-reports" />} />
-            <MenuItem
-              primaryText="Report a Bad Date"
-              containerElement={<Link to="/submit-report" />} />
-            <MenuItem
-              primaryText="Resources / Support"
-              containerElement={<Link to="/support" />} />
-          </IconMenu>
         </ToolbarGroup>
       </Toolbar>
     )

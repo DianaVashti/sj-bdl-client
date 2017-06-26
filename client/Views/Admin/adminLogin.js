@@ -1,10 +1,12 @@
 import React, {Component}  from 'react'
+import PropTypes from 'prop-types';
+import { Link, browserHistory } from 'react-router'
+import axios from 'axios';
+
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
-import TextField from 'material-ui/TextField';
-import { Link, browserHistory } from 'react-router'
 import Paper from 'material-ui/Paper';
-import axios from 'axios';
+import TextField from 'material-ui/TextField';
 
 /**
  * A modal dialog can only be closed by selecting one of the actions.

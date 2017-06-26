@@ -1,11 +1,14 @@
 import React, {Component}  from 'react'
-import {Form, Field} from 'simple-react-form'
-import Text from 'simple-react-form-material-ui/lib/text'
-import RaisedButton from 'material-ui/RaisedButton';
-import axios from 'axios';
+import PropTypes from 'prop-types';
 import { browserHistory } from 'react-router';
+import axios from 'axios';
 
-export default class AdminResourceContainer extends Component {
+import {Form, Field} from 'simple-react-form'
+
+import RaisedButton from 'material-ui/RaisedButton';
+import Text from 'simple-react-form-material-ui/lib/text'
+
+export default class AdminResourceForm extends Component {
   constructor(props){
     super(props);
     this.state = {

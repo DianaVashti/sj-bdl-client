@@ -2,12 +2,14 @@ import React, {Component}  from 'react'
 import PropTypes from 'prop-types';
 import {Link} from 'react-router'
 import axios from 'axios';
-import TextField from 'material-ui/TextField';
-import ToolBarHeader from './toolBarHeader'
-import Footer from './footer'
-import ExpandableCard from './expandableCard'
+
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
+import TextField from 'material-ui/TextField';
+
+import Footer from '../../footer'
+import ExpandableCard from './expandableCard'
+import Header from '../../header'
 
 export default class ViewReports extends Component {
   constructor(props) {
@@ -72,30 +74,21 @@ export default class ViewReports extends Component {
   render() {
     return (
       <div>
-        <div>
-          <ToolBarHeader />
-          <div>
-            <form onSubmit={this.onFormSubmit}>
-              <TextField
-                hintText="Enter any terms you wish to search by.
-                  Example: Name, Vehicle type etc..."
-                fullWidth={true}
-                value={this.state.searchTerms}
-                onChange={this.onInputChange}
-              />
-            </form>
-          </div>
+        <div >
+          <form onSubmit={this.onFormSubmit}>
+            <TextField
+              hintText="Enter any terms you wish to search by.
+                Example: Name, Vehicle type etc..."
+              fullWidth={true}
+              value={this.state.searchTerms}
+              onChange={this.onInputChange}
+            />
+          </form>
+        </div>
+        <div className="view-reports-container" >
           <ExpandableCard reports={this.state.reports} />
-          <Footer />
         </div>
-        <div className="footer">
-          <RaisedButton
-            label="Home"
-            primary={true}
-            containerElement={<Link to="/" />}
-          />
-        </div>
-      </div>
+      </div>  
     )
   }
 }

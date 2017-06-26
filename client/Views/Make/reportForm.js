@@ -1,19 +1,17 @@
-import React, {Component}  from 'react'
+import React, { Component }  from 'react'
 import PropTypes from 'prop-types';
-import {Link} from 'react-router'
-import RaisedButton from 'material-ui/RaisedButton';
-import FlatButton from 'material-ui/FlatButton';
-import {
-  Step,
-  Stepper,
-  StepLabel,
-} from 'material-ui/Stepper';
-import SupportReportContainer from './Containers/SupportReportContainer'
-import IncidentReportContainer from './Containers/incidentReportContainer'
-import PerpReportContainer from './Containers/perpReportContainer';
-import GeolocationReportContainer from './Containers/geolocationReportContainer'
-import axios from 'axios';
 import { browserHistory } from 'react-router';
+import { Link } from 'react-router'
+import axios from 'axios';
+import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton';
+import { Step, Stepper, StepLabel } from 'material-ui/Stepper';
+
+import Footer from '../../footer'
+import GeolocationReportContainer from './geolocationReportContainer'
+import IncidentReportContainer from './incidentReportContainer'
+import PerpReportContainer from './perpReportContainer';
+import SupportReportContainer from './supportReportContainer'
 
 const style = {
   margin: 12,
@@ -154,16 +152,16 @@ export default class ReportForm extends Component {
         <div style={{width: '100%', maxWidth: 700, margin: 'auto'}}>
           <Stepper activeStep={stepIndex}>
             <Step>
-              <StepLabel>Incident Details</StepLabel>
+              <StepLabel></StepLabel>
             </Step>
             <Step>
-              <StepLabel>Perpetrator Details</StepLabel>
+              <StepLabel></StepLabel>
             </Step>
             <Step>
-              <StepLabel>Support Details</StepLabel>
+              <StepLabel></StepLabel>
             </Step>
             <Step>
-              <StepLabel>Geolocation</StepLabel>
+              <StepLabel></StepLabel>
             </Step>
           </Stepper>
           <div style={contentStyle}>
@@ -196,10 +194,7 @@ export default class ReportForm extends Component {
           </div>
         </div>
         <div>
-          <RaisedButton
-            style={style}
-            label="Home"
-            containerElement={<Link to="/" />} />
+          <Footer />
         </div>
       </div>
     )
