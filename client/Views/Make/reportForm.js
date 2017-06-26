@@ -5,6 +5,7 @@ import { Link } from 'react-router'
 import axios from 'axios';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
+import Paper from 'material-ui/Paper';
 import { Step, Stepper, StepLabel } from 'material-ui/Stepper';
 
 import Footer from '../../footer'
@@ -12,10 +13,6 @@ import GeolocationReportContainer from './geolocationReportContainer'
 import IncidentReportContainer from './incidentReportContainer'
 import PerpReportContainer from './perpReportContainer';
 import SupportReportContainer from './supportReportContainer'
-
-const style = {
-  margin: 12,
-};
 
 export default class ReportForm extends Component {
   constructor(props){
@@ -150,51 +147,50 @@ export default class ReportForm extends Component {
     return(
       <div className="incident">
         <div style={{width: '100%', maxWidth: 700, margin: 'auto'}}>
-          <Stepper activeStep={stepIndex}>
-            <Step>
-              <StepLabel></StepLabel>
-            </Step>
-            <Step>
-              <StepLabel></StepLabel>
-            </Step>
-            <Step>
-              <StepLabel></StepLabel>
-            </Step>
-            <Step>
-              <StepLabel></StepLabel>
-            </Step>
-          </Stepper>
-          <div style={contentStyle}>
-            {finished ? (
-              <div>
-                <a
-                  href="/"
-                >
-                  Click here
-                </a> to return to the home page.
-              </div>
-            ) : (
-              <div>
-                <div>{this.getStepContent(stepIndex)}</div>
-                <div style={{marginTop: 12}}>
-                  <FlatButton
-                    label="Back"
-                    disabled={stepIndex === 0}
-                    onTouchTap={this.handlePrev}
-                    style={{marginRight: 12}}
-                  />
-                  <RaisedButton
-                    label={stepIndex === 3 ? 'Finish' : 'Next'}
-                    primary={true}
-                    onTouchTap={stepIndex === 3 ? this.handleSubmitOnFinishBtnTap : this.handleNext}
-                  />
+          <Paper zDepth={1} >
+              <Stepper activeStep={stepIndex}>
+                <Step>
+                  <StepLabel></StepLabel>
+                </Step>
+                <Step>
+                  <StepLabel></StepLabel>
+                </Step>
+                <Step>
+                  <StepLabel></StepLabel>
+                </Step>
+                <Step>
+                  <StepLabel></StepLabel>
+                </Step>
+              </Stepper>
+            <div style={contentStyle}>
+              {finished ? (
+                <div>
+                  <a
+                    href="/"
+                  >
+                    Click here
+                  </a> to return to the home page.
                 </div>
-              </div>
-            )}
-          </div>
-        </div>
-        <div>
-          <Footer />
+              ) : (
+                <div>
+                  <div>{this.getStepContent(stepIndex)}</div>
+                  <div style={{marginTop: 12}}>
+                    <FlatButton
+                      label="Back"
+                      disabled={stepIndex === 0}
+                      onTouchTap={this.handlePrev}
+                      style={{marginRight: 12}}
+                    />
+                    <RaisedButton
+                      label={stepIndex === 3 ? 'Finish' : 'Next'}
+                      primary={true}
+                      onTouchTap={stepIndex === 3 ? this.handleSubmitOnFinishBtnTap : this.handleNext}
+                    />
+                  </div>
+                </div>
+              )}
+            </div>
+          </Paper>  
         </div>
       </div>
     )

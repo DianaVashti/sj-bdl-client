@@ -22,12 +22,12 @@ export default class LandingPage extends Component {
 
   render() {
     return (
-      <div>
+      <div className="disable-scrolling">
         <Header />
-        <div>
+        <div className="body-content">
           <MobileLanding />
           <DesktopLanding />
-        </div>  
+        </div>
         <Footer />
       </div>
     )

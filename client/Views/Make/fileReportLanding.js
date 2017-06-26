@@ -14,7 +14,11 @@ WebFont.load({
 });
 
 const style = {
-  margin: 20
+  height: 100,
+  width: 100,
+  margin: 20,
+  textAlign: 'center',
+  display: 'inline-block',
 };
 
 export default class FileReportLanding extends Component {
@@ -26,9 +30,9 @@ export default class FileReportLanding extends Component {
     return(
       <div>
         <Header />
-        <div>
+        <div className="body-content">
           <ReportForm />
-        </div>  
+        </div>
         <Footer />
       </div>
     )

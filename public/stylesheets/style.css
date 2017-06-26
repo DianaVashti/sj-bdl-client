@@ -4,21 +4,35 @@ html {
   font-size: 18px;
 }
 
-body {
-  height: 100vh;
-}
-
 ul,menu,dir {
   -webkit-padding-start: 0px;
 }
 
-.footer-navbar{
+.disable-scrolling {
+  overflow: hidden;
+}
+
+.body-content {
+  padding-top: 60px;
+  padding-bottom: 70px;
+}
+
+.footer-navbar {
   position: fixed;
   bottom: 0;
   width: 99vw;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  z-index: 101;
+  opacity: 100;
+}
+
+.header-navbar {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 101;
 }
 
 .container {
@@ -136,15 +150,10 @@ p {
 }
 
 /* Smartphones (portrait and landscape) */
-@media only screen and (min-device-width : 360px) and (max-device-width : 599px) {
-
-  .mobile-landing-container {
-    height: 92vh;
-  }
+@media only screen and (min-device-width : 1px) and (max-device-width : 599px) {
 
   .desktop-landing-message {
     display: none;
-    font-family: 'Open Sans', sans-serif;
   }
 
 }
@@ -156,6 +165,10 @@ p {
     display: none;
   }
 
+  .desktop-landing-message {
+    font-family: 'Open Sans', sans-serif;
+  }
+
 }
 
 /* Tablets landscape */
@@ -165,6 +178,10 @@ p {
     display: none;
   }
 
+  .desktop-landing-message {
+    font-family: 'Open Sans', sans-serif;
+  }
+
 }
 
 /* Desktops and Large Laptops */
@@ -172,6 +189,10 @@ p {
 
   .landing-page-main-btn-container {
     display: none;
+  }
+
+  .desktop-landing-message {
+    font-family: 'Open Sans', sans-serif;
   }
 
 }

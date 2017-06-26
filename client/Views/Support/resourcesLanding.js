@@ -21,7 +21,7 @@ export default class ViewReportsLanding extends Component {
     return(
       <div>
         <Header />
-        <div>
+        <div className="body-content">
           <ResourcesContainer />
         </div>
         <Footer />
