@@ -87,31 +87,29 @@ export default class AdminReports extends Component {
   render() {
 
     return (
-      <Paper zDepth={3} rounded={false} >
-        <div>
-          <ToolBarHeader />
-          <ReportsTable reports={this.state.reports} fetchReports={this.fetchReports} />
-          <RaisedButton
-            label="Add Resource"
-            primary={true}
-            onTouchTap={this.handleTouchTap}
-          />
-            <Popover
-              open={this.state.open}
-              anchorEl={this.state.anchorEl}
-              anchorOrigin={this.state.anchorOrigin}
-              targetOrigin={this.state.targetOrigin}
-              onRequestClose={this.handleRequestClose} >
-              <AdminResourceContainer />
-            </Popover>
-          <RaisedButton
-            label="Log Out"
-            primary={false}
-            containerElement={<Link to="/" />}
-          />
-          <Footer />
-        </div>
-      </Paper>
+      <div>
+        <ToolBarHeader />
+        <ReportsTable reports={this.state.reports} fetchReports={this.fetchReports} />
+        <RaisedButton
+          label="Add Resource"
+          primary={true}
+          onTouchTap={this.handleTouchTap}
+        />
+          <Popover
+            open={this.state.open}
+            anchorEl={this.state.anchorEl}
+            anchorOrigin={this.state.anchorOrigin}
+            targetOrigin={this.state.targetOrigin}
+            onRequestClose={this.handleRequestClose} >
+            <AdminResourceContainer />
+          </Popover>
+        <RaisedButton
+          label="Log Out"
+          primary={false}
+          containerElement={<Link to="/" />}
+        />
+        <Footer />
+      </div>
     )
   }
 

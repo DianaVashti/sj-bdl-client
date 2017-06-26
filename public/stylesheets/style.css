@@ -1,6 +1,7 @@
 /* Global Styles */
 html {
   /*background-color: #303030;*/
+  font-size: 18px;
 }
 
 .container {
@@ -10,7 +11,7 @@ html {
 }
 
 .card-container {
-  border: 1px solid GhostWhite;
+  border: 1px solid #F8F8FF;
 }
 
 .toolbar-container-items {
@@ -18,7 +19,17 @@ html {
   display: flex;
   flex-direction: row;
   align-items: stretch;
+  padding-left: 100px;
   justify-content: space-between;
+  background-image: url('./SF-BDL-Ladybug-Logo.svg');
+  background-size: 80px 60px;
+  background-repeat: no-repeat;
+  background-position: left top;
+
+}
+
+.incident {
+  font-family: 'Open Sans', sans-serif;
 }
 
 .footer {
@@ -28,9 +39,10 @@ html {
   align-items: center;
   padding-left: 25px;
   padding-right: 25px;
-  position: absolute;
+  position: fixed;
   bottom: 2px;
   width: 94%;
+  border: ./colors/red/900;
 }
 
 .form-container {
@@ -53,6 +65,7 @@ html {
 .desktop-form-container {
   margin: 12px;
   padding: 12px;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .admin-form-left {
@@ -76,7 +89,7 @@ html {
 }
 
 p {
-  font-size: .8em;
+  font-size: 1em;
 }
 
 .resources-container {
@@ -87,6 +100,7 @@ p {
   display: flex;
   flex-direction: row;
   width: 98%;
+  background-color: #F0EBE9;
 }
 
 .resource-name {
@@ -101,22 +115,15 @@ p {
 }
 
 /* Smartphones (portrait and landscape) */
-@media only screen and (min-device-width : 0px) and (max-device-width : 599px) {
+@media only screen and (min-device-width : 360px) and (max-device-width : 599px) {
 
   .mobile-landing-container {
     height: 92vh;
   }
 
-  .landing-page-main-btn {
-    margin-left: 3vw;
-    margin-right: 3vw;
-    margin-top: 3vh;
-    margin-bottom: 1vh;
-    width: 96%;
-  }
-
   .desktop-landing-message {
     display: none;
+    font-family: 'Open Sans', sans-serif;
   }
 
 }

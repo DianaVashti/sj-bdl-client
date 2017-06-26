@@ -4,14 +4,14 @@ import {Link} from 'react-router'
 import axios from 'axios';
 import {List, ListItem} from 'material-ui/List';
 import Divider from 'material-ui/Divider';
-import Paper from 'material-ui/Paper';
+// import Paper from 'material-ui/Paper';
 import Subheader from 'material-ui/Subheader';
 import CommunicationCall from 'material-ui/svg-icons/communication/call';
 import ActionHome from 'material-ui/svg-icons/action/home';
 import ActionGrade from 'material-ui/svg-icons/action/grade';
 import {indigo500} from 'material-ui/styles/colors';
 import Popover from 'material-ui/Popover/Popover';
-import RaisedButton from 'material-ui/RaisedButton';
+// import RaisedButton from 'material-ui/RaisedButton';
 
 const displayRowStyle = {
   display: 'flex',
@@ -115,24 +115,22 @@ export default class ResourcesContainer extends Component {
   populateResources() {
     return (
       this.state.resources.map((resource) => (
-        <Paper zDepth={5} className="resources-container" key={resource._id} style={marginBottom}>
-          <List className="resource-item" >
-            <div className="resource-name">
-              <ListItem
-                primaryText={resource.name}
-              />
-            </div>
-            <div className="svg-icons">
-              <ListItem
-                rightIcon={<CommunicationCall style={iconStyles} color={indigo500} />}
-              />
-              <ListItem
-                rightIcon={<ActionHome style={iconStyles}  />} />
-              <ListItem
-                rightIcon={<ActionGrade style={iconStyles} onTouchTap={this.handleTouchTap} />} />
-            </div>
-          </List>
-        </Paper>
+        <List className="resource-item" key={resource._id}>
+          <div className="resource-name">
+            <ListItem
+              primaryText={resource.name}
+            />
+          </div>
+          <div className="svg-icons">
+            <ListItem
+              rightIcon={<CommunicationCall style={iconStyles} color={indigo500} />}
+            />
+            <ListItem
+              rightIcon={<ActionHome style={iconStyles}  />} />
+            <ListItem
+              rightIcon={<ActionGrade style={iconStyles} onTouchTap={this.handleTouchTap} />} />
+          </div>
+        </List>
       ))
     )
   }

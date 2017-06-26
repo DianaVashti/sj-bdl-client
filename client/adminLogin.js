@@ -52,25 +52,23 @@ export default class AdminLogin extends React.Component {
 
     return (
       <div>
-        <Paper zDepth={3} rounded={false} >
-          <Dialog
-            title="Dialog With Actions"
-            actions={actions}
-            modal={true}
-            open={this.state.open}
-          >
-            <TextField
-              hintText="Email"
-              floatingLabelText="Email"
-              ref='email'
-              type="text" /><br />
-            <TextField
-              hintText="Password Field"
-              floatingLabelText="Password"
-              ref='password'
-              type="password" /><br />
-          </Dialog>
-        </Paper>
+        <Dialog
+          title="Dialog With Actions"
+          actions={actions}
+          modal={true}
+          open={this.state.open}
+        >
+          <TextField
+            hintText="Email"
+            floatingLabelText="Email"
+            ref='email'
+            type="text" /><br />
+          <TextField
+            hintText="Password Field"
+            floatingLabelText="Password"
+            ref='password'
+            type="password" /><br />
+        </Dialog>
       </div>
     );
   }

@@ -5,7 +5,7 @@ import TextField from 'material-ui/TextField';
 import Subheader from 'material-ui/Subheader';
 import { List, ListItem } from 'material-ui/List';
 import Checkbox from 'material-ui/Checkbox';
-import {orange500, blue500} from 'material-ui/styles/colors';
+import {red900, red500, blue500} from 'material-ui/styles/colors';
 import DatePicker from 'material-ui/DatePicker';
 
 const style = {
@@ -39,83 +39,81 @@ export default class IncidentDetails extends Component {
     return(
       <div>
         <div className="incident-container">
-          <Paper zDepth={2}>
-            <div className="desktop-form-container" >
-              <TextField
-                floatingLabelText="What city did the incident take place?"
-                floatingLabelStyle={styles.floatingLabelStyle}
-                floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
-                fullWidth={true} /><br />
-              <br />
-              <List>
-                <Subheader>Where did it happen?</Subheader>
-                <div className="form-container">
-                  <div className="form-items-row">
-                    <div className="form-items-column">
-                      <ListItem
-                        leftCheckbox={<Checkbox />}
-                        primaryText="Parlor"
-                      />
-                      <ListItem
-                        leftCheckbox={<Checkbox />}
-                        primaryText="Hotel/Motel"
-                      />
-                      <ListItem
-                        leftCheckbox={<Checkbox />}
-                        primaryText="Client's House"
-                      />
-                    </div>
-                    <div className="form-items-column">
-                      <ListItem
-                        leftCheckbox={<Checkbox />}
-                        primaryText="Worker's House"
-                      />
-                      <ListItem
-                        leftCheckbox={<Checkbox />}
-                        primaryText="Street"
-                      />
-                      <ListItem
-                        leftCheckbox={<Checkbox />}
-                        primaryText="Club"
-                      />
-                    </div>
+          <div className="desktop-form-container" >
+            <TextField
+              floatingLabelText="What city did the incident take place?"
+              floatingLabelStyle={styles.floatingLabelStyle}
+              floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
+              fullWidth={true} /><br />
+            <br />
+            <List>
+              <Subheader>Where did it happen?</Subheader>
+              <div className="form-container">
+                <div className="form-items-row">
+                  <div className="form-items-column">
+                    <ListItem
+                      leftCheckbox={<Checkbox />}
+                      primaryText="Parlor"
+                    />
+                    <ListItem
+                      leftCheckbox={<Checkbox />}
+                      primaryText="Hotel/Motel"
+                    />
+                    <ListItem
+                      leftCheckbox={<Checkbox />}
+                      primaryText="Client's House"
+                    />
                   </div>
-                  <ListItem
-                    leftCheckbox={<Checkbox />}
-                    primaryText="Other"
-                  />
+                  <div className="form-items-column">
+                    <ListItem
+                      leftCheckbox={<Checkbox />}
+                      primaryText="Worker's House"
+                    />
+                    <ListItem
+                      leftCheckbox={<Checkbox />}
+                      primaryText="Street"
+                    />
+                    <ListItem
+                      leftCheckbox={<Checkbox />}
+                      primaryText="Club"
+                    />
+                  </div>
                 </div>
-              </List>
-              <TextField
-                floatingLabelText="In what area did the incident take place?"
-                hintText="Name of streets, name of hotel, general area etc"
-                floatingLabelStyle={styles.floatingLabelStyle}
-                floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
-                fullWidth={true} /><br />
-              <br />
-              <div>
-                <DatePicker
-                  hintText="When did the incident take place (can be estimate)"
-                  mode="landscape"
-                  fullWidth={true} />
+                <ListItem
+                  leftCheckbox={<Checkbox />}
+                  primaryText="Other"
+                />
               </div>
-              <TextField
-                floatingLabelText="Your gender"
-                hintText="this helps us organize reports"
-                floatingLabelStyle={styles.floatingLabelStyle}
-                floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
-                fullWidth={true} /><br />
-              <br />
-              <TextField
-                floatingLabelText="Please describe what happened."
-                floatingLabelStyle={styles.floatingLabelStyle}
-                floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
-                multiLine={true}
-                rows={5}
-                fullWidth={true} /><br />
-              <br />
+            </List>
+            <TextField
+              floatingLabelText="In what area did the incident take place?"
+              hintText="Name of streets, name of hotel, general area etc"
+              floatingLabelStyle={styles.floatingLabelStyle}
+              floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
+              fullWidth={true} /><br />
+            <br />
+            <div>
+              <DatePicker
+                hintText="When did the incident take place (can be estimate)"
+                mode="landscape"
+                fullWidth={true} />
             </div>
-          </Paper>
+            <TextField
+              floatingLabelText="Your gender"
+              hintText="this helps us organize reports"
+              floatingLabelStyle={styles.floatingLabelStyle}
+              floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
+              fullWidth={true} /><br />
+            <br />
+            <TextField
+              floatingLabelText="Please describe what happened."
+              floatingLabelStyle={styles.floatingLabelStyle}
+              floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
+              multiLine={true}
+              rows={5}
+              fullWidth={true} /><br />
+            <br />
+          </div>
         </div>
       </div>
     )

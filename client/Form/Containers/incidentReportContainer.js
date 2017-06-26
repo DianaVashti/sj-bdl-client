@@ -5,8 +5,15 @@ import MultipleCheckbox from 'simple-react-form-material-ui/lib/multiple-checkbo
 import Text from 'simple-react-form-material-ui/lib/text'
 import Textarea from 'simple-react-form-material-ui/lib/textarea'
 import FlatButton from 'material-ui/FlatButton';
-import RaisedButton from 'material-ui/RaisedButton';
+import RaisedButton from 'material-ui/RaisedButton'
 import LocationType from '../Components/locationType'
+import WebFont from 'webfontloader'
+
+WebFont.load({
+  google: {
+    families: ['Open Sans:300,400,700', 'sans-serif']
+  }
+});
 
 export default class IncidentReportContainer extends Component {
 
@@ -49,7 +56,7 @@ export default class IncidentReportContainer extends Component {
   render() {
     return (
       <div>
-        <h1>Incident Details</h1>
+        <h1 className="incident">Incident Details</h1>
         <Form state={this.state} onChange={changes => this.setState(changes)}>
           <Field fieldName='city' label='What city did the incident take place?' type={Text}/>
           <Field fieldName='locationType' label='Where did it happen?' type={LocationType}/>

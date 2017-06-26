@@ -145,7 +145,7 @@ export default class ReportForm extends Component {
     const contentStyle = {margin: '0 16px'};
 
     return(
-      <div>
+      <div className="incident">
         <div style={{width: '100%', maxWidth: 700, margin: 'auto'}}>
           <Stepper activeStep={stepIndex}>
             <Step>
