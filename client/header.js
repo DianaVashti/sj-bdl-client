@@ -29,26 +29,28 @@ export default class Header extends Component {
 
   render() {
     return (
-      <Toolbar className="left-padding">
-        <ToolbarGroup className="toolbar-container-items">
-          <ToolbarTitle
-            text="SF BAD DATE LIST"
-            textColor="#333333"
-            style={{
-              font: '2.7em'
-            }}
-          />
-          <FontIcon className="muidocs-icon-custom-sort" />
+      <div className="header-navbar">
+        <Toolbar className="left-padding">
+          <ToolbarGroup className="toolbar-container-items">
+            <ToolbarTitle
+              text="SF BAD DATE LIST"
+              textColor="#333333"
+              style={{
+                font: '2.7em'
+              }}
+            />
+            <FontIcon className="muidocs-icon-custom-sort" />
 
-          <RaisedButton
-            label="Report a Bad Date"
-            labelColor="#fff"
-            backgroundColor= "#D32F2F"
-            color= "#FAFAFA"
-            containerElement={<Link to="/submit-report" />}
-          />
-        </ToolbarGroup>
-      </Toolbar>
+            <RaisedButton
+              label="Report a Bad Date"
+              labelColor="#fff"
+              backgroundColor= "#D32F2F"
+              color= "#FAFAFA"
+              containerElement={<Link to="/submit-report" />}
+            />
+          </ToolbarGroup>
+        </Toolbar>
+      </div>  
     )
   }
 }

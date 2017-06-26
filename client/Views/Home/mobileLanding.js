@@ -20,21 +20,21 @@ export default class MobileLanding extends Component {
   //react-router single page view
   render() {
     return (
-      <div className = "landing-page-main-btn-container" >
+      <div className="landing-page-main-btn-container" >
         <RaisedButton className = "landing-page-main-btn"
           label = "Report a Bad Date"
           backgroundColor = "#C62828"
           fullWidth={true}
           labelStyle = { labelStyle }
           buttonStyle = { buttonStyle }
-          href = "/submit-report" / >
+          href = "/submit-report" />
         <RaisedButton className = "landing-page-main-btn"
           label = "Read Reports"
           backgroundColor = "#EEEEEE"
           fullWidth={true}
           labelStyle = { labelStyle }
           buttonStyle = { buttonStyle }
-          href = "/view-reports" / >
+          href = "/view-reports" />
         <RaisedButton className = "landing-page-main-btn"
           label = "Get Support / Resources"
           backgroundColor = "#9E9E9E"
