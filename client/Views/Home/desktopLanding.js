@@ -12,13 +12,13 @@ import {
   CardText
 } from 'material-ui/Card'
 import Paper from 'material-ui/Paper'
-import WebFont from 'webfontloader'
+// import WebFont from 'webfontloader'
 
-WebFont.load({
-  google: {
-    families: ['Open Sans:300,400,700', 'sans-serif']
-  }
-});
+// WebFont.load({
+//   google: {
+//     families: ['Open Sans:300,400,700', 'sans-serif']
+//   }
+// });
 
 
 export default class DesktopLanding extends Component {

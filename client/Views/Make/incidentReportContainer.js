@@ -1,6 +1,6 @@
 import React, {Component}  from 'react'
 import PropTypes from 'prop-types'
-import WebFont from 'webfontloader'
+// import WebFont from 'webfontloader'
 import {Form, Field} from 'simple-react-form'
 import DatePicker from 'simple-react-form-material-ui/lib/date-picker'
 import FlatButton from 'material-ui/FlatButton';
@@ -10,11 +10,11 @@ import Text from 'simple-react-form-material-ui/lib/text'
 import Textarea from 'simple-react-form-material-ui/lib/textarea'
 import LocationTypeCustomFormComponent from './locationTypeCustomFormComponent'
 
-WebFont.load({
-  google: {
-    families: ['Open Sans:300,400,700', 'sans-serif']
-  }
-});
+// WebFont.load({
+//   google: {
+//     families: ['Open Sans:300,400,700', 'sans-serif']
+//   }
+// });
 
 export default class IncidentReportContainer extends Component {
 

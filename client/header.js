@@ -8,14 +8,14 @@ import NavigationExpandMoreIcon from 'material-ui/svg-icons/navigation/expand-mo
 import MenuItem from 'material-ui/MenuItem'
 import RaisedButton from 'material-ui/RaisedButton'
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
-import WebFont from 'webfontloader'
+// import WebFont from 'webfontloader'
 import Paper from 'material-ui/Paper';
 
-WebFont.load({
-  google: {
-    families: ['Open Sans:300,400,700', 'sans-serif']
-  }
-});
+// WebFont.load({
+//   google: {
+//     families: ['Open Sans:300,400,700', 'sans-serif']
+//   }
+// });
 
 
 export default class Header extends Component {
@@ -50,7 +50,7 @@ export default class Header extends Component {
             />
           </ToolbarGroup>
         </Toolbar>
-      </div>  
+      </div>
     )
   }
 }
