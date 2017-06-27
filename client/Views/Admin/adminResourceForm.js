@@ -42,13 +42,13 @@ export default class AdminResourceForm extends Component {
       <div>
         <h1>Add a Resource</h1>
         <Form state={this.state} onChange={changes => this.setState(changes)}>
-          <Field fieldName='name' label='Name' type={Text} />
-          <Field fieldName='streetAddress' label='Street Address' type={Text} />
-          <Field fieldName='city' label='City' type={Text} />
-          <Field fieldName='state' label='State' type={Text} />
-          <Field fieldName='zipCode' label='Zip Code' type={Text} />
-          <Field fieldName='phone' label='Phone' type={Text} />
-          <Field fieldName='type' label='Type(Region)' type={Text} />
+          <Field fieldName='name' label='Name*' type={Text} />
+          <Field fieldName='streetAddress' label='Street Address*' type={Text} />
+          <Field fieldName='city' label='City*' type={Text} />
+          <Field fieldName='state' label='State*' type={Text} />
+          <Field fieldName='zipCode' label='Zip Code*' type={Text} />
+          <Field fieldName='phone' label='Phone*' type={Text} />
+          <Field fieldName='type' label='Type*' type={Text} />
         </Form>
         <RaisedButton
           label="Submit"

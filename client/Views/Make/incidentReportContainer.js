@@ -59,8 +59,8 @@ export default class IncidentReportContainer extends Component {
       <div>
         <h1 className="incident">Incident Details</h1>
         <Form state={this.state} onChange={changes => this.setState(changes)}>
-          <Field fieldName='city' label='What city did the incident take place?' type={Text}/>
-          <Field fieldName='locationType' label='Where did it happen?' type={LocationTypeCustomFormComponent}/>
+          <Field fieldName='city' label='What city did the incident take place?*' type={Text}/>
+          <Field fieldName='locationType' label='Where did it happen?*' type={LocationTypeCustomFormComponent}/>
           <Field fieldName='gender' label='Your gender (this helps us organize reports) ' type={Text}/>
           <Field fieldName='assaultType' label='What happened? (select all that apply)' type={MultipleCheckbox} options={this.getAssaultTypeOptions()}/>
           <Field fieldName='date' label='What day did it happen? (can be an estimation)' type={DatePicker}/>

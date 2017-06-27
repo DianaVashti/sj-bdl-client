@@ -38,12 +38,10 @@ export default class AdminLogin extends React.Component {
 
   render() {
     const actions = [
-      <FlatButton
+      <Link to="/"><FlatButton
         label="Cancel"
         primary={true}
-        onTouchTap={this.handleClose}
-        containerElement={<Link to="/" />}
-      />,
+        onTouchTap={this.handleClose} /></Link>,
       <FlatButton
         label="Submit"
         primary={true}
