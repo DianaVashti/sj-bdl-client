@@ -104,11 +104,9 @@ export default class AdminMain extends Component {
             onRequestClose={this.handleRequestClose} >
             <AdminResourceForm />
           </Popover>
-        <RaisedButton
+        <Link to="/"><RaisedButton
           label="Log Out"
-          primary={false}
-          containerElement={<Link to="/" />}
-        />
+          primary={false} /></Link>
       </div>
     )
   }

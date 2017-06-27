@@ -82,13 +82,13 @@ export default class ReportsTable extends Component {
             enableSelectAll={this.state.enableSelectAll}
           >
             <TableRow>
-              <TableHeaderColumn colSpan="3" tooltip="Super Header" style={{textAlign: 'center'}}>
+              <TableHeaderColumn colSpan="3" tooltip="All Reports" style={{textAlign: 'center'}}>
                 Super Header
               </TableHeaderColumn>
             </TableRow>
             <TableRow>
-              <TableHeaderColumn tooltip="The Name">Name</TableHeaderColumn>
-              <TableHeaderColumn tooltip="The Status">Status</TableHeaderColumn>
+              <TableHeaderColumn tooltip="">Name</TableHeaderColumn>
+              <TableHeaderColumn tooltip="">Status</TableHeaderColumn>
             </TableRow>
           </TableHeader>
           <TableBody

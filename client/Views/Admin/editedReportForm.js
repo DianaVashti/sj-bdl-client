@@ -34,8 +34,8 @@ export default class EditedReportForm extends Component {
     return (
       <div>
         <Form state={this.state} onChange={changes => this.setState(changes)}>
-          <Field fieldName='title' label='Title' type={Textarea} row={2} />
-          <Field fieldName='content' label='Edited Report Content' type={Textarea} row={7} />
+          <Field fieldName='title' label='Title*' type={Textarea} row={2} />
+          <Field fieldName='content' label='Edited Report Content*' type={Textarea} row={7} />
         </Form>
         <br/>
       </div>

@@ -41,13 +41,11 @@ export default class Header extends Component {
             />
             <FontIcon className="muidocs-icon-custom-sort" />
 
-            <RaisedButton
+            <Link to="/submit-report" ><RaisedButton
               label="Report a Bad Date"
               labelColor="#fff"
               backgroundColor= "#D32F2F"
-              color= "#FAFAFA"
-              containerElement={<Link to="/submit-report" />}
-            />
+              color= "#FAFAFA" /></Link>
           </ToolbarGroup>
         </Toolbar>
       </div>
