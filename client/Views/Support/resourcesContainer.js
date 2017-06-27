@@ -74,9 +74,9 @@ export default class ResourcesContainer extends Component {
             />
           </div>
           <div className="svg-icons">
-            <ListItem
+            <a href={"tel:"+resource.phone}><ListItem
               rightIcon={<CommunicationCall style={iconStyles} color={indigo500} />}
-            />
+            /></a>
             <ListItem
               rightIcon={<ActionHome style={iconStyles}  />} />
           </div>
