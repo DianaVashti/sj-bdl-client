@@ -1,18 +1,30 @@
 import React, { Component }  from 'react'
 import PropTypes from 'prop-types';
-import { browserHistory } from 'react-router';
-import { Link } from 'react-router'
+import { Link, browserHistory } from 'react-router';
 import axios from 'axios';
+import {Gmaps, Marker, InfoWindow, Circle} from '../../../react-gmaps'
+
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import Paper from 'material-ui/Paper';
 import { Step, Stepper, StepLabel } from 'material-ui/Stepper';
 
+import Radio from 'simple-react-form-material-ui/lib/radio'
+import {Form, Field} from 'simple-react-form'
+import DatePicker from 'simple-react-form-material-ui/lib/date-picker'
+import MultipleCheckbox from 'simple-react-form-material-ui/lib/multiple-checkbox'
+import Text from 'simple-react-form-material-ui/lib/text'
+import Textarea from 'simple-react-form-material-ui/lib/textarea'
+
 import Footer from '../../footer'
-import GeolocationReportContainer from './geolocationReportContainer'
-import IncidentReportContainer from './incidentReportContainer'
-import PerpReportContainer from './perpReportContainer';
-import SupportReportContainer from './supportReportContainer'
+import LocationTypeCustomFormComponent from './locationTypeCustomFormComponent'
+
+const coords = {
+  lat: 37.7847,
+  lng: -122.4145
+};
+
+const params = {v: '3.exp', key: 'AIzaSyBUBMWbJJ3r0zbGRNou0KpfLT3KatbgvVg'}
 
 export default class ReportForm extends Component {
   constructor(props){
@@ -20,6 +32,7 @@ export default class ReportForm extends Component {
     this.state = {
       finished: false,
       stepIndex: 0,
+      errors: false,
       incidentDetails: {
         city: "",
         locationType: "",
@@ -54,27 +67,60 @@ export default class ReportForm extends Component {
       },
     };
 
+    this.onDragEnd = this.onDragEnd.bind(this)
     this.handleSubmitOnFinishBtnTap = this.handleSubmitOnFinishBtnTap.bind(this);
+    this.validateForm = this.validateForm.bind(this)
   }
 
-  handleIncidentStateUpdate = (data, viewIndex) => {
-    if (viewIndex === 0){
-      this.setState({
-        incidentDetails: data
-      })
-    } else if (viewIndex === 1){
-      this.setState({
-        perpDetails: data
-      })
-    } else if (viewIndex === 2){
-      this.setState({
-        supportDetails: data
-      })
-    } else if (viewIndex === 3){
-      this.setState({
-        geolocationDetails: data
-      })
-    }
+  onMapCreated(map) {
+    map.setOptions({
+      disableDefaultUI: false
+    });
+  }
+
+  onDragEnd(e) {
+    const viewIndex = 3
+    let coordinates = this.state.geolocationDetails.coordinates.slice()
+    coordinates = [e.latLng.lng(), e.latLng.lat()]
+    this.setState((prevState) => {
+      return {
+        finished: prevState.finished,
+        stepIndex: prevState.stepIndex,
+        errors: prevState.errors,
+        incidentDetails: {
+          city: prevState.incidentDetails.city,
+          locationType: prevState.incidentDetails.locationType,
+          gender: prevState.incidentDetails.gender,
+          assaultType: prevState.incidentDetails.assaultType,
+          date: prevState.incidentDetails.date,
+          assaultDescription: prevState.incidentDetails.assaultDescription
+        },
+        geolocationDetails: {
+          type: prevState.geolocationDetails.type,
+          coordinates: coordinates
+        },
+        perpDetails: {
+          name: prevState.perpDetails.name,
+          phone: prevState.perpDetails.phone,
+          email: prevState.perpDetails.email,
+          perpType: prevState.perpDetails.perpType,
+          adServiceUsed: prevState.perpDetails.adServiceUsed,
+          gender: prevState.perpDetails.gender,
+          age: prevState.perpDetails.age,
+          race: prevState.perpDetails.race,
+          height: prevState.perpDetails.height,
+          hair: prevState.perpDetails.hair,
+          attributes: prevState.perpDetails.attributes,
+          vehicle: prevState.perpDetails.vehicle
+        },
+        supportDetails: {
+          needSupport: prevState.supportDetails.needSupport,
+          name: prevState.supportDetails.name,
+          contact: prevState.supportDetails.contact,
+          callingFrom: prevState.supportDetails.callingFrom
+        }
+      }
+    })
   }
 
   handleNext = () => {
@@ -83,6 +129,7 @@ export default class ReportForm extends Component {
       stepIndex: stepIndex + 1,
       finished: stepIndex >= 3,
     });
+    scroll(0,0)
   };
 
   handlePrev = () => {
@@ -90,26 +137,195 @@ export default class ReportForm extends Component {
     if (stepIndex > 0) {
       this.setState({stepIndex: stepIndex - 1});
     }
+    scroll(0,0)
   };
 
+  getAssaultTypeOptions() {
+    return [
+      {label: 'Physical Assault', value: 'Physical Assault'},
+      {label: 'Sexual Assault', value: 'Sexual Assault'},
+      {label: 'Robbery', value: 'Robbery'},
+      {label: 'Time Waster/Flake', value: 'Time Waster/Flake'},
+      {label: 'Took Condom Off', value: 'Took Condom Off'},
+      {label: 'Verbal Assault', value: 'Verbal Assault'},
+      {label: 'Harassment/ Stalking', value: 'Harassment/ Stalking'},
+      {label: 'Client drunk/high', value: 'Client drunk/high'},
+      {label: 'Other', value: 'Other'}
+    ]
+  }
+
+  getPerpTypeOptions() {
+    return [
+      {label: 'predator posing as client', value: 'predator posing as client'},
+      {label: 'cop', value: 'cop'},
+      {label: 'manager/pimp', value: 'manager/pimp'},
+      {label: 'other', value: 'other'}
+    ]
+  }
+
+  getRaceTypeOptions() {
+    return [
+      {label: 'Asian/Pacific Islander', value: 'Asian/Pacific Islander'},
+      {label: 'Black', value: 'Black'},
+      {label: 'Hispanic/Latino', value: 'Hispanic/Latino'},
+      {label: 'Middle Eastern', value: 'Middle Eastern'},
+      {label: 'White', value: 'White'},
+      {label: 'Other', value: 'Other'}
+    ]
+  }
+
   getStepContent(stepIndex) {
+    const message = "This field is required"
     switch (stepIndex) {
       case 0:
-        return <IncidentReportContainer
-          currentState={this.state.incidentDetails}
-          updateOnDismount={this.handleIncidentStateUpdate}/>;
+        return(
+          <div>
+            <h1>Incident Details</h1>
+            <Form state={this.state} onChange={changes => this.setState(changes)}>
+              <Field
+                fieldName='incidentDetails.city'
+                label='What city did the incident take place?*'
+                type={Text}
+                errorText={this.state.errors && (this.state.incidentDetails.city === "") ? message : ""}
+                errorStyle={{color: 'red'}}/>
+              <Field
+                fieldName='incidentDetails.locationType'
+                label='Where did it happen?*'
+                type={LocationTypeCustomFormComponent}
+                errorText={this.state.errors && (this.state.incidentDetails.locationType === "") ? message : ""}
+                errorStyle={{color: 'red'}}/>
+              <Field
+                fieldName='incidentDetails.gender'
+                label='Your gender (this helps us organize reports)*'
+                type={Text}
+                errorText={this.state.errors && (this.state.incidentDetails.gender === "") ? message : ""}
+                errorStyle={{color: 'red'}}/>
+              <Field
+                fieldName='incidentDetails.assaultType'
+                label='What happened? (select all that apply)'
+                type={MultipleCheckbox}
+                options={this.getAssaultTypeOptions()}/>
+              <Field
+                fieldName='incidentDetails.date'
+                label='What day did it happen? (can be an estimation)*'
+                type={DatePicker} />
+              <Field
+                fieldName='incidentDetails.assaultDescription'
+                label='Please describe what happened.*'
+                type={Textarea} rows={5}
+                errorText={this.state.errors && (this.state.incidentDetails.assaultDescription === "") ? message : ""}
+                errorStyle={{color: 'red'}} />
+            </Form>
+            <br/>
+          </div>
+        )
       case 1:
-        return <PerpReportContainer
-          currentState={this.state.perpDetails}
-          updateOnDismount={this.handleIncidentStateUpdate}/>;
+        return (
+          <div>
+            <h1>Perpetrator Details</h1>
+            <Form state={this.state} onChange={changes => this.setState(changes)}>
+              <Field
+                fieldName='perpDetails.name'
+                label='Perpetrators name*'
+                type={Text}
+                errorText={this.state.errors && (this.state.perpDetails.name === "") ? message : ""}
+                errorStyle={{color: 'red'}}/>
+              <Field
+                fieldName='perpDetails.phone'
+                label='Perpetrators phone number (if applicable)'
+                type={Text}/>
+              <Field
+                fieldName='perpDetails.email'
+                label='Perpetrators email (if applicable)'
+                type={Text}/>
+              <Field
+                fieldName='perpDetails.perpType'
+                label='Perpetrator was a (choose one)*:'
+                type={Radio}
+                options={this.getPerpTypeOptions()}
+                errorText={this.state.errors && (this.state.perpDetails.perpType === "") ? message : ""}
+                errorStyle={{color: 'red'}} />
+              <Field
+                fieldName='perpDetails.adServiceUsed'
+                label='Did perpetrator contact you through an ad? (if so, please list advertising website)'
+                type={Text}/>
+              <Field
+                fieldName='perpDetails.gender'
+                label='Perpetrators gender*'
+                type={Text}
+                errorText={this.state.errors && (this.state.perpDetails.gender === "") ? message : ""}
+                errorStyle={{color: 'red'}}/>
+              <Field
+                fieldName='perpDetails.age'
+                label='Perpetrators age*'
+                type={Text}
+                errorText={this.state.errors && (this.state.perpDetails.age === "") ? message : ""}
+                errorStyle={{color: 'red'}}/>
+              <Field
+                fieldName='perpDetails.race'
+                label='Perpetrators race/ethnicity*'
+                type={Radio}
+                options={this.getRaceTypeOptions()}
+                errorText={this.state.errors && (this.state.perpDetails.race === "") ? message : ""}
+                errorStyle={{color: 'red'}}/>
+              <Field
+                fieldName='perpDetails.height'
+                label='Perpetrator height*'
+                type={Text}
+                errorText={this.state.errors && (this.state.perpDetails.height === "") ? message : ""}
+                errorStyle={{color: 'red'}}/>
+              <Field
+                fieldName='perpDetails.hair'
+                label='Perpetrator hair type/color*'
+                type={Text}
+                errorText={this.state.errors && (this.state.perpDetails.hair === "") ? message : ""}
+                errorStyle={{color: 'red'}}/>
+              <Field
+                fieldName='perpDetails.attributes'
+                label='Any obvious physical attributes? (scars, tattoos, etc)'
+                type={Textarea} rows={2}/>
+              <Field
+                fieldName='perpDetails.vehicle'
+                label='Perpetrator vehicle information (color, make, model)'
+                type={Text}/>
+            </Form>
+            <br/>
+          </div>
+        )
       case 2:
-        return <SupportReportContainer
-          currentState={this.state.supportDetails}
-          updateOnDismount={this.handleIncidentStateUpdate}/>;
+        return(
+          <div>
+            <h1>Support Details</h1>
+            <Form state={this.state} onChange={changes => this.setState(changes)}>
+              <Field fieldName='supportDetails.needSupport' label='Do you need support? If yes, what kind of support do you need.' type={Textarea} rows={5} />
+              <Field fieldName='supportDetails.name' label='If yes, what name should we call you?' type={Text}/>
+              <Field fieldName='supportDetails.contact' label='If yes, what is the best way to contact you?' type={Textarea} rows={3} />
+              <Field fieldName='supportDetails.callingFrom' label='If yes, can we say we are calling from St. James Infirmary? If no, where would you like us to say we are calling from?' type={Textarea} rows={3} />
+            </Form>
+            <br/>
+          </div>
+        )
       case 3:
-        return <GeolocationReportContainer
-          currentState={this.state.geolocationDetails}
-          updateOnDismount={this.handleIncidentStateUpdate}/>;
+        return(
+          <div>
+            <h3>Please drag the pin to the approximate location where the incident occured</h3>
+            <h5>You can zoom in to add a more specific location</h5>
+            <Gmaps
+              height={'500px'}
+              lat={coords.lat}
+              lng={coords.lng}
+              zoom={12}
+              loadingMessage={'Map Loading'}
+              params={params}
+              onMapCreated={this.onMapCreated}>
+              <Marker
+                lat={coords.lat}
+                lng={coords.lng}
+                draggable={true}
+                onDragEnd={this.onDragEnd} />
+            </Gmaps>
+          </div>
+        )
       default:
         return 'Error error errrrorrrrr';
     }
@@ -138,6 +354,33 @@ export default class ReportForm extends Component {
       // show error message to user
       console.log('something went wrong ', error)
     })
+  }
+
+  componentDidMount(){
+    scroll(0,0)
+  }
+
+  componentWillMount() {
+    this.setState(this.props.currentState);
+    scroll(0,0)
+  }
+
+  validateForm(){
+    const {city, locationType, assaultDescription} = this.state.incidentDetails
+    const reporteeGender = this.state.incidentDetails.gender
+    const {name, perpType, age, gender, race, height, hair} = this.state.perpDetails
+    const {coordinates} = this.state.geolocationDetails
+
+    if ((this.state.stepIndex === 0) && (!city || !locationType || !reporteeGender || !assaultDescription )){
+      this.setState({errors: true})
+    } else if ((this.state.stepIndex === 1) && (!name || !perpType || !gender || !age || !race || !height || !hair )){
+      this.setState({errors: true})
+    } else if (this.state.stepIndex === 3 && (coordinates.length === 0)){
+      this.setState({errors: true})
+    } else {
+      this.setState({errors: false})
+      this.handleNext()
+    }
   }
 
   render(){
@@ -184,13 +427,19 @@ export default class ReportForm extends Component {
                     <RaisedButton
                       label={stepIndex === 3 ? 'Finish' : 'Next'}
                       primary={true}
-                      onTouchTap={stepIndex === 3 ? this.handleSubmitOnFinishBtnTap : this.handleNext}
+                      onTouchTap={stepIndex === 3 ? this.handleSubmitOnFinishBtnTap : this.validateForm}
                     />
                   </div>
                 </div>
               )}
             </div>
-          </Paper>  
+          </Paper>
+          <p>
+            <b>Current State:</b>
+          </p>
+          <pre>
+            {JSON.stringify(this.state, null, 2)}
+          </pre>
         </div>
       </div>
     )
