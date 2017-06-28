@@ -45,6 +45,33 @@ ul,menu,dir {
   border: 1px solid #F8F8FF;
 }
 
+.resource-header {
+  display: flex;
+  flex-direction: row;
+}
+
+.resource-container {
+  border: 1px solid  #303030;
+  border-radius: 25px;
+  padding: 17px;
+  margin: 8px;
+}
+
+.resources-container {
+  width: 95%;
+}
+
+.resource-item {
+  display: flex;
+  flex-direction: row;
+  width: 98%;
+  background-color: #F0EBE9;
+}
+
+.resource-name {
+  width: 90%;
+}
+
 .toolbar-container-items {
   width: 100%;
   display: flex;
@@ -121,25 +148,6 @@ ul,menu,dir {
 
 p {
   font-size: 1em;
-}
-
-.resources-container {
-  width: 95%;
-}
-
-.resource-item {
-  display: flex;
-  flex-direction: row;
-  width: 98%;
-  background-color: #F0EBE9;
-}
-
-.resource-name {
-  width: 40%;
-}
-
-.view-reports-container {
-
 }
 
 .svg-icons {
