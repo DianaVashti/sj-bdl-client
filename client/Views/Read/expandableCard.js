@@ -11,6 +11,7 @@ import Paper from 'material-ui/Paper';
 import GoogleMap from './googleMap'
 
 const ExpandableCard = (props) => {
+  console.log(props.reports);
   const reports = props.reports.map((report) => {
     return  (
       <Card className="card-container" key={report.id}>
