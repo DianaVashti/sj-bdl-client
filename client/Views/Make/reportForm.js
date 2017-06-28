@@ -434,12 +434,6 @@ export default class ReportForm extends Component {
               )}
             </div>
           </Paper>
-          <p>
-            <b>Current State:</b>
-          </p>
-          <pre>
-            {JSON.stringify(this.state, null, 2)}
-          </pre>
         </div>
       </div>
     )
