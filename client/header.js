@@ -8,15 +8,7 @@ import NavigationExpandMoreIcon from 'material-ui/svg-icons/navigation/expand-mo
 import MenuItem from 'material-ui/MenuItem'
 import RaisedButton from 'material-ui/RaisedButton'
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
-// import WebFont from 'webfontloader'
 import Paper from 'material-ui/Paper';
-
-// WebFont.load({
-//   google: {
-//     families: ['Open Sans:300,400,700', 'sans-serif']
-//   }
-// });
-
 
 export default class Header extends Component {
   constructor(props) {
@@ -30,25 +22,23 @@ export default class Header extends Component {
   render() {
     return (
       <div className="header-navbar">
-        <Toolbar className="left-padding">
+        <Toolbar >
           <ToolbarGroup className="toolbar-container-items">
-            <ToolbarTitle
-              text="SF BAD DATE LIST"
-              textColor="#333333"
-              style={{
-                font: '2.7em'
-              }}
-            />
-            <FontIcon className="muidocs-icon-custom-sort" />
-
             <Link to="/submit-report" ><RaisedButton
               label="Report a Bad Date"
               labelColor="#fff"
               backgroundColor= "#D32F2F"
-              color= "#FAFAFA" /></Link>
+              color="#FAFAFA" /></Link>
           </ToolbarGroup>
         </Toolbar>
       </div>
     )
   }
 }
+
+// <ToolbarTitle
+//   text="SF BAD DATE LIST"
+//   style={{
+//     font: '2.7em'
+//   }}
+// />

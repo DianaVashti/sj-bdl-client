@@ -3,13 +3,19 @@ import PropTypes from 'prop-types';
 import {Link} from 'react-router'
 import RaisedButton from 'material-ui/RaisedButton';
 
-const labelStyle = {
-    font: '2.7em',
+const buttonStyle = {
+    height: '14vh',
+    width: '80%',
+    borderRadius: '50px',
+    fontFamily: "Georgia, serif",
+    marginBottom: 10,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
 }
 
-const buttonStyle = {
-    height: '6vh',
-    font: '2.7em',
+const labelStyle = {
+  fontSize: '2.2em'
 }
 
 export default class MobileLanding extends Component {
@@ -20,28 +26,30 @@ export default class MobileLanding extends Component {
   //react-router single page view
   render() {
     return (
-      <div className="landing-page-main-btn-container" >
-        <RaisedButton className = "landing-page-main-btn"
-          label = "Report a Bad Date"
-          backgroundColor = "#C62828"
-          fullWidth={true}
-          labelStyle = { labelStyle }
-          buttonStyle = { buttonStyle }
-          href = "/submit-report" />
-        <RaisedButton className = "landing-page-main-btn"
-          label = "Read Reports"
-          backgroundColor = "#EEEEEE"
-          fullWidth={true}
-          labelStyle = { labelStyle }
-          buttonStyle = { buttonStyle }
-          href = "/view-reports" />
-        <RaisedButton className = "landing-page-main-btn"
-          label = "Get Support / Resources"
-          backgroundColor = "#9E9E9E"
-          fullWidth={true}
-          labelStyle = { labelStyle }
-          buttonStyle = { buttonStyle }
-          href = "/support" />
+      <div className="landing-page-main-btn-container">
+        <div className="button-container">
+          <RaisedButton className="landing-page-main-btn"
+            label = "REPORT"
+            backgroundColor = "#C62828"
+            fullWidth={true}
+            style={ buttonStyle }
+            labelStyle={labelStyle}
+            href="/submit-report" />
+          <RaisedButton className="landing-page-main-btn"
+            label = "READ"
+            backgroundColor = "#EEEEEE"
+            fullWidth={true}
+            style = { buttonStyle  }
+            labelStyle={labelStyle}
+            href = "/view-reports" />
+          <RaisedButton className="landing-page-main-btn"
+            label = "RESOURCES"
+            backgroundColor = "#9E9E9E"
+            fullWidth={true}
+            style = { buttonStyle }
+            labelStyle={labelStyle}
+            href = "/support" />
+        </div>
       </div>
     )
   }

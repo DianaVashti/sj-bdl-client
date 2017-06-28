@@ -4,12 +4,16 @@ html {
   font-size: 18px;
 }
 
+body {
+  margin: 0;
+}
+
 ul,menu,dir {
   -webkit-padding-start: 0px;
 }
 
-.disable-scrolling {
-  overflow: hidden;
+.button-container{
+  margin: 10px;
 }
 
 .body-content {
@@ -20,19 +24,12 @@ ul,menu,dir {
 .footer-navbar {
   position: fixed;
   bottom: 0;
-  width: 99vw;
+  width: 100vw;
   display: flex;
   justify-content: space-around;
   align-items: center;
   z-index: 101;
   opacity: 100;
-}
-
-.header-navbar {
-  position: fixed;
-  top: 0;
-  width: 100vw;
-  z-index: 101;
 }
 
 .container {
@@ -43,6 +40,12 @@ ul,menu,dir {
 
 .card-container {
   border: 1px solid #F8F8FF;
+}
+
+.landing-page-main-btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .resource-header {
@@ -70,6 +73,11 @@ ul,menu,dir {
 
 .resource-name {
   width: 90%;
+}
+
+.toolbar-container {
+  display: flex;
+  width: 100%;
 }
 
 .toolbar-container-items {
@@ -157,10 +165,21 @@ p {
   width: 60%;
 }
 
+.header-navbar {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 101;
+}
+
 /* Smartphones (portrait and landscape) */
 @media only screen and (min-device-width : 1px) and (max-device-width : 599px) {
 
   .desktop-landing-message {
+    display: none;
+  }
+
+  .home-screen-desktop-header {
     display: none;
   }
 
@@ -170,6 +189,10 @@ p {
 @media only screen and (min-device-width : 600px) and (max-device-width : 899px) {
 
   .landing-page-main-btn-container {
+    display: none;
+  }
+
+  .home-screen-mobile-header {
     display: none;
   }
 
@@ -186,6 +209,10 @@ p {
     display: none;
   }
 
+  .home-screen-mobile-header {
+    display: none;
+  }
+
   .desktop-landing-message {
     font-family: 'Open Sans', sans-serif;
   }
@@ -196,6 +223,10 @@ p {
 @media only screen and (min-device-width : 1200px) {
 
   .landing-page-main-btn-container {
+    display: none;
+  }
+
+  .home-screen-mobile-header {
     display: none;
   }
 

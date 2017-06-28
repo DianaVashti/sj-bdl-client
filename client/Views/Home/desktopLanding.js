@@ -42,9 +42,11 @@ export default class DesktopLanding extends Component {
           </CardText>
           <CardActions>
             <Link to="/submit-report"><FlatButton
-              label="Make A Report" /></Link>
+              label="Make A Report"
+              backgroundColor= "#D32F2F" /></Link>
             <Link to="/view-reports" ><FlatButton
-              label="View Reports" /></Link>
+              label="View Reports"
+              backgroundColor= "#F0EBE9"/></Link>
           </CardActions>
         </Card>
       </div>
