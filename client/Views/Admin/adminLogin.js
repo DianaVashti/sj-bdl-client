@@ -47,7 +47,7 @@ export default class AdminLogin extends React.Component {
       <Link to="/"><FlatButton
         label="Cancel"
         primary={true}
-        onTouchTap={this.handleOnCancel} /></Link>,
+        onTouchTap={this.handleOnCancel.bind(this)} /></Link>,
       <FlatButton
         label="Submit"
         primary={true}
