@@ -12,13 +12,6 @@ import {
   CardText
 } from 'material-ui/Card'
 import Paper from 'material-ui/Paper'
-// import WebFont from 'webfontloader'
-
-// WebFont.load({
-//   google: {
-//     families: ['Open Sans:300,400,700', 'sans-serif']
-//   }
-// });
 
 
 export default class DesktopLanding extends Component {
@@ -48,12 +41,10 @@ export default class DesktopLanding extends Component {
             future violence and danger to others.</p>
           </CardText>
           <CardActions>
-            <FlatButton
-              label="Make A Report"
-              containerElement={<Link to="/submit-report" />} />
-            <FlatButton
-              label="View Reports"
-              containerElement={<Link to="/view-reports" />} />
+            <Link to="/submit-report"><FlatButton
+              label="Make A Report" /></Link>
+            <Link to="/view-reports" ><FlatButton
+              label="View Reports" /></Link>
           </CardActions>
         </Card>
       </div>

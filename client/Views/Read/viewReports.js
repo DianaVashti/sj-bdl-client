@@ -77,8 +77,7 @@ export default class ViewReports extends Component {
         <div >
           <form onSubmit={this.onFormSubmit}>
             <TextField
-              hintText="Enter any terms you wish to search by.
-                Example: Name, Vehicle type etc..."
+              hintText="Search (e.g. license plate #, e-mail, name etc...)"
               fullWidth={true}
               value={this.state.searchTerms}
               onChange={this.onInputChange}
@@ -88,7 +87,7 @@ export default class ViewReports extends Component {
         <div className="view-reports-container" >
           <ExpandableCard reports={this.state.reports} />
         </div>
-      </div>  
+      </div>
     )
   }
 }
