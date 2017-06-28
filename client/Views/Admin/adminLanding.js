@@ -1,7 +1,5 @@
 import React, {Component}  from 'react'
 import PropTypes from 'prop-types'
-// import WebFont from 'webfontloader'
-
 import AdminMain from './adminMain'
 import Footer from '../../footer'
 import Header from '../../header'

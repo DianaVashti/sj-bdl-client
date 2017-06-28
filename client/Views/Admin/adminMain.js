@@ -115,7 +115,7 @@ export default class AdminMain extends Component {
             onRequestClose={this.handleRequestClose} >
             <AdminResourceForm />
           </Popover>
-        <Link to="/"><RaisedButton
+        <RaisedButton
           label="Log Out"
           primary={false}
           onTouchTap={this.logOut}
@@ -123,5 +123,4 @@ export default class AdminMain extends Component {
       </div>
     )
   }
-
 }
