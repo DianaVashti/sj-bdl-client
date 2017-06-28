@@ -1,6 +1,6 @@
 import React, {Component}  from 'react'
 import PropTypes from 'prop-types';
-import {Link} from 'react-router'
+import {Link, browserHistory} from 'react-router'
 import axios from 'axios';
 
 import Paper from 'material-ui/Paper';
@@ -86,8 +86,19 @@ export default class AdminMain extends Component {
       });
     };
 
-  render() {
+  logOut() {
+    axios.defaults.headers.common['x-auth'] = sessionStorage.getItem('auth')
+    axios.delete('https://sj-bdl-api.herokuapp.com/api/admins/logout')
+      .then(() => {
+        browserHistory.push('/')
+        sessionStorage.clear()
+      })
+      .catch((error) => {
+        console.log('something went wrong')
+      })
+  }
 
+  render() {
     return (
       <div>
         <ReportsTable reports={this.state.reports} fetchReports={this.fetchReports} />
@@ -107,7 +118,7 @@ export default class AdminMain extends Component {
         <RaisedButton
           label="Log Out"
           primary={false}
-          containerElement={<Link to="/" />}
+          onTouchTap={this.logOut}
         />
       </div>
     )
