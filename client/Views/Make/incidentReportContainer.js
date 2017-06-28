@@ -44,29 +44,75 @@ export default class IncidentReportContainer extends Component {
     ]
   }
 
+  validateIncident(){
+    const {city, locationType, gender, assaultDescription} = this.state
+    console.log("IN INCIDENT COMP",city);
+    if(city.length === 0 || locationType.length === 0 || gender.length === 0 || assaultDescription.length === 0){
+      console.log("I'm chill");
+    } else {
+      console.log("Nah bro");
+    }
+  }
+
   componentWillMount() {
     this.setState(this.props.currentState);
   }
 
   componentWillUnmount(){
+    this.validateIncident()
     const viewIndex = 0
     this.props.updateOnDismount(this.state, viewIndex)
     scroll(0,0)
   }
 
+
   render() {
+    const {errors, message} = this.props
+    const {city, locationType, gender, date, assaultDescription} = this.state
     return (
       <div>
         <h1 className="incident">Incident Details</h1>
         <Form state={this.state} onChange={changes => this.setState(changes)}>
-          <Field fieldName='city' label='What city did the incident take place?*' type={Text}/>
-          <Field fieldName='locationType' label='Where did it happen?*' type={LocationTypeCustomFormComponent}/>
-          <Field fieldName='gender' label='Your gender (this helps us organize reports) ' type={Text}/>
-          <Field fieldName='assaultType' label='What happened? (select all that apply)' type={MultipleCheckbox} options={this.getAssaultTypeOptions()}/>
-          <Field fieldName='date' label='What day did it happen? (can be an estimation)' type={DatePicker}/>
-          <Field fieldName='assaultDescription' label='Please describe what happened.' type={Textarea} rows={5} />
+          <Field
+            fieldName='city'
+            label='What city did the incident take place?*'
+            type={Text}
+            errorText={errors && (city === "") ? message : ""}
+            errorStyle={{color: 'red'}}/>
+          <Field
+            fieldName='locationType'
+            label='Where did it happen?*'
+            type={LocationTypeCustomFormComponent}
+            errorText={errors && (locationType === "") ? message : ""}
+            errorStyle={{color: 'red'}}/>
+          <Field
+            fieldName='gender'
+            label='Your gender (this helps us organize reports)*'
+            type={Text}
+            errorText={errors && (gender === "") ? message : ""}
+            errorStyle={{color: 'red'}}/>
+          <Field
+            fieldName='assaultType'
+            label='What happened? (select all that apply)'
+            type={MultipleCheckbox}
+            options={this.getAssaultTypeOptions()}/>
+          <Field
+            fieldName='date'
+            label='What day did it happen? (can be an estimation)*'
+            type={DatePicker}
+            // errorText={errors && (date.valueOf.length === 0) ? message : ""}
+            errorStyle={{color: 'red'}}/>
+          <Field
+            fieldName='assaultDescription'
+            label='Please describe what happened.*'
+            type={Textarea} rows={5}
+            errorText={errors && (assaultDescription === "") ? message : ""}
+            errorStyle={{color: 'red'}} />
         </Form>
         <br/>
+        <pre>
+          {JSON.stringify(this.state, null, 2)}
+        </pre>
       </div>
     )
   }

@@ -19,6 +19,9 @@ export default class ReportForm extends Component {
     super(props);
     this.state = {
       finished: false,
+      errors: false,
+      incidentDetailsValid: false,
+      perpDetailsValid: false,
       stepIndex: 0,
       incidentDetails: {
         city: "",
@@ -53,7 +56,6 @@ export default class ReportForm extends Component {
         callingFrom: ""
       },
     };
-
     this.handleSubmitOnFinishBtnTap = this.handleSubmitOnFinishBtnTap.bind(this);
   }
 
@@ -77,18 +79,59 @@ export default class ReportForm extends Component {
     }
   }
 
+  validateForm(stepIndex){
+    console.log("inside validation", this.state.errors);
+    switch(stepIndex){
+      case 0:
+        const {city, locationType, assaultDescription} = this.state.incidentDetails
+        console.log("validateForm", this.state.incidentDetails.city);
+        const reporteeGender = this.state.incidentDetails.gender
+        if(city.length === 0 || locationType.length === 0 || reporteeGender.length === 0 || assaultDescription.length === 0){
+          return this.setState({errors: true})
+        } else {
+          return this.setState({ errors: false })
+        };
+      case 1:
+        const {name, perpType, age, gender, race, height, hair} = this.state.perpDetails
+        if(!name || !perpType || !gender || !age || !race || !height || !hair ){
+          return this.setState({errors: true})
+        } else {
+          return this.setState({ errors: false })
+        };
+      case 3:
+        const {coordinates} = this.state.geolocationDetails
+        if(coordinates.length === 0){
+          return this.setState({errors: true})
+        } else {
+          return this.setState({ errors: false })
+        }
+      default:
+        console.log("Default error");
+    }
+  }
+
   handleNext = () => {
     const {stepIndex} = this.state;
-    this.setState({
-      stepIndex: stepIndex + 1,
-      finished: stepIndex >= 3,
-    });
+    // console.log("handleNext",stepIndex);
+    this.validateForm(stepIndex)
+    if (this.state.errors){
+      return this.validateForm(stepIndex)
+    } else if (!this.state.errors){
+      this.setState({
+        stepIndex: stepIndex + 1,
+        finished: stepIndex >= 3,
+        errors: false,
+      });
+    }
   };
 
   handlePrev = () => {
     const {stepIndex} = this.state;
     if (stepIndex > 0) {
-      this.setState({stepIndex: stepIndex - 1});
+      this.setState({
+        stepIndex: stepIndex - 1,
+        errors: false
+      });
     }
   };
 
@@ -97,19 +140,27 @@ export default class ReportForm extends Component {
       case 0:
         return <IncidentReportContainer
           currentState={this.state.incidentDetails}
-          updateOnDismount={this.handleIncidentStateUpdate}/>;
+          updateOnDismount={this.handleIncidentStateUpdate}
+          errors={this.state.errors}
+          message="This field is required" />;
       case 1:
         return <PerpReportContainer
           currentState={this.state.perpDetails}
-          updateOnDismount={this.handleIncidentStateUpdate}/>;
+          updateOnDismount={this.handleIncidentStateUpdate}
+          errors={this.state.errors}
+          message="This field is required"/>;
       case 2:
         return <SupportReportContainer
           currentState={this.state.supportDetails}
-          updateOnDismount={this.handleIncidentStateUpdate}/>;
+          updateOnDismount={this.handleIncidentStateUpdate}
+          errors={this.state.errors}
+          message="This field is required"/>;
       case 3:
         return <GeolocationReportContainer
           currentState={this.state.geolocationDetails}
-          updateOnDismount={this.handleIncidentStateUpdate}/>;
+          updateOnDismount={this.handleIncidentStateUpdate}
+          errors={this.state.errors}
+          message="This field is required"/>;
       default:
         return 'Error error errrrorrrrr';
     }
@@ -143,7 +194,7 @@ export default class ReportForm extends Component {
   render(){
     const {finished, stepIndex} = this.state;
     const contentStyle = {margin: '0 16px'};
-
+    console.log("RENDER", this.state.errors);
     return(
       <div className="incident">
         <div style={{width: '100%', maxWidth: 700, margin: 'auto'}}>
@@ -190,9 +241,26 @@ export default class ReportForm extends Component {
                 </div>
               )}
             </div>
-          </Paper>  
+          </Paper>
         </div>
       </div>
     )
   }
 }
+
+
+
+// const {city, locationType, date, assaultDescription} = this.state.incidentDetails
+// const reporteeGender = this.state.incidentDetails.gender
+// const {name, perpType, age, gender, race, height, hair} = this.state.perpDetails
+// const {coordinates} = this.state.geolocationDetails
+//
+// if ((this.state.stepIndex === 0) && (!city || !locationType || !reporteeGender || !assaultDescription )){
+//   this.setState({errors: true})
+// } else if ((this.state.stepIndex === 1) && (!name || !perpType || !gender || !age || !race || !height || !hair )){
+//   this.setState({errors: true})
+// } else if (this.state.stepIndex === 3 && (coordinates.length === 0)){
+//   this.setState({errors: true})
+// } else {
+//   this.setState({errors: false})
+// }

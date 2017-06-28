@@ -55,24 +55,81 @@ export default class PerpReportContainer extends Component {
   }
 
   render () {
+    const {errors, message} = this.props
+    const {name, perpType, gender, age, race, height, hair} = this.state
     return (
       <div>
         <h1>Perpetrator Details</h1>
         <Form state={this.state} onChange={changes => this.setState(changes)}>
-          <Field fieldName='name' label='Perpetrators name*' type={Text}/>
-          <Field fieldName='phone' label='Perpetrators phone number (if applicable)' type={Text}/>
-          <Field fieldName='email' label='Perpetrators email (if applicable)' type={Text}/>
-          <Field fieldName='perpType' label='Perpetrator was a (choose one)*:' type={Radio} options={this.getPerpTypeOptions()} />
-          <Field fieldName='adServiceUsed' label='Did perpetrator contact you through an ad? (if so, please list advertising website)' type={Text}/>
-          <Field fieldName='gender' label='Perpetrators gender*' type={Text}/>
-          <Field fieldName='age' label='Perpetrators age*' type={Text}/>
-          <Field fieldName='race' label='Perpetrators race/ethnicity*' type={Radio} options={this.getRaceTypeOptions()}/>
-          <Field fieldName='height' label='Perpetrator height*' type={Text}/>
-          <Field fieldName='hair' label='Perpetrator hair type/color*' type={Text}/>
-          <Field fieldName='attributes' label='Any obvious physical attributes? (scars, tattoos, etc)*' type={Textarea} rows={2}/>
-          <Field fieldName='vehicle' label='Perpetrator vehicle information (color, make, model)' type={Text}/>
+          <Field
+            fieldName='name'
+            label='Perpetrators name*'
+            type={Text}
+            errorText={errors && (name === "") ? message : ""}
+            errorStyle={{color: 'red'}}/>
+          <Field
+            fieldName='phone'
+            label='Perpetrators phone number (if applicable)'
+            type={Text}/>
+          <Field
+            fieldName='email'
+            label='Perpetrators email (if applicable)'
+            type={Text}/>
+          <Field
+            fieldName='perpType'
+            label='Perpetrator was a (choose one)*:'
+            type={Radio} options={this.getPerpTypeOptions()}
+            errorText={errors && (perpType === "") ? message : ""}
+            errorStyle={{color: 'red'}}/>
+          <Field
+            fieldName='adServiceUsed'
+            label='Did perpetrator contact you through an ad? (if so, please list advertising website)'
+            type={Text}/>
+          <Field
+            fieldName='gender'
+            label='Perpetrators gender*'
+            type={Text}
+            errorText={errors && (gender === "") ? message : ""}
+            errorStyle={{color: 'red'}}/>
+          <Field
+            fieldName='age'
+            label='Perpetrators age*'
+            type={Text}
+            errorText={errors && (age === "") ? message : ""}
+            errorStyle={{color: 'red'}}/>
+          <Field
+            fieldName='race'
+            label='Perpetrators race/ethnicity*'
+            type={Radio}
+            options={this.getRaceTypeOptions()}
+            errorText={errors && (race === "") ? message : ""}
+            errorStyle={{color: 'red'}}/>
+          <Field
+            fieldName='height'
+            label='Perpetrator height*'
+            type={Text}
+            errorText={errors && (height === "") ? message : ""}
+            errorStyle={{color: 'red'}}/>
+          <Field
+            fieldName='hair'
+            label='Perpetrator hair type/color*'
+            type={Text}
+            errorText={errors && (hair === "") ? message : ""}
+            errorStyle={{color: 'red'}}/>
+          <Field
+            fieldName='attributes'
+            label='Any obvious physical attributes? (scars, tattoos, etc)'
+            type={Textarea}
+            rows={2}/>
+          <Field
+            fieldName='vehicle'
+            label='Perpetrator vehicle information (color, make, model)'
+            type={Text}/>
         </Form>
         <br/>
+        <pre>
+          {JSON.stringify(this.state, null, 2)}
+        </pre>
       </div>
     )
   }
