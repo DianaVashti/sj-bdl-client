@@ -8,6 +8,10 @@ import ActionViewList from 'material-ui/svg-icons/action/view-list'
 
 const pStyle={font: '11px "Open Sans"'}
 
+const bgColor = {
+  backgroundColor: "#F0EBE9"
+}
+
 export default class Footer extends Component {
   constructor(props){
     super(props);
@@ -17,7 +21,7 @@ export default class Footer extends Component {
   render() {
     return (
       <div className="footer-navbar">
-        <BottomNavigation >
+        <BottomNavigation style={bgColor}>
           <Link to="/"><BottomNavigationItem
             label="Home"
             icon={<ActionHome />} /></Link>
