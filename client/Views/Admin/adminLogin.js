@@ -36,12 +36,18 @@ export default class AdminLogin extends React.Component {
     })
   }
 
+  handleOnCancel() {
+    this.setState({ open: false }, () => {
+      browserHistory.push('/')
+    })
+  }
+
   render() {
     const actions = [
       <Link to="/"><FlatButton
         label="Cancel"
         primary={true}
-        onTouchTap={this.handleClose} /></Link>,
+        onTouchTap={this.handleOnCancel} /></Link>,
       <FlatButton
         label="Submit"
         primary={true}
@@ -56,8 +62,7 @@ export default class AdminLogin extends React.Component {
           title="Dialog With Actions"
           actions={actions}
           modal={true}
-          open={this.state.open}
-        >
+          open={this.state.open}>
           <TextField
             hintText="Email"
             floatingLabelText="Email"
