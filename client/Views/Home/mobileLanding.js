@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types';
 import {Link} from 'react-router'
-import Button from '../../../react-bootstrap/lib/Button'
+import Button from 'react-bootstrap/lib/Button'
 import InstallIcon from './installIcon'
 
 
