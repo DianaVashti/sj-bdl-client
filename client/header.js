@@ -10,6 +10,7 @@ import RaisedButton from 'material-ui/RaisedButton'
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
 import Paper from 'material-ui/Paper';
 import Button from 'react-bootstrap/lib/Button'
+import {LinkContainer} from 'react-router-bootstrap'
 
 const toolBarStyles = {
 	height: '70px',
@@ -43,7 +44,9 @@ export default class Header extends Component {
             <div className='logo-container'>
               <img src='images/SF-BDL-Ladybug-Logo.svg' height={'65px'} width={'75px'}/>
             </div>
-            <Link to='/submit-report'><Button className='report-header-btn'>REPORT A BAD DATE</Button></Link>
+            <LinkContainer to='/submit-report'>
+              <Button className='report-header-btn'>REPORT A BAD DATE</Button>
+            </LinkContainer>
           </ToolbarGroup>
         </Toolbar>
       </div>
