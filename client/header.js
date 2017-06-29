@@ -43,7 +43,7 @@ export default class Header extends Component {
             <div className='logo-container'>
               <img src='images/SF-BDL-Ladybug-Logo.svg' height={'65px'} width={'75px'}/>
             </div>
-            <Button className='report-header-btn' href='/submit-report'>REPORT A BAD DATE</Button>
+            <Link to='/submit-report'><Button className='report-header-btn'>REPORT A BAD DATE</Button></Link>
           </ToolbarGroup>
         </Toolbar>
       </div>
