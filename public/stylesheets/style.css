@@ -6,11 +6,17 @@ html {
 
 body {
   margin: 0px;
+  color: #fafafa
 }
 
 ul,menu,dir {
   -webkit-padding-start: 0px;
 }
+
+.button-text {
+  height: 1v2h;
+}
+
 
 .button-container{
   margin: 42px;
@@ -21,8 +27,7 @@ ul,menu,dir {
 }
 
 .body-content {
-  height: 90%;
-  margin-left: 15px;
+  margin-left: 10px;
   margin-right: 10px;
   margin-top: 60px;
   margin-bottom: 60px
@@ -95,7 +100,7 @@ ul,menu,dir {
   justify-content: flex-end;
   padding-left: 100px;
   background-image: url('./SF-BDL-Ladybug-Logo.svg');
-  background-size: 80px 60px;
+  background-size: 75px 55px;
   background-repeat: no-repeat;
   background-position: left center;
 }
@@ -120,8 +125,7 @@ ul,menu,dir {
 .form-container {
   display: flex;
   flex-direction: column;
-  margin: 12px;
-  padding: 12px;
+  font-size: smaller;
 }
 
 .form-items-column {
@@ -174,7 +178,9 @@ ul,menu,dir {
   width: 250px;
 }
 
-
+.map-container {
+  height: 50%;
+}
 
 p {
   font-size: 1em;

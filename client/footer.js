@@ -10,7 +10,7 @@ const pStyle={font: '11px "Open Sans"'}
 
 const bgColor = {
   backgroundColor: "#C8C5C5",
-  boxShadow: '0px -1px 8px 0px rgba(10, 2, 0, .2)'
+  boxShadow: '0px -1px 8px 0px rgba(10, 2, 0, .8)'
 }
 
 export default class Footer extends Component {
