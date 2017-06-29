@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import {Link} from 'react-router'
 import Button from 'react-bootstrap/lib/Button'
 import InstallIcon from './installIcon'
+import {LinkContainer} from 'react-router-bootstrap'
+
 
 
 const makeButtonStyle = {
@@ -51,15 +53,16 @@ export default class MobileLanding extends Component {
     return (
       <div className="landing-page-main-btn-container">
         <div className="button-container">
-          <Link to='/submit-report'><Button style={makeButtonStyle}>
-            MAKE
-          </Button></Link>
-          <Link to='/view-reports'><Button style={readButtonStyle}>
+          <LinkContainer to='/submit-report'>
+            <Button style={makeButtonStyle}>
+              MAKE
+            </Button></LinkContainer>
+          <LinkContainer to='/view-reports'><Button style={readButtonStyle}>
             READ
-          </Button></Link>
-          <Link to='/support'><Button style={supportButtonStyle}>
+          </Button></LinkContainer>
+          <LinkContainer to='/support'><Button style={supportButtonStyle}>
             SUPPORT
-          </Button></Link>
+          </Button></LinkContainer>
         </div>
         <InstallIcon />
       </div>
