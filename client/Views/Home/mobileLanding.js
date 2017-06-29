@@ -4,14 +4,10 @@ import {Link} from 'react-router'
 import RaisedButton from 'material-ui/RaisedButton';
 
 const buttonStyle = {
-    height: '14vh',
-    width: '80%',
-    borderRadius: '50px',
-    fontFamily: "Georgia, serif",
-    marginBottom: 10,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
+  height: '14vh',
+  width: '80%',
+  borderRadius: '10px',
+  fontFamily: "Georgia, serif"
 }
 
 const labelStyle = {
@@ -33,21 +29,21 @@ export default class MobileLanding extends Component {
             backgroundColor = "#C62828"
             fullWidth={true}
             style={ buttonStyle }
-            labelStyle={labelStyle}
+            // labelStyle={labelStyle}
             href="/submit-report" />
           <RaisedButton className="landing-page-main-btn"
             label = "READ"
             backgroundColor = "#EEEEEE"
             fullWidth={true}
             style = { buttonStyle  }
-            labelStyle={labelStyle}
+            // labelStyle={labelStyle}
             href = "/view-reports" />
           <RaisedButton className="landing-page-main-btn"
             label = "RESOURCES"
             backgroundColor = "#9E9E9E"
             fullWidth={true}
             style = { buttonStyle }
-            labelStyle={labelStyle}
+            // labelStyle={labelStyle}
             href = "/support" />
         </div>
       </div>
