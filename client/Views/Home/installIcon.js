@@ -17,7 +17,9 @@ export default class InstallIcon extends Component {
     this.handleOnClick = this.handleOnClick.bind(this)
   }
 
-  handleOnClick(){
+  handleOnClick(e){
+    e.stopPropagation()
+    e.preventDefault()
     !this.state.open
       ? this.setState({open: true})
       : this.setState({open: false})
