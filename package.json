@@ -7,7 +7,6 @@
     "start": "./node_modules/.bin/webpack -d && node ./bin/www",
     "start:dev": "./node_modules/.bin/webpack -d && nodemon ./bin/www --exec babel-node",
     "heroku-postbuild": "npm run build",
-    "postinstall": "npm install",
     "build": "./node_modules/.bin/webpack -d",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "webpack --watch"
