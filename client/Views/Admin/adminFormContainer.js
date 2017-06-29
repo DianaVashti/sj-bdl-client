@@ -158,8 +158,8 @@ export default class AdminFormContainer extends Component {
                   </TableHeader>
                   <TableBody displayRowCheckbox={false}>
                     <TableRow>
-                      <TableRowColumn>Location</TableRowColumn>
-                      <p className="admin-form-item">Long Text</p>
+                      <TableRowColumn>Assault Type</TableRowColumn>
+                      <p className="admin-form-item">{report.assaultType.join()}</p>
                     </TableRow>
                     <TableRow>
                       <TableRowColumn>Support needed?</TableRowColumn>

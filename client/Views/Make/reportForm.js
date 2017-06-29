@@ -51,7 +51,7 @@ export default class ReportForm extends Component {
       },
       geolocationDetails: {
         type: 'Point',
-        coordinates: []
+        coordinates: [-122.4145, 37.7847]
       },
       perpDetails: {
         name: "",
