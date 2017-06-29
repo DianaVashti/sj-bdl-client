@@ -19,11 +19,6 @@ import TextField from 'material-ui/TextField';
 import Footer from '../../footer'
 import Header from '../../header'
 
-const displayRowStyle = {
-  display: 'flex',
-  flexDirection: 'column',
-}
-
 const iconStyles = {
   marginRight: 24,
 };
@@ -67,22 +62,22 @@ export default class ResourcesContainer extends Component {
       this.state.resources.map((resource) => (
         <div className="resource-name" key={resource._id}>
           <div className="resource-container">
-            <div className="resource-header">
-              <TextField
-                id="text-field-default"
-                defaultValue={resource.name}
-                underlineShow={false}
-                style={{fontSize: "1.1em", paddingLeft: 15}}/>
-              <a href={"tel:"+resource.phone}><ListItem
-                rightIcon={<CommunicationCall style={iconStyles} color={indigo500} />}
-              /></a>
-            </div>
-            <Divider />
-            <p className="resource-p-text">
-              {resource.streetAddress}<br/>
-              {resource.city+", "+resource.state+" "+resource.zipCode}<br/>
-              {resource.type}
-            </p>
+            <Paper zDepth={1} style={{backgroundColor: "#FFFFFF", padding: 5}}>
+              <div className="resource-header">
+                <p className="title-p-text">
+                  {resource.name}
+                </p>
+                <a href={"tel:"+resource.phone}><ListItem
+                  rightIcon={<CommunicationCall style={iconStyles} color={indigo500} />}
+                /></a>
+              </div>
+              <Divider />
+              <p className="resource-p-text">
+                {resource.streetAddress}<br/>
+                {resource.city+", "+resource.state+" "+resource.zipCode}<br/>
+                {resource.type}
+              </p>
+            </Paper>
           </div>
         </div>
       ))
@@ -91,9 +86,15 @@ export default class ResourcesContainer extends Component {
 
   render(){
     return(
-      <div className="support-container" style={displayRowStyle}>
+      <div className="support-container">
         {this.populateResources()}
       </div>
     )
   }
 }
+
+// <TextField
+//   id="text-field-default"
+//   defaultValue={resource.name}
+//   underlineShow={false}
+//   style={{fontSize: "1.1em", paddingLeft: 15}}/>
