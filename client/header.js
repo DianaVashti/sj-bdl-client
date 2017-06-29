@@ -17,7 +17,7 @@ const toolBarStyles = {
   boxShadow: '0px 1px 1px 0px rgba(10, 2, 0, .35)',
   backgroundColor: '#d8d6d6',
   fontFamily: "Open Sans",
-  width: '100%'
+  width: '100%',
 }
 
 const groupStyles = {

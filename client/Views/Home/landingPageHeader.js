@@ -25,6 +25,8 @@ const styles = {
   justifyContent: 'flex-end',
   boxShadow: '0px 1px 1px 0px rgba(10, 2, 0, 0.45)',
   backgroundColor: '#d8d6d6',
+  paddingLeft: 20,
+  paddingRight: 20,
 }
 
 export default class Header extends Component {
