@@ -9,17 +9,19 @@ import MenuItem from 'material-ui/MenuItem'
 import RaisedButton from 'material-ui/RaisedButton'
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
 import Paper from 'material-ui/Paper';
+import Button from 'react-bootstrap/lib/Button'
 
 const toolBarStyles = {
 	height: '70px',
-  justifyContent: 'flex-end',
-  boxShadow: '0px 1px 8px 0px rgba(10, 2, 0, 0.8)',
-  backgroundColor: '#C8C5C5'
+  justifyContent: 'space-between',
+  boxShadow: '0px 1px 1px 0px rgba(10, 2, 0, .35)',
+  backgroundColor: '#d8d6d6',
+  fontFamily: "Open Sans",
+  width: '100%'
 }
 
 const groupStyles = {
   height: '70px',
-  justifyContent: 'flex-end',
 }
 
 export default class Header extends Component {
@@ -38,11 +40,10 @@ export default class Header extends Component {
           <ToolbarGroup
             className="toolbar-container-items"
             style={groupStyles}>
-            <Link to="/submit-report" ><RaisedButton
-              label="Report a Bad Date"
-							labelStyle={{fontSize: ".9em"}}
-              labelColor="#fff"
-              backgroundColor= "#D32F2F"/></Link>
+            <div className='logo-container'>
+              <img src='images/SF-BDL-Ladybug-Logo.svg' height={'65px'} width={'75px'}/>
+            </div>
+            <Button className='report-header-btn' href='/submit-report'>REPORT A BAD DATE</Button>
           </ToolbarGroup>
         </Toolbar>
       </div>

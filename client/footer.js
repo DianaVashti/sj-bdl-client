@@ -11,8 +11,8 @@ const pStyle={
 }
 
 const bgColor = {
-  backgroundColor: "#C8C5C5",
-  boxShadow: '0px -1px 8px 0px rgba(10, 2, 0, .8)'
+  backgroundColor: "#d8d6d6",
+  boxShadow: '0px -1px 1px 0px rgba(10, 2, 0, .35)'
 }
 
 export default class Footer extends Component {
@@ -27,7 +27,7 @@ export default class Footer extends Component {
         <BottomNavigation style={bgColor}>
           <Link to="/"><BottomNavigationItem
             label="Home"
-            icon={<ActionHome />} /></Link>
+            icon={<ActionHome style={{color: '#090200'}}/>} /></Link>
           <Link to="/view-reports"><BottomNavigationItem
             label="Read"
             icon={<ActionViewList />} /></Link>
