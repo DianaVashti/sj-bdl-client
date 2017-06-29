@@ -6,7 +6,9 @@ import ActionHome from 'material-ui/svg-icons/action/home';
 import ActionFavorite from 'material-ui/svg-icons/action/favorite'
 import ActionViewList from 'material-ui/svg-icons/action/view-list'
 
-const pStyle={font: '11px "Open Sans"'}
+const pStyle={
+  // font: '11px "Open Sans"'
+}
 
 const bgColor = {
   backgroundColor: "#C8C5C5",
