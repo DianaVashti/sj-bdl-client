@@ -42,7 +42,7 @@ h2.button-text {
 }
 
 .btn.btn-default {
-  font-size: 40px;
+  font-size: 35px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -60,11 +60,11 @@ h2.button-text {
 
 .button-container{
   margin: 42px;
-  margin-top: 80px;
+  margin-top: 30;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 60%;
+  height: 65%;
   background-color: #fafafa
 }
 
