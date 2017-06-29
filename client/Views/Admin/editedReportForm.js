@@ -16,7 +16,7 @@ export default class EditedReportForm extends Component {
 
   postEditedReport() {
     axios.defaults.headers.common['x-auth'] = sessionStorage.getItem('auth');
-    axios.post(`https://sj-bdl-api.herokuapp.com/api/reports/${this.props.report._id}`, this.state)
+    axios.post(`http://localhost:8080/api/reports/${this.props.report._id}`, this.state)
       .then((res) => {
         this.props.fetchReports();
         browserHistory.push('/admin-reports');
