@@ -1,14 +1,30 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types';
 import {Link} from 'react-router'
-import RaisedButton from 'material-ui/RaisedButton';
-import InstallIcon from './installIcon'
+import Button from 'react-bootstrap/lib/Button'
 
-const buttonStyle = {
+const makeButtonStyle = {
   height: '14vh',
-  width: '80%',
-  borderRadius: '10px',
-  // fontFamily: "Georgia, serif"
+  width: '100%',
+  borderRadius: 20,
+  fontFamily: "Avenir, serif",
+  backgroundColor: '#C62828',
+}
+
+const readButtonStyle = {
+  height: '14vh',
+  width: '100%',
+  borderRadius: 20,
+  fontFamily: "Avenir, serif",
+  backgroundColor: "#EEEEEE"
+}
+
+const supportButtonStyle = {
+  height: '14vh',
+  width: '100%',
+  borderRadius: 20,
+  fontFamily: "Avenir, serif",
+  backgroundColor: "#9E9E9E"
 }
 
 const labelStyle = {
@@ -25,27 +41,15 @@ export default class MobileLanding extends Component {
     return (
       <div className="landing-page-main-btn-container">
         <div className="button-container">
-          <RaisedButton className="landing-page-main-btn"
-            label = "REPORT"
-            backgroundColor = "#C62828"
-            fullWidth={true}
-            style={ buttonStyle }
-            // labelStyle={labelStyle}
-            href="/submit-report" />
-          <RaisedButton className="landing-page-main-btn"
-            label = "READ"
-            backgroundColor = "#EEEEEE"
-            fullWidth={true}
-            style = { buttonStyle  }
-            // labelStyle={labelStyle}
-            href = "/view-reports" />
-          <RaisedButton className="landing-page-main-btn"
-            label = "RESOURCES"
-            backgroundColor = "#9E9E9E"
-            fullWidth={true}
-            style = { buttonStyle }
-            // labelStyle={labelStyle}
-            href = "/support" />
+          <Button style={makeButtonStyle} href="/submit-report">
+            <div className='button-text'>MAKE</div>
+          </Button>
+          <Button style={readButtonStyle} href="/view-reports">
+            <div className='button-text'>READ</div>
+          </Button>
+          <Button style={supportButtonStyle} href="/support">
+            <div className='button-text'>SUPPORT</div>
+          </Button>
         </div>
         <InstallIcon />
       </div>

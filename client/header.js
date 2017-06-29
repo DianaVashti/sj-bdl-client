@@ -13,7 +13,7 @@ import Paper from 'material-ui/Paper';
 const toolBarStyles = {
 	height: '70px',
   justifyContent: 'flex-end',
-  boxShadow: '0px 1px 8px 0px rgba(10, 2, 0, 0.2)',
+  boxShadow: '0px 1px 8px 0px rgba(10, 2, 0, 0.8)',
   backgroundColor: '#C8C5C5'
 }
 

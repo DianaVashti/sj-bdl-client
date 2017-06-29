@@ -101,7 +101,7 @@ export default class ResourcesContainer extends Component {
               defaultValue={resource.type}
               underlineShow={false}
             /><br />
-          </div>  
+          </div>
         </div>
       ))
     )
@@ -109,7 +109,7 @@ export default class ResourcesContainer extends Component {
 
   render(){
     return(
-      <div className="container" style={displayRowStyle}>
+      <div className="support-container" style={displayRowStyle}>
         {this.populateResources()}
       </div>
     )

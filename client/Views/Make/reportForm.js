@@ -26,6 +26,10 @@ const coords = {
   lng: -122.4145
 };
 
+const fieldStyle = {
+  height: '20px'
+}
+
 const params = {v: '3.exp', key: 'AIzaSyBUBMWbJJ3r0zbGRNou0KpfLT3KatbgvVg'}
 
 export default class ReportForm extends Component {
@@ -185,7 +189,7 @@ export default class ReportForm extends Component {
     switch (stepIndex) {
       case 0:
         return(
-          <div>
+          <div className='form-container'>
             <h1>Incident Details</h1>
             <Form state={this.state} onChange={changes => this.setState(changes)}>
               <Field
@@ -227,7 +231,7 @@ export default class ReportForm extends Component {
         )
       case 1:
         return (
-          <div>
+          <div className='form-container'>
             <h1>Perpetrator Details</h1>
             <Form state={this.state} onChange={changes => this.setState(changes)}>
               <Field
@@ -300,7 +304,7 @@ export default class ReportForm extends Component {
         )
       case 2:
         return(
-          <div>
+          <div className='form-container'>
             <h1>Support Details</h1>
             <Form state={this.state} onChange={changes => this.setState(changes)}>
               <Field fieldName='supportDetails.needSupport' label='Do you need support? If yes, what kind of support do you need.' type={Textarea} rows={5} />
@@ -313,23 +317,25 @@ export default class ReportForm extends Component {
         )
       case 3:
         return(
-          <div>
+          <div className='form-container'>
             <h3>Please drag the pin to the approximate location where the incident occured</h3>
             <h5>You can zoom in to add a more specific location</h5>
-            <Gmaps
-              height={'500px'}
-              lat={coords.lat}
-              lng={coords.lng}
-              zoom={12}
-              loadingMessage={'Map Loading'}
-              params={params}
-              onMapCreated={this.onMapCreated}>
-              <Marker
+            <div className='map-container'>
+              <Gmaps
+                height={'100%'}
                 lat={coords.lat}
                 lng={coords.lng}
-                draggable={true}
-                onDragEnd={this.onDragEnd} />
-            </Gmaps>
+                zoom={12}
+                loadingMessage={'Map Loading'}
+                params={params}
+                onMapCreated={this.onMapCreated}>
+                <Marker
+                  lat={coords.lat}
+                  lng={coords.lng}
+                  draggable={true}
+                  onDragEnd={this.onDragEnd} />
+              </Gmaps>
+            </div>
           </div>
         )
       default:
@@ -404,7 +410,7 @@ export default class ReportForm extends Component {
 
     return(
       <div className="incident">
-        <div style={{width: '100%', maxWidth: 700, margin: 'auto'}}>
+        <div style={{width: '100%', maxWidth: 700, margin: 'auto', paddingBottom: 65, paddingTop: 20}}>
           <Paper zDepth={1} >
               <Stepper activeStep={stepIndex}>
                 <Step>
