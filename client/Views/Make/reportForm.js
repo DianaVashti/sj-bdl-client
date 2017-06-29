@@ -470,13 +470,9 @@ export default class ReportForm extends Component {
               </Stepper>
             <div style={contentStyle}>
               {finished ? (
-                <div>
-                  <a
-                    href="/"
-                  >
-                    Click here
-                  </a> to return to the home page.
-                </div>
+                <Link to='/'><div>
+                    Click here to return to the home page.
+                </div></Link>
               ) : (
                 <div>
                   <div>{this.getStepContent(stepIndex)}</div>

@@ -46,21 +46,20 @@ export default class MobileLanding extends Component {
   onClick(e){
     e.stopPropagation()
   }
-  //notes: href prop on raised buttons is a redirect, not going to be like
-  //react-router single page view
+
   render() {
     return (
       <div className="landing-page-main-btn-container">
         <div className="button-container">
-          <Button style={makeButtonStyle} href="/submit-report">
+          <Link to='/submit-report'><Button style={makeButtonStyle}>
             MAKE
-          </Button>
-          <Button style={readButtonStyle} href="/view-reports">
+          </Button></Link>
+          <Link to='/view-reports'><Button style={readButtonStyle}>
             READ
-          </Button>
-          <Button style={supportButtonStyle} href="/support">
+          </Button></Link>
+          <Link to='/support'><Button style={supportButtonStyle}>
             SUPPORT
-          </Button>
+          </Button></Link>
         </div>
         <InstallIcon />
       </div>
