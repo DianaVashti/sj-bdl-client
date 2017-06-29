@@ -11,6 +11,10 @@ import Footer from '../../footer'
 import ExpandableCard from './expandableCard'
 import Header from '../../header'
 
+const searchBoxStyle = {
+  fontSize: '12px'
+}
+
 export default class ViewReports extends Component {
   constructor(props) {
     super(props);
@@ -73,14 +77,15 @@ export default class ViewReports extends Component {
 
   render() {
     return (
-      <div>
-        <div >
+      <div className='reports-page-container'>
+        <div>
           <form onSubmit={this.onFormSubmit}>
             <TextField
               hintText="Search (e.g. license plate #, e-mail, name etc...)"
               fullWidth={true}
               value={this.state.searchTerms}
               onChange={this.onInputChange}
+              style={searchBoxStyle}
             />
           </form>
         </div>

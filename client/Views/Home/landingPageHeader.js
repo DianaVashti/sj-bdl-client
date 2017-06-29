@@ -8,8 +8,20 @@ import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui
 import Paper from 'material-ui/Paper'
 
 const titleStyle = {
-  fontSize: ".8em" 
+  fontSize: ".8em"
 }
+
+const styles = {
+  height: '70px',
+  justifyContent: 'flex-end',
+  boxShadow: '0px 1px 8px 0px rgba(10, 2, 0, 0.2)',
+  backgroundColor: '#C8C5C5' 
+}
+
+// const groupStyles = {
+//   height: '70px',
+//   justifyContent: 'flex-end',
+// }
 
 export default class Header extends Component {
   constructor(props) {
@@ -20,8 +32,11 @@ export default class Header extends Component {
     return (
       <div className="mobile-header">
         <div className="header-navbar">
-          <Toolbar className="toolbar-container">
-            <ToolbarGroup className="toolbar-container-items">
+          <Toolbar
+						className="toolbar-container"
+						style={styles}>
+            <ToolbarGroup
+              className="toolbar-container-items">
               <ToolbarTitle
                 text="SF BAY BAD DATE LIST"
                 style={titleStyle}

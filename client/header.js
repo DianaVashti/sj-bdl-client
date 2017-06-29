@@ -10,6 +10,18 @@ import RaisedButton from 'material-ui/RaisedButton'
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
 import Paper from 'material-ui/Paper';
 
+const toolBarStyles = {
+	height: '70px',
+  justifyContent: 'flex-end',
+  boxShadow: '0px 1px 8px 0px rgba(10, 2, 0, 0.2)',
+  backgroundColor: '#C8C5C5'
+}
+
+const groupStyles = {
+  height: '70px',
+  justifyContent: 'flex-end',
+}
+
 export default class Header extends Component {
   constructor(props) {
     super(props);
@@ -18,27 +30,21 @@ export default class Header extends Component {
     };
   }
 
-
   render() {
     return (
       <div className="header-navbar">
-        <Toolbar >
-          <ToolbarGroup className="toolbar-container-items">
+        <Toolbar
+          style={toolBarStyles} >
+          <ToolbarGroup
+            className="toolbar-container-items"
+            style={groupStyles}>
             <Link to="/submit-report" ><RaisedButton
               label="Report a Bad Date"
               labelColor="#fff"
-              backgroundColor= "#D32F2F"
-              color="#FAFAFA" /></Link>
+              backgroundColor= "#D32F2F"/></Link>
           </ToolbarGroup>
         </Toolbar>
       </div>
     )
   }
 }
-
-// <ToolbarTitle
-//   text="SF BAD DATE LIST"
-//   style={{
-//     font: '2.7em'
-//   }}
-// />

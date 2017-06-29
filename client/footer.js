@@ -9,7 +9,8 @@ import ActionViewList from 'material-ui/svg-icons/action/view-list'
 const pStyle={font: '11px "Open Sans"'}
 
 const bgColor = {
-  backgroundColor: "#F0EBE9"
+  backgroundColor: "#C8C5C5",
+  boxShadow: '0px -1px 8px 0px rgba(10, 2, 0, .2)'
 }
 
 export default class Footer extends Component {
