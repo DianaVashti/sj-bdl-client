@@ -16,8 +16,10 @@ import MultipleCheckbox from 'simple-react-form-material-ui/lib/multiple-checkbo
 import Text from 'simple-react-form-material-ui/lib/text'
 import Textarea from 'simple-react-form-material-ui/lib/textarea'
 
+import ErrorModal from '../../errorModal'
 import Footer from '../../footer'
 import LocationTypeCustomFormComponent from './locationTypeCustomFormComponent'
+import SuccessModal from '../../successModal'
 
 const coords = {
   lat: 37.7847,
@@ -37,6 +39,8 @@ export default class ReportForm extends Component {
       finished: false,
       stepIndex: 0,
       errors: false,
+      openSuccess: false,
+      openError: false,
       incidentDetails: {
         city: "",
         locationType: "",
@@ -91,6 +95,8 @@ export default class ReportForm extends Component {
         finished: prevState.finished,
         stepIndex: prevState.stepIndex,
         errors: prevState.errors,
+        openSuccess: prevState.openSuccess,
+        openError: prevState.openError,
         incidentDetails: {
           city: prevState.incidentDetails.city,
           locationType: prevState.incidentDetails.locationType,
@@ -354,11 +360,20 @@ export default class ReportForm extends Component {
     .then((res) => {
       // show a success message to user
       console.log('Success', res)
-      browserHistory.push('/view-reports')
+      this.setState({openSuccess: true})
+      setTimeout(() => {
+        this.setState({openSuccess: false})
+        browserHistory.push('/')
+      }, 5000)
     })
     .catch((error) => {
       // show error message to user
       console.log('something went wrong ', error)
+      this.setState({openError: true})
+      setTimeout(() => {
+        this.setState({openError: false})
+        browserHistory.push('/submit-form')
+      }, 5000)
     })
   }
 
@@ -440,6 +455,12 @@ export default class ReportForm extends Component {
               )}
             </div>
           </Paper>
+          <div>
+            {this.state.openSuccess ? <SuccessModal /> : null}
+          </div>
+          <div>
+            {this.state.openError ? <ErrorModal /> : null}
+          </div>
         </div>
       </div>
     )

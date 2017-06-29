@@ -54,6 +54,22 @@ ul,menu,dir {
   border: 1px solid #F8F8FF;
 }
 
+.how-to-small {
+  font-size: .6em;
+  text-align: center;
+  height: 2vh;
+  font-style: italic;
+}
+
+.how-to-big {
+  font-size: .6em;
+  text-align: center;
+  z-index: 103;
+  opacity: 100%;
+  position: fixed;
+  bottom: 65px;
+}
+
 .landing-page-main-btn{
   display: flex;
   align-items: center;
@@ -113,7 +129,7 @@ ul,menu,dir {
 }
 
 .incident {
-  font-family: 'Open Sans', sans-serif;
+  /*font-family: 'Open Sans', sans-serif;*/
 }
 
 .footer {
@@ -205,6 +221,20 @@ p {
   top: 0;
   width: 100vw;
   z-index: 101;
+}
+
+.status-modal  {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  float: left;
+  transform: translate(-50%, -50%);
+  width: 75%;
+  height: 40vh;
+  opacity: 100%;
+  z-index: 102;
+  padding: 25px;
+  background-color: #D32F2F;
 }
 
 /* Smartphones (portrait and landscape) */

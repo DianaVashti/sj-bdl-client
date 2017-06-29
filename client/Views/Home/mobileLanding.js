@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types';
 import {Link} from 'react-router'
 import Button from 'react-bootstrap/lib/Button'
-// import FlatButton from 'material-ui/RaisedButton';
 
 const makeButtonStyle = {
   height: '14vh',
@@ -52,29 +51,8 @@ export default class MobileLanding extends Component {
             <div className='button-text'>SUPPORT</div>
           </Button>
         </div>
+        <InstallIcon />
       </div>
     )
   }
 }
-
-{/* <FlatButton
-  label="MAKE"
-  backgroundColor="#C62828"
-  fullWidth={true}
-  buttonStyle={buttonStyle}
-  labelStyle={labelStyle}
-  href="/submit-report" />
-<FlatButton
-  label="READ"
-  backgroundColor="#EEEEEE"
-  fullWidth={true}
-  buttonStyle = {buttonStyle}
-  // labelStyle={labelStyle}
-  href = "/view-reports" />
-<FlatButton
-  label="SUPPORT"
-  backgroundColor="#9E9E9E"
-  fullWidth={true}
-  buttonStyle={buttonStyle}
-  // labelStyle={labelStyle}
-  href = "/support" /> */}
