@@ -87,6 +87,13 @@ ul,menu,dir {
   width: 90%;
 }
 
+.support-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+}
+
 .toolbar-container {
   display: flex;
   width: 100%;
