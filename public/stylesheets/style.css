@@ -107,13 +107,16 @@ h2.button-text {
 .resource-header {
   display: flex;
   flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
 }
 
 .resource-container {
   border: 1px solid  #303030;
   border-radius: 25px;
-  padding: 17px;
-  margin: 8px;
+  padding-left: 15px;
+  padding-right: 10px;
+  margin: 7px;
 }
 
 .resources-container {
@@ -125,6 +128,12 @@ h2.button-text {
   flex-direction: row;
   width: 98%;
   background-color: #F0EBE9;
+}
+
+.resource-p-text {
+  text-align: center;
+  padding-top: 10px;
+  font-size: .7em;
 }
 
 .resource-name {

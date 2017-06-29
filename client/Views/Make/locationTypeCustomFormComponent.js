@@ -16,14 +16,16 @@ export default class LocationTypeCustomFormComponent extends Component {
 
   constructor (props) {
     super(props)
-    this.state = {
-
-    }
   }
 
   renderItems () {
     return locationTypeOptions.map(data => {
-      return <MenuItem key={data.locationType} value={data.locationType} primaryText={data.locationType} />
+      return(
+        <MenuItem
+          key={data.locationType}
+          value={data.locationType}
+          primaryText={data.locationType} />
+      )
     })
   }
 
@@ -31,10 +33,11 @@ export default class LocationTypeCustomFormComponent extends Component {
     return (
       <div>
         <SelectField
-        value={this.props.value}
-        onChange={(event, key, value) => this.props.onChange(value)}
-        fullWidth
-        floatingLabelText={this.props.label}>
+          value={this.props.value}
+          onChange={(event, key, value) => this.props.onChange(value)}
+          floatingLabelText={this.props.label}
+          floatingLabelStyle={{fontSize: ".7em"}}
+          fullWidth={true} >
           {this.renderItems()}
         </SelectField>
       </div>
