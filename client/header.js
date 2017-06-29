@@ -16,7 +16,7 @@ const toolBarStyles = {
   justifyContent: 'space-between',
   boxShadow: '0px 1px 1px 0px rgba(10, 2, 0, .35)',
   backgroundColor: '#d8d6d6',
-  fontFamily: "Open Sans",
+  fontFamily: "Poppins, Open Sans",
   width: '100%'
 }
 

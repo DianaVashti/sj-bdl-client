@@ -131,15 +131,8 @@ h2.button-text {
 }
 
 .resource-container {
-  border: 1px solid  #303030;
-  border-radius: 25px;
-  padding-left: 15px;
-  padding-right: 10px;
+  padding: 5;
   margin: 7px;
-}
-
-.resources-container {
-  width: 95%;
 }
 
 .resource-item {
@@ -149,20 +142,22 @@ h2.button-text {
   background-color: #F0EBE9;
 }
 
+.title-p-text {
+  font-size: 1.1em;
+  padding: 10;
+}
+
 .resource-p-text {
   text-align: center;
   padding-top: 10px;
   font-size: .7em;
 }
 
-.resource-name {
-  width: 90%;
-}
-
 .support-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   padding-top: 20px;
 }
 
@@ -177,11 +172,6 @@ h2.button-text {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-}
-
-.incident {
-  /*font-family: 'Poppins', 'Open Sans';
-  font-weight: 200;*/
 }
 
 .footer {
@@ -257,8 +247,9 @@ h2.button-text {
   height: 50%;
 }
 
-p {
+span, p {
   font-size: 1em;
+  font-family: 'Poppins', 'Open Sans';
 }
 
 .svg-icons {
@@ -300,6 +291,20 @@ p {
     display: none;
   }
 
+  .resources-container {
+    width: 95%;
+  }
+
+  .support-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .resource-name {
+    width: 90%;
+    min-width: 30%;
+  }
+
 }
 
 /* Tablets portrait */
@@ -315,6 +320,19 @@ p {
 
   .desktop-landing-message {
     font-family: 'Open Sans', sans-serif;
+  }
+
+  .support-container {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .resources-container {
+    width: 29%;
+  }
+
+  .resource-name {
+    min-width: 30%;
   }
 
 }
@@ -334,6 +352,20 @@ p {
     font-family: 'Open Sans', sans-serif;
   }
 
+  .support-container {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .resources-container {
+    width: 29%;
+  }
+
+  .resource-name {
+    width: 90%;
+    min-width: 30%;
+  }
+
 }
 
 /* Desktops and Large Laptops */
@@ -349,6 +381,21 @@ p {
 
   .desktop-landing-message {
     font-family: 'Open Sans', sans-serif;
+  }
+
+  .support-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .resources-container {
+    width: 29%;
+  }
+
+  .resource-name {
+    width: 90%;
+    min-width: 30%;
   }
 
 }
