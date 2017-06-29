@@ -5,7 +5,7 @@ html {
 }
 
 body {
-  margin: 0;
+  margin: 0px;
 }
 
 ul,menu,dir {
@@ -13,12 +13,19 @@ ul,menu,dir {
 }
 
 .button-container{
-  margin: 10px;
+  margin: 42px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 70%;
 }
 
 .body-content {
-  padding-top: 60px;
-  padding-bottom: 70px;
+  height: 90%;
+  margin-left: 15px;
+  margin-right: 10px;
+  margin-top: 60px;
+  margin-bottom: 60px
 }
 
 .footer-navbar {
@@ -78,19 +85,23 @@ ul,menu,dir {
 .toolbar-container {
   display: flex;
   width: 100%;
+  height: 70%;
 }
 
 .toolbar-container-items {
   width: 100%;
   display: flex;
   flex-direction: row;
-  align-items: stretch;
+  justify-content: flex-end;
   padding-left: 100px;
-  justify-content: space-between;
   background-image: url('./SF-BDL-Ladybug-Logo.svg');
   background-size: 80px 60px;
   background-repeat: no-repeat;
-  background-position: left top;
+  background-position: left center;
+}
+
+.incident {
+  font-family: 'Open Sans', sans-serif;
 }
 
 .footer {
@@ -139,6 +150,20 @@ ul,menu,dir {
   flex-direction: row;
 }
 
+.landing-page-main-btn-container {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.reports-page-container {
+  margin-top: 70px;
+  width: 100%;
+  height: 100%;
+}
+
 .admin-form-item {
   padding: 6px;
   margin: 6px;
@@ -148,6 +173,8 @@ ul,menu,dir {
   height: 200px;
   width: 250px;
 }
+
+
 
 p {
   font-size: 1em;
