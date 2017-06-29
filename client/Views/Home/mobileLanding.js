@@ -2,12 +2,13 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types';
 import {Link} from 'react-router'
 import RaisedButton from 'material-ui/RaisedButton';
+import InstallIcon from './installIcon'
 
 const buttonStyle = {
   height: '14vh',
   width: '80%',
   borderRadius: '10px',
-  fontFamily: "Georgia, serif"
+  // fontFamily: "Georgia, serif"
 }
 
 const labelStyle = {
@@ -46,6 +47,7 @@ export default class MobileLanding extends Component {
             // labelStyle={labelStyle}
             href = "/support" />
         </div>
+        <InstallIcon />
       </div>
     )
   }
