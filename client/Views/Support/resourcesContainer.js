@@ -24,10 +24,6 @@ const displayRowStyle = {
   flexDirection: 'column',
 }
 
-const marginBottom = {
-  marginBottom: 14,
-}
-
 const iconStyles = {
   marginRight: 24,
 };
@@ -75,32 +71,18 @@ export default class ResourcesContainer extends Component {
               <TextField
                 id="text-field-default"
                 defaultValue={resource.name}
-                underlineShow={false}/>
+                underlineShow={false}
+                style={{fontSize: "1.1em", paddingLeft: 15}}/>
               <a href={"tel:"+resource.phone}><ListItem
                 rightIcon={<CommunicationCall style={iconStyles} color={indigo500} />}
               /></a>
             </div>
             <Divider />
-            <TextField
-              id="text-field-default"
-              defaultValue={resource.streetAddress}
-              underlineShow={false}
-            /><br />
-            <TextField
-              id="text-field-default"
-              defaultValue={resource.city+", "+resource.state+" "+resource.zipCode}
-              underlineShow={false}
-            /><br />
-            <TextField
-              id="text-field-default"
-              defaultValue={resource.phone}
-              underlineShow={false}
-            /><br />
-            <TextField
-              id="text-field-default"
-              defaultValue={resource.type}
-              underlineShow={false}
-            /><br />
+            <p className="resource-p-text">
+              {resource.streetAddress}<br/>
+              {resource.city+", "+resource.state+" "+resource.zipCode}<br/>
+              {resource.type}
+            </p>
           </div>
         </div>
       ))
