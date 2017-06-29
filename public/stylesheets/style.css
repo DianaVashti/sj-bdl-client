@@ -18,6 +18,10 @@ ul,menu,dir {
   -webkit-padding-start: 0px;
 }
 
+input, select, textarea {
+  font-size: 16px;
+}
+
 h2.button-text {
   height: 1vh;
 }
