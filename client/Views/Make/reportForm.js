@@ -46,7 +46,7 @@ export default class ReportForm extends Component {
         locationType: "",
         gender: "",
         assaultType: [],
-        date: {},
+        date: "",
         assaultDescription: ""
       },
       geolocationDetails: {
@@ -222,8 +222,11 @@ export default class ReportForm extends Component {
                 fieldName='incidentDetails.date'
                 label='What day did it happen? (can be an estimation)*'
                 type={DatePicker}
-                textFieldStyle={{fontSize: ".9em"}} />
+                textFieldStyle={{fontSize: ".9em"}}
+                errorText={this.state.errors && (this.state.incidentDetails.date === "") ? message : ""}
+                errorStyle={{color: 'red'}}/>
               <Field
+                changeOnKeyDown={true}
                 fieldName='incidentDetails.assaultDescription'
                 label='Please describe what happened.*'
                 type={Textarea} rows={5}
@@ -305,6 +308,7 @@ export default class ReportForm extends Component {
                 errorText={this.state.errors && (this.state.perpDetails.hair === "") ? message : ""}
                 errorStyle={{color: 'red'}}/>
               <Field
+                changeOnKeyDown={true}
                 fieldName='perpDetails.attributes'
                 label='Any obvious physical attributes? (scars, tattoos, etc)'
                 type={Textarea} rows={2}
@@ -324,6 +328,7 @@ export default class ReportForm extends Component {
             <h1>Support Details</h1>
             <Form state={this.state} onChange={changes => this.setState(changes)}>
               <Field
+                changeOnKeyDown={true}
                 fieldName='supportDetails.needSupport'
                 label='Do you need support? If yes, what kind of support do you need.'
                 type={Textarea}
@@ -335,12 +340,14 @@ export default class ReportForm extends Component {
                 type={Text}
                 style={{fontSize: ".9em"}}/>
               <Field
+                changeOnKeyDown={true}
                 fieldName='supportDetails.contact'
                 label='If yes, what is the best way to contact you?'
                 type={Textarea}
                 style={{fontSize: ".9em"}}
                 rows={3} />
               <Field
+                changeOnKeyDown={true}
                 fieldName='supportDetails.callingFrom'
                 label='If yes, can we say we are calling from St. James Infirmary? If no, where would you like us to say we are calling from?'
                 type={Textarea}
@@ -381,7 +388,7 @@ export default class ReportForm extends Component {
   handleSubmitOnFinishBtnTap() {
     this.handleNext
     const { incidentDetails, perpDetails, supportDetails, geolocationDetails } = this.state;
-    axios.post('http://localhost:8080/api/reports/new', {
+    axios.post('https://sj-bdl-api.herokuapp.com/api/reports/new', {
       city: incidentDetails.city,
       locationType: incidentDetails.locationType,
       gender: incidentDetails.gender,
