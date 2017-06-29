@@ -196,6 +196,7 @@ export default class ReportForm extends Component {
                 fieldName='incidentDetails.city'
                 label='What city did the incident take place?*'
                 type={Text}
+                style={{fontSize: ".9em"}}
                 errorText={this.state.errors && (this.state.incidentDetails.city === "") ? message : ""}
                 errorStyle={{color: 'red'}}/>
               <Field
@@ -208,21 +209,25 @@ export default class ReportForm extends Component {
                 fieldName='incidentDetails.gender'
                 label='Your gender (this helps us organize reports)*'
                 type={Text}
+                style={{fontSize: ".9em"}}
                 errorText={this.state.errors && (this.state.incidentDetails.gender === "") ? message : ""}
                 errorStyle={{color: 'red'}}/>
               <Field
                 fieldName='incidentDetails.assaultType'
                 label='What happened? (select all that apply)'
                 type={MultipleCheckbox}
+                style={{fontSize: ".9em"}}
                 options={this.getAssaultTypeOptions()}/>
               <Field
                 fieldName='incidentDetails.date'
                 label='What day did it happen? (can be an estimation)*'
-                type={DatePicker} />
+                type={DatePicker}
+                textFieldStyle={{fontSize: ".9em"}} />
               <Field
                 fieldName='incidentDetails.assaultDescription'
                 label='Please describe what happened.*'
                 type={Textarea} rows={5}
+                style={{fontSize: ".9em"}}
                 errorText={this.state.errors && (this.state.incidentDetails.assaultDescription === "") ? message : ""}
                 errorStyle={{color: 'red'}} />
             </Form>
@@ -238,37 +243,44 @@ export default class ReportForm extends Component {
                 fieldName='perpDetails.name'
                 label='Perpetrators name*'
                 type={Text}
+                style={{fontSize: ".9em"}}
                 errorText={this.state.errors && (this.state.perpDetails.name === "") ? message : ""}
                 errorStyle={{color: 'red'}}/>
               <Field
                 fieldName='perpDetails.phone'
                 label='Perpetrators phone number (if applicable)'
-                type={Text}/>
+                type={Text}
+                style={{fontSize: ".9em"}}/>
               <Field
                 fieldName='perpDetails.email'
                 label='Perpetrators email (if applicable)'
-                type={Text}/>
+                type={Text}
+                style={{fontSize: ".9em"}}/>
               <Field
                 fieldName='perpDetails.perpType'
                 label='Perpetrator was a (choose one)*:'
                 type={Radio}
+                style={{fontSize: ".9em"}}
                 options={this.getPerpTypeOptions()}
                 errorText={this.state.errors && (this.state.perpDetails.perpType === "") ? message : ""}
                 errorStyle={{color: 'red'}} />
               <Field
                 fieldName='perpDetails.adServiceUsed'
                 label='Did perpetrator contact you through an ad? (if so, please list advertising website)'
-                type={Text}/>
+                type={Text}
+                style={{fontSize: ".9em"}}/>
               <Field
                 fieldName='perpDetails.gender'
                 label='Perpetrators gender*'
                 type={Text}
+                style={{fontSize: ".9em"}}
                 errorText={this.state.errors && (this.state.perpDetails.gender === "") ? message : ""}
                 errorStyle={{color: 'red'}}/>
               <Field
                 fieldName='perpDetails.age'
                 label='Perpetrators age*'
                 type={Text}
+                style={{fontSize: ".9em"}}
                 errorText={this.state.errors && (this.state.perpDetails.age === "") ? message : ""}
                 errorStyle={{color: 'red'}}/>
               <Field
@@ -282,22 +294,26 @@ export default class ReportForm extends Component {
                 fieldName='perpDetails.height'
                 label='Perpetrator height*'
                 type={Text}
+                style={{fontSize: ".9em"}}
                 errorText={this.state.errors && (this.state.perpDetails.height === "") ? message : ""}
                 errorStyle={{color: 'red'}}/>
               <Field
                 fieldName='perpDetails.hair'
                 label='Perpetrator hair type/color*'
                 type={Text}
+                style={{fontSize: ".9em"}}
                 errorText={this.state.errors && (this.state.perpDetails.hair === "") ? message : ""}
                 errorStyle={{color: 'red'}}/>
               <Field
                 fieldName='perpDetails.attributes'
                 label='Any obvious physical attributes? (scars, tattoos, etc)'
-                type={Textarea} rows={2}/>
+                type={Textarea} rows={2}
+                style={{fontSize: ".9em"}}/>
               <Field
                 fieldName='perpDetails.vehicle'
                 label='Perpetrator vehicle information (color, make, model)'
-                type={Text}/>
+                type={Text}
+                style={{fontSize: ".9em"}}/>
             </Form>
             <br/>
           </div>
@@ -307,10 +323,29 @@ export default class ReportForm extends Component {
           <div className='form-container'>
             <h1>Support Details</h1>
             <Form state={this.state} onChange={changes => this.setState(changes)}>
-              <Field fieldName='supportDetails.needSupport' label='Do you need support? If yes, what kind of support do you need.' type={Textarea} rows={5} />
-              <Field fieldName='supportDetails.name' label='If yes, what name should we call you?' type={Text}/>
-              <Field fieldName='supportDetails.contact' label='If yes, what is the best way to contact you?' type={Textarea} rows={3} />
-              <Field fieldName='supportDetails.callingFrom' label='If yes, can we say we are calling from St. James Infirmary? If no, where would you like us to say we are calling from?' type={Textarea} rows={3} />
+              <Field
+                fieldName='supportDetails.needSupport'
+                label='Do you need support? If yes, what kind of support do you need.'
+                type={Textarea}
+                style={{fontSize: ".9em"}}
+                rows={5} />
+              <Field
+                fieldName='supportDetails.name'
+                label='If yes, what name should we call you?'
+                type={Text}
+                style={{fontSize: ".9em"}}/>
+              <Field
+                fieldName='supportDetails.contact'
+                label='If yes, what is the best way to contact you?'
+                type={Textarea}
+                style={{fontSize: ".9em"}}
+                rows={3} />
+              <Field
+                fieldName='supportDetails.callingFrom'
+                label='If yes, can we say we are calling from St. James Infirmary? If no, where would you like us to say we are calling from?'
+                type={Textarea}
+                style={{fontSize: ".9em"}}
+                rows={3} />
             </Form>
             <br/>
           </div>

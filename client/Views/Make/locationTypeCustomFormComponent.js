@@ -31,10 +31,10 @@ export default class LocationTypeCustomFormComponent extends Component {
     return (
       <div>
         <SelectField
-        value={this.props.value}
-        onChange={(event, key, value) => this.props.onChange(value)}
-        fullWidth
-        floatingLabelText={this.props.label}>
+          value={this.props.value}
+          onChange={(event, key, value) => this.props.onChange(value)}
+          floatingLabelText={this.props.label}
+          floatingLabelStyle={{fontSize: ".7em"}}>
           {this.renderItems()}
         </SelectField>
       </div>

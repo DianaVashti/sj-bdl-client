@@ -40,6 +40,7 @@ export default class Header extends Component {
             style={groupStyles}>
             <Link to="/submit-report" ><RaisedButton
               label="Report a Bad Date"
+							labelStyle={{fontSize: ".9em"}}
               labelColor="#fff"
               backgroundColor= "#D32F2F"/></Link>
           </ToolbarGroup>
