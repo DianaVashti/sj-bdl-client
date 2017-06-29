@@ -9,15 +9,17 @@ const makeButtonStyle = {
   height: '14vh',
   width: '100%',
   borderRadius: 20,
-  fontFamily: "Avenir, serif",
+  fontFamily: "Poppins, Open Sans",
   backgroundColor: '#C62828',
+  color: '#EEEEEE'
 }
+
 
 const readButtonStyle = {
   height: '14vh',
   width: '100%',
   borderRadius: 20,
-  fontFamily: "Avenir, serif",
+  fontFamily: "Poppins, Open Sans",
   backgroundColor: "#EEEEEE"
 }
 
@@ -25,12 +27,15 @@ const supportButtonStyle = {
   height: '14vh',
   width: '100%',
   borderRadius: 20,
-  fontFamily: "Avenir, serif",
-  backgroundColor: "#9E9E9E"
+  fontFamily: "Poppins, Open Sans",
+  backgroundColor: "#d8d6d6"
 }
 
 const labelStyle = {
-  fontSize: '2.2em'
+  fontSize: 50,
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
 }
 
 export default class MobileLanding extends Component {
@@ -44,13 +49,13 @@ export default class MobileLanding extends Component {
       <div className="landing-page-main-btn-container">
         <div className="button-container">
           <Button style={makeButtonStyle} href="/submit-report">
-            <div className='button-text'>MAKE</div>
+            MAKE
           </Button>
           <Button style={readButtonStyle} href="/view-reports">
-            <div className='button-text'>READ</div>
+            READ
           </Button>
           <Button style={supportButtonStyle} href="/support">
-            <div className='button-text'>SUPPORT</div>
+            SUPPORT
           </Button>
         </div>
         <InstallIcon />

@@ -1,4 +1,8 @@
 /* Global Styles */
+#root {
+  background-color: #fafafa
+}
+
 html {
   /*background-color: #303030;*/
   font-size: 18px;
@@ -6,31 +10,51 @@ html {
 
 body {
   margin: 0px;
-  color: #fafafa
+  background-color: #fafafa !important;
+  font-family: 'Poppins', 'Open Sans';
 }
 
 ul,menu,dir {
   -webkit-padding-start: 0px;
 }
 
-.button-text {
-  height: 1v2h;
+h2.button-text {
+  height: 1vh;
 }
 
+.btn.btn-default {
+  font-size: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #636262;
+}
+
+.btn.btn-default.report-header-btn {
+  height: 50%;
+  font-size: 10px;
+  background-color: #E21E26;
+  width: 125px;;
+  font-family: 'Poppins', 'Open Sans';
+  color: #EEEEEE;
+}
 
 .button-container{
   margin: 42px;
+  margin-top: 80px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 70%;
+  height: 60%;
+  background-color: #fafafa
 }
 
 .body-content {
   margin-left: 10px;
   margin-right: 10px;
   margin-top: 60px;
-  margin-bottom: 60px
+  margin-bottom: 60px;
+  background-color: #fafafa
 }
 
 .footer-navbar {
@@ -74,6 +98,10 @@ ul,menu,dir {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.logo-container {
+  width: 100%;
 }
 
 .resource-header {
@@ -121,15 +149,11 @@ ul,menu,dir {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  padding-left: 100px;
-  background-image: url('./SF-BDL-Ladybug-Logo.svg');
-  background-size: 75px 55px;
-  background-repeat: no-repeat;
-  background-position: left center;
 }
 
 .incident {
-  /*font-family: 'Open Sans', sans-serif;*/
+  /*font-family: 'Poppins', 'Open Sans';
+  font-weight: 200;*/
 }
 
 .footer {
