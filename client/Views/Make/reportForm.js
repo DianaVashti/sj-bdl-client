@@ -406,7 +406,7 @@ export default class ReportForm extends Component {
       setTimeout(() => {
         this.setState({openSuccess: false})
         browserHistory.push('/')
-      }, 5000)
+      }, 1000)
     })
     .catch((error) => {
       // show error message to user
@@ -415,7 +415,7 @@ export default class ReportForm extends Component {
       setTimeout(() => {
         this.setState({openError: false})
         browserHistory.push('/submit-form')
-      }, 5000)
+      }, 1000)
     })
   }
 
