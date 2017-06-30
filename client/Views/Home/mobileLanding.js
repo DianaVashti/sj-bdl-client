@@ -61,13 +61,13 @@ export default class MobileLanding extends Component {
         <div className="button-container">
           <LinkContainer to='/submit-report'>
             <Button style={makeButtonStyle}>
-              MAKE
+              MAKE A REPORT
             </Button></LinkContainer>
           <LinkContainer to='/view-reports'><Button style={readButtonStyle}>
-            READ
+            READ A REPORT
           </Button></LinkContainer>
           <LinkContainer to='/support'><Button style={supportButtonStyle}>
-            SUPPORT
+            GET SUPPORT
           </Button></LinkContainer>
         </div>
         <InstallIcon />
