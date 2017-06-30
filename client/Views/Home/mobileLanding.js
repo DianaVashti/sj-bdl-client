@@ -4,7 +4,7 @@ import {Link} from 'react-router'
 import Button from 'react-bootstrap/lib/Button'
 import InstallIcon from './installIcon'
 import {LinkContainer} from 'react-router-bootstrap'
-
+import Spinner from '../../Spinner/index'
 
 
 const makeButtonStyle = {
@@ -43,6 +43,12 @@ const labelStyle = {
 export default class MobileLanding extends Component {
   constructor(props) {
       super(props);
+  }
+
+  componentDidMount() {
+    this.setState({
+      isLoading: false
+    })
   }
 
   onClick(e){

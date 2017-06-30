@@ -18,6 +18,7 @@ import TextField from 'material-ui/TextField';
 
 import Footer from '../../footer'
 import Header from '../../header'
+import Spinner from '../../Spinner/index'
 
 const iconStyles = {
   marginRight: 24,
@@ -35,6 +36,7 @@ export default class ResourcesContainer extends Component {
 
     this.state = {
       resources: [],
+      isLoading: true
     };
   }
 
@@ -45,6 +47,7 @@ export default class ResourcesContainer extends Component {
       this.setState((prevState) => {
         return {
           resources: res.data,
+          isLoading: false
         }
       })
     })
@@ -85,6 +88,9 @@ export default class ResourcesContainer extends Component {
   }
 
   render(){
+
+    if (this.state.isLoading) { return <Spinner /> }
+
     return(
       <div className="support-container">
         {this.populateResources()}

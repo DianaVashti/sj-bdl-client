@@ -10,6 +10,7 @@ import TextField from 'material-ui/TextField';
 import Footer from '../../footer'
 import ExpandableCard from './expandableCard'
 import Header from '../../header'
+import Spinner from '../../Spinner/index'
 
 const searchBoxStyle = {
   fontSize: '12px'
@@ -20,7 +21,8 @@ export default class ViewReports extends Component {
     super(props);
 		this.state = {
 			reports: [],
-      searchTerms: ''
+      searchTerms: '',
+      isLoading: true
 		}
     this.onFormSubmit = this.onFormSubmit.bind(this);
     this.onInputChange = this.onInputChange.bind(this);
@@ -30,7 +32,8 @@ export default class ViewReports extends Component {
     axios.get('https://st-james-bdl-api.herokuapp.com/api/reports')
       .then(reports => {
         this.setState({
-          reports: reports.data
+          reports: reports.data,
+          isLoading: false
         })
       })
       .catch((error) => {
@@ -52,11 +55,13 @@ export default class ViewReports extends Component {
   }
 
   fetchSearchResults(url) {
+    this.setState({ isLoading: true })
     axios.get(url)
       .then((reports) => {
         this.setState({
           reports: reports.data,
-          searchTerm: ''
+          searchTerm: '',
+          isLoading: false
         })
       })
       .catch((error) => {
@@ -76,6 +81,9 @@ export default class ViewReports extends Component {
   }
 
   render() {
+
+    if (this.state.isLoading) { return <Spinner /> }
+
     return (
       <div className='reports-page-container'>
         <div>
