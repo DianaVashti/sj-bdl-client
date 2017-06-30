@@ -46,11 +46,12 @@ export default class AdminLogin extends React.Component {
     const actions = [
       <Link to="/"><FlatButton
         label="Cancel"
-        primary={true}
+        backgroundColor="#E21E26"
+        style={{marginRight:2}}
         onTouchTap={this.handleOnCancel.bind(this)} /></Link>,
       <FlatButton
         label="Submit"
-        primary={true}
+        backgroundColor="#C8C5C5"
         disabled={false}
         onTouchTap={this.handleSubmitButtonTap}
       />,
@@ -59,18 +60,20 @@ export default class AdminLogin extends React.Component {
     return (
       <div>
         <Dialog
-          title="Dialog With Actions"
+          title="Login"
           actions={actions}
           modal={true}
           open={this.state.open}>
           <TextField
             hintText="Email"
             floatingLabelText="Email"
+            floatingLabelFocusStyle={{color: "#090200"}}
             ref='email'
             type="text" /><br />
           <TextField
             hintText="Password Field"
             floatingLabelText="Password"
+            floatingLabelFocusStyle={{color: "#090200"}}
             ref='password'
             type="password" /><br />
         </Dialog>

@@ -16,8 +16,8 @@ import TextField from 'material-ui/TextField';
 import EditedReportForm from './editedReportForm'
 
 const style = {
-  margin: 20,
-};
+  fontSize: ".7em"
+}
 
 export default class AdminFormContainer extends Component {
   constructor(props){
@@ -45,16 +45,19 @@ export default class AdminFormContainer extends Component {
     const actions = [
       <FlatButton
         label="Cancel"
-        primary={true}
+        backgroundColor="#E21E26"
+        labelStyle={{color: "#FAFAFA"}}
+        style={{margin: "5"}}
         onTouchTap={this.handleClose} />,
       <FlatButton
         label="Submit"
-        primary={true}
+        backgroundColor="#C8C5C5"
+        style={{margin: "5"}}
         onTouchTap={this.handleClose} />
     ]
 
     return(
-      <div>
+      <div >
         <RaisedButton label="Edit" onTouchTap={this.handleOpen} />
         <Dialog
           actions={actions}
@@ -75,72 +78,60 @@ export default class AdminFormContainer extends Component {
                   </TableHeader>
                   <TableBody displayRowCheckbox={false}>
                     <TableRow>
-                      <TableRowColumn>City</TableRowColumn>
+                      <TableRowColumn style={style}>City</TableRowColumn>
                       <p className="admin-form-item">{report.city}</p>
                     </TableRow>
                     <TableRow>
-                      <TableRowColumn>Where</TableRowColumn>
+                      <TableRowColumn style={style}>Where</TableRowColumn>
                       <p className="admin-form-item">{report.locationType}</p>
                     </TableRow>
                     <TableRow>
-                      <TableRowColumn>When</TableRowColumn>
+                      <TableRowColumn style={style}>When</TableRowColumn>
                       <p className="admin-form-item">{report.date}</p>
                     </TableRow>
                     <TableRow>
-                      <TableRowColumn>Gender</TableRowColumn>
+                      <TableRowColumn style={style}>Gender</TableRowColumn>
                       <p className="admin-form-item">{report.gender}</p>
                     </TableRow>
                     <TableRow>
-                      <TableRowColumn>Perp Name</TableRowColumn>
+                      <TableRowColumn style={style}>Perp Name</TableRowColumn>
                       <p className="admin-form-item">{perpetrator.name}</p>
                     </TableRow>
                     <TableRow>
-                      <TableRowColumn>Perp #</TableRowColumn>
+                      <TableRowColumn style={style}>Perp #</TableRowColumn>
                       <p className="admin-form-item">{perpetrator.phone}</p>
                     </TableRow>
                     <TableRow>
-                      <TableRowColumn>Perp E-mail</TableRowColumn>
+                      <TableRowColumn style={style}>Perp E-mail</TableRowColumn>
                       <p className="admin-form-item">{perpetrator.email}</p>
                     </TableRow>
                     <TableRow>
-                      <TableRowColumn>Perp Type</TableRowColumn>
+                      <TableRowColumn style={style}>Perp Type</TableRowColumn>
                       <p className="admin-form-item">{perpetrator.perpType}</p>
                     </TableRow>
                     <TableRow>
-                      <TableRowColumn>Ad?</TableRowColumn>
+                      <TableRowColumn style={style}>Ad?</TableRowColumn>
                       <p className="admin-form-item">{perpetrator.adServiceUsed ? perpetrator.adServiceUsed : ''}</p>
                     </TableRow>
                     <TableRow>
-                      <TableRowColumn>Perp Gender</TableRowColumn>
+                      <TableRowColumn style={style}>Perp Gender</TableRowColumn>
                       <p className="admin-form-item">{perpetrator.gender}</p>
                     </TableRow>
                     <TableRow>
-                      <TableRowColumn>Perp Age</TableRowColumn>
+                      <TableRowColumn style={style}>Perp Age</TableRowColumn>
                       <p className="admin-form-item">{perpetrator.age}</p>
                     </TableRow>
                     <TableRow>
-                      <TableRowColumn>Perp Ethnicity</TableRowColumn>
+                      <TableRowColumn style={style}>Perp Ethnicity</TableRowColumn>
                       <p className="admin-form-item">{perpetrator.race}</p>
                     </TableRow>
                     <TableRow>
-                      <TableRowColumn>Perp Height</TableRowColumn>
+                      <TableRowColumn style={style}>Perp Height</TableRowColumn>
                       <p className="admin-form-item">{perpetrator.height}</p>
                     </TableRow>
                     <TableRow>
-                      <TableRowColumn>Perp Hair</TableRowColumn>
+                      <TableRowColumn style={style}>Perp Hair</TableRowColumn>
                       <p className="admin-form-item">{perpetrator.hair}</p>
-                    </TableRow>
-                    <TableRow>
-                      <TableRowColumn>Perp Attributes</TableRowColumn>
-                      <p className="admin-form-item">{perpetrator.attributes}</p>
-                    </TableRow>
-                    <TableRow>
-                      <TableRowColumn>Perp Vehicle</TableRowColumn>
-                      <p className="admin-form-item">{perpetrator.vehicle ? perpetrator.vehicle : ''}</p>
-                    </TableRow>
-                    <TableRow>
-                      <TableRowColumn>Description</TableRowColumn>
-                      <p className="admin-form-item">{report.assaultDescription}</p>
                     </TableRow>
                   </TableBody>
                 </Table>
@@ -158,7 +149,19 @@ export default class AdminFormContainer extends Component {
                   </TableHeader>
                   <TableBody displayRowCheckbox={false}>
                     <TableRow>
-                      <TableRowColumn>Assault Type</TableRowColumn>
+                      <TableRowColumn style={style}>Perp Attributes</TableRowColumn>
+                      <p className="admin-form-item">{perpetrator.attributes}</p>
+                    </TableRow>
+                    <TableRow>
+                      <TableRowColumn style={style}>Perp Vehicle</TableRowColumn>
+                      <p className="admin-form-item">{perpetrator.vehicle ? perpetrator.vehicle : ''}</p>
+                    </TableRow>
+                    <TableRow>
+                      <TableRowColumn style={style}>Description</TableRowColumn>
+                      <p className="admin-form-item">{report.assaultDescription}</p>
+                    </TableRow>
+                    <TableRow>
+                      <TableRowColumn style={style}>Assault Type</TableRowColumn>
                       <p className="admin-form-item">{report.assaultType.join()}</p>
                     </TableRow>
                     <TableRow>

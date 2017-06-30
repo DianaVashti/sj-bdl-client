@@ -15,17 +15,6 @@ import TextField from 'material-ui/TextField';
 
 import AdminFormContainer from './adminFormContainer'
 
-const styles = {
-  propContainer: {
-    width: 200,
-    overflow: 'hidden',
-    margin: '20px auto 0',
-  },
-  propToggleHeader: {
-    margin: '20px auto 10px',
-  },
-};
-
 export default class ReportsTable extends Component {
   constructor(props) {
     super(props)
@@ -33,15 +22,15 @@ export default class ReportsTable extends Component {
     this.state = {
       fixedHeader: true,
       fixedFooter: true,
-      stripedRows: true,
+      stripedRows: false,
       showRowHover: true,
       selectable: true,
       multiSelectable: false,
       enableSelectAll: false,
       deselectOnClickaway: true,
       showCheckboxes: false,
-      height: '300px',
-      open: false
+      height: '70%',
+      open: false,
     };
   }
 
@@ -67,7 +56,7 @@ export default class ReportsTable extends Component {
 
   render() {
     return (
-      <div>
+      <div className="admin-table-container">
         <Table
           height={this.state.height}
           fixedHeader={this.state.fixedHeader}
@@ -83,7 +72,7 @@ export default class ReportsTable extends Component {
           >
             <TableRow>
               <TableHeaderColumn colSpan="3" tooltip="All Reports" style={{textAlign: 'center'}}>
-                Super Header
+                Admin Home Page: SJI BDL
               </TableHeaderColumn>
             </TableRow>
             <TableRow>

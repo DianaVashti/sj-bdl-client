@@ -104,20 +104,26 @@ export default class AdminMain extends Component {
         <ReportsTable reports={this.state.reports} fetchReports={this.fetchReports} />
         <RaisedButton
           label="Add Resource"
-          primary={true}
+          primary={false}
+          backgroundColor="#C8C5C5"
+          labelColor="#090200"
           onTouchTap={this.handleTouchTap}
+          style={{margin: "5"}}
         />
           <Popover
             open={this.state.open}
             anchorEl={this.state.anchorEl}
             anchorOrigin={this.state.anchorOrigin}
             targetOrigin={this.state.targetOrigin}
-            onRequestClose={this.handleRequestClose} >
+            onRequestClose={this.handleRequestClose}
+            style={{padding: 5, width: "50%", boxShadow: "3px 3px 3px #E0E0E0", border: "1px solid #E0E0E0"}}>
             <AdminResourceForm />
           </Popover>
         <RaisedButton
           label="Log Out"
           primary={false}
+          backgroundColor="#E21E26"
+          labelColor="#FAFAFA"
           onTouchTap={this.logOut}
         />
       </div>
