@@ -78,6 +78,7 @@ export default class ResourcesContainer extends Component {
               <p className="resource-p-text">
                 {resource.streetAddress}<br/>
                 {resource.city+", "+resource.state+" "+resource.zipCode}<br/>
+                {resource.phone}<br/>
                 {resource.type}
               </p>
             </Paper>
