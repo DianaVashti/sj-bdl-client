@@ -212,6 +212,25 @@ h2.button-text {
 .admin-form-left {
   display: flex;
   flex-direction: row;
+  padding: 5px;
+  margin: 5px;
+  border: 1px solid #E0E0E0;
+}
+
+.admin-form-right {
+  padding: 5px;
+  margin: 5px;
+  border: 1px solid #E0E0E0;
+}
+
+p.admin-form-item{
+  font-size: .7em;
+  font-weight: lighter;
+}
+
+.admin-add-resource {
+  margin: 5 5 50 5;
+  padding: 5;
 }
 
 .admin-ui-container {
@@ -236,6 +255,19 @@ h2.button-text {
 .admin-form-item {
   padding: 6px;
   margin: 6px;
+}
+
+.admin-form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.admin-table-container {
+  width: 80%;
+  margin: 10;
+  border: 1px solid #E0E0E0
 }
 
 #map {

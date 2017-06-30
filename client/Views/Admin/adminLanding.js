@@ -1,8 +1,6 @@
 import React, {Component}  from 'react'
 import PropTypes from 'prop-types'
 import AdminMain from './adminMain'
-import Footer from '../../footer'
-import Header from '../../header'
 
 // WebFont.load({
 //   google: {
@@ -18,11 +16,9 @@ export default class ViewReportsLanding extends Component {
   render(){
     return(
       <div>
-        <Header />
         <div>
           <AdminMain />
         </div>
-        <Footer />
       </div>
     )
   }

@@ -39,7 +39,7 @@ export default class AdminResourceForm extends Component {
 
   render(){
     return(
-      <div>
+      <div className="admin-add-resource">
         <h1>Add a Resource</h1>
         <Form state={this.state} onChange={changes => this.setState(changes)}>
           <Field fieldName='name' label='Name*' type={Text} />
@@ -53,6 +53,7 @@ export default class AdminResourceForm extends Component {
         <RaisedButton
           label="Submit"
           primary={false}
+          backgroundColor="#C8C5C5"
           onTouchTap={this.handleOnSubmit.bind(this)}
         />
       </div>
