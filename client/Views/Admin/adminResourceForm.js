@@ -28,11 +28,17 @@ export default class AdminResourceForm extends Component {
     axios.post('https://st-james-bdl-api.herokuapp.com/api/services', data)
     .then((res) => {
       // show a success message to user
-      console.log('Success', res)
+      setTimeout(() => {
+        console.log('Success', res)
+        browserHistory.push('/')
+      }, 1000)
     })
     .catch((error) => {
       // show error message to user
-      console.log('something went wrong ', error)
+      setTimeout(() => {
+        console.log('something went wrong ', error)
+        browserHistory.push('/')
+      }, 1000)
     })
   }
 
