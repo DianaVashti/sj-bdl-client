@@ -18,6 +18,7 @@ import TextField from 'material-ui/TextField';
 
 import Footer from '../../footer'
 import Header from '../../header'
+import Spinner from '../../Spinner/index'
 
 const iconStyles = {
   marginRight: 24,
@@ -35,16 +36,18 @@ export default class ResourcesContainer extends Component {
 
     this.state = {
       resources: [],
+      isLoading: true
     };
   }
 
   fetchResources() {
-    axios.get('https://sj-bdl-api.herokuapp.com/api/services')
+    axios.get('https://st-james-bdl-api.herokuapp.com/api/services')
     .then((res) => {
 
       this.setState((prevState) => {
         return {
           resources: res.data,
+          isLoading: false
         }
       })
     })
@@ -85,6 +88,9 @@ export default class ResourcesContainer extends Component {
   }
 
   render(){
+
+    if (this.state.isLoading) { return <Spinner /> }
+
     return(
       <div className="support-container">
         {this.populateResources()}

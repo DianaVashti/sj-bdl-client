@@ -11,6 +11,7 @@ import AdminResourceForm from './adminResourceForm'
 import Footer from '../../footer'
 import ReportsTable from './reportsTable'
 import Header from '../../header'
+import Spinner from '../../Spinner/index'
 
 export default class AdminMain extends Component {
   constructor(props) {
@@ -26,6 +27,7 @@ export default class AdminMain extends Component {
         horizontal: 'left',
         vertical: 'bottom',
       },
+			isLoading: true
     }
 
     this.fetchReports = this.fetchReports.bind(this);
@@ -38,10 +40,11 @@ export default class AdminMain extends Component {
       headers: { 'x-auth': jwt }
     }
 
-    axios.get('https://sj-bdl-api.herokuapp.com/api/admins/reports', config)
+    axios.get('https://st-james-bdl-api.herokuapp.com/api/admins/reports', config)
       .then((response) => {
         this.setState({
-          reports: response.data
+          reports: response.data,
+          isLoading: false
         })
       })
       .catch((error) => {
@@ -88,7 +91,7 @@ export default class AdminMain extends Component {
 
   logOut() {
     axios.defaults.headers.common['x-auth'] = sessionStorage.getItem('auth')
-    axios.delete('https://sj-bdl-api.herokuapp.com/api/admins/logout')
+    axios.delete('https://st-james-bdl-api.herokuapp.com/api/admins/logout')
       .then(() => {
         browserHistory.push('/')
         sessionStorage.clear()
@@ -99,6 +102,9 @@ export default class AdminMain extends Component {
   }
 
   render() {
+
+    if (this.state.isLoading) { return <Spinner /> }
+    
     return (
       <div>
         <ReportsTable reports={this.state.reports} fetchReports={this.fetchReports} />

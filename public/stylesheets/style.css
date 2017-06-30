@@ -18,6 +18,13 @@ ul,menu,dir {
   -webkit-padding-start: 0px;
 }
 
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 250px;
+}
+
 input[type="color"],
 input[type="date"],
 input[type="datetime"],
@@ -98,8 +105,10 @@ h2.button-text {
 }
 
 .how-to-small {
-  font-size: .6em;
-  text-align: center;
+  font-size: 1.2em;
+  color: #E21E26;
+  display: flex;
+  justify-content: center;
   height: 2vh;
   font-style: italic;
 }
@@ -274,10 +283,8 @@ span, p {
   transform: translate(-50%, -50%);
   width: 75%;
   height: 40vh;
-  opacity: 100%;
   z-index: 102;
   padding: 25px;
-  background-color: #D32F2F;
 }
 
 /* Smartphones (portrait and landscape) */
@@ -293,6 +300,7 @@ span, p {
 
   .resources-container {
     width: 95%;
+    padding-top: 5px;
   }
 
   .support-container {
