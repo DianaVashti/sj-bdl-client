@@ -9,7 +9,7 @@ export default class HowToSmall extends Component {
   render(){
     return(
       <div className="how-to-small">
-        <p>Install app icon on your phone!</p>
+        <p>Click here to install app!</p>
       </div>
     )
   }
