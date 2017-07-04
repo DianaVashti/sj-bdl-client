@@ -104,7 +104,7 @@ export default class AdminMain extends Component {
   render() {
 
     if (this.state.isLoading) { return <Spinner /> }
-    
+
     return (
       <div>
         <ReportsTable reports={this.state.reports} fetchReports={this.fetchReports} />

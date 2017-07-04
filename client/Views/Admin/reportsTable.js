@@ -23,11 +23,8 @@ export default class ReportsTable extends Component {
       fixedHeader: true,
       fixedFooter: true,
       stripedRows: false,
-      showRowHover: true,
-      selectable: true,
       multiSelectable: false,
       enableSelectAll: false,
-      deselectOnClickaway: true,
       showCheckboxes: false,
       height: '70%',
       open: false,
@@ -61,9 +58,6 @@ export default class ReportsTable extends Component {
           height={this.state.height}
           fixedHeader={this.state.fixedHeader}
           fixedFooter={this.state.fixedFooter}
-          selectable={this.state.selectable}
-          multiSelectable={this.state.multiSelectable}
-          onCellClick={this.handleOnClick}
         >
           <TableHeader
             displaySelectAll={this.state.showCheckboxes}
@@ -77,20 +71,17 @@ export default class ReportsTable extends Component {
             </TableRow>
             <TableRow>
               <TableHeaderColumn tooltip="">Name</TableHeaderColumn>
-              <TableHeaderColumn tooltip="">Status</TableHeaderColumn>
+              <TableHeaderColumn tooltip="">Edited</TableHeaderColumn>
             </TableRow>
           </TableHeader>
           <TableBody
             displayRowCheckbox={this.state.showCheckboxes}
-            deselectOnClickaway={this.state.deselectOnClickaway}
             showRowHover={this.state.showRowHover}
-            stripedRows={this.state.stripedRows}
-          >
+            stripedRows={this.state.stripedRows}>
             {this.populateTable()}
           </TableBody>
           <TableFooter
-            adjustForCheckbox={this.state.showCheckboxes}
-          >
+            adjustForCheckbox={this.state.showCheckboxes}>
             <TableRow>
             </TableRow>
           </TableFooter>
