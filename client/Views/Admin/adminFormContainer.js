@@ -1,6 +1,9 @@
 import React, {Component}  from 'react'
 import PropTypes from 'prop-types';
 
+import { browserHistory } from 'react-router';
+import axios from 'axios'
+
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -12,8 +15,9 @@ import {
   TableRow,
   TableRowColumn,
 } from 'material-ui/Table';
+import {Form, Field} from 'simple-react-form';
+import Textarea from 'simple-react-form-material-ui/lib/textarea';
 import TextField from 'material-ui/TextField';
-import EditedReportForm from './editedReportForm'
 
 const style = {
   fontSize: ".7em"
@@ -24,7 +28,12 @@ export default class AdminFormContainer extends Component {
     super(props);
     this.state = {
       open: false,
+      title: '',
+      content: ''
     }
+
+    this.postEditedReport = this.postEditedReport.bind(this)
+    this.handleClose = this.handleClose.bind(this)
   }
 
   handleOpen = () => {
@@ -33,6 +42,24 @@ export default class AdminFormContainer extends Component {
 
   handleClose = () => {
     this.setState({open: false});
+  }
+
+  postEditedReport() {
+    const editedReport = {
+      title: this.state.title,
+      content: this.state.content
+    }
+
+    axios.defaults.headers.common['x-auth'] = sessionStorage.getItem('auth');
+    axios.post(`https://st-james-bdl-api.herokuapp.com/api/reports/${this.props.report._id}`, editedReport)
+      .then((res) => {
+        this.setState({open: false})
+        this.props.fetchReports();
+        browserHistory.push('/admin-reports');
+      })
+      .catch((error) => {
+        console.log(error)
+      })
   }
 
   render() {
@@ -53,7 +80,7 @@ export default class AdminFormContainer extends Component {
         label="Submit"
         backgroundColor="#C8C5C5"
         style={{margin: "5"}}
-        onTouchTap={this.handleClose} />
+        onTouchTap={this.postEditedReport} />
     ]
 
     return(
@@ -183,7 +210,10 @@ export default class AdminFormContainer extends Component {
                   </TableBody>
                 </Table>
               <div>
-                <EditedReportForm report={report} handleClose={this.handleClose} fetchReports={this.props.fetchReports}/>
+                <Form state={this.state.formContent} onChange={changes => this.setState(changes)}>
+                  <Field fieldName='title' label='Title*' type={Textarea} row={2} />
+                  <Field fieldName='content' label='Edited Report Content*' type={Textarea} row={7} />
+                </Form>
               </div>
             </div>
           </div>
