@@ -13,6 +13,10 @@ import {
 } from 'material-ui/Card'
 import Paper from 'material-ui/Paper'
 
+const textStyle = {
+  fontFamily: "'Poppins, sans-serif'"
+}
+
 
 export default class DesktopLanding extends Component {
   constructor(props) {
@@ -28,14 +32,16 @@ export default class DesktopLanding extends Component {
           />
           <CardTitle title="About" />
           <CardText>
-            Welcome to the SF Bay Bad Date List, a project of the St. James Infirmary.
+            <p>Welcome to the SF Bay Bad Date List, a project of the St. James Infirmary.
             The Bad Date List is a community-based violence intervention tool utilized
             by sex workers to share information regarding “bad dates.” A Bad Date may be
             any person who threatens, behaves violently towards, robs, extorts, or
             engages in any behavior that violates the agreed upon terms and boundaries
             of the exchange. This list may also be used to report bad encounters
-            with law enforcement.
-            <p>Disclaimer: The information placed on these reports represents information
+            with law enforcement.</p>
+            <p style={{fontWeight: 'bold'}}>
+            Disclaimer:
+            The information placed on these reports represents information
             that was received by the Bad Date List Coordinator directly from effected
             individuals. The sole purpose of the SF Bay Bad Date List is to prevent
             future violence and danger to others.</p>
@@ -47,6 +53,9 @@ export default class DesktopLanding extends Component {
             <Link to="/view-reports" ><FlatButton
               label="View Reports"
               backgroundColor= "#F0EBE9"/></Link>
+            <Link to="/support" ><FlatButton
+              label="Get Support"
+              backgroundColor= "#D8D6D6"/></Link>
           </CardActions>
         </Card>
       </div>

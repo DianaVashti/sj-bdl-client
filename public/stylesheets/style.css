@@ -232,7 +232,7 @@ h2.button-text {
   border: 1px solid #E0E0E0;
 }
 
-p.admin-form-item{
+p.admin-form-item {
   font-size: .7em;
   font-weight: lighter;
 }
@@ -420,7 +420,7 @@ span, p {
   }
 
   .desktop-landing-message {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
   }
 
   .support-container {
