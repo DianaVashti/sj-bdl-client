@@ -447,7 +447,6 @@ export default class ReportForm extends Component {
   }
 
   render(){
-    console.log('this is the state', this.state)
     const {finished, stepIndex} = this.state;
     const contentStyle = {margin: '0 16px'};
 

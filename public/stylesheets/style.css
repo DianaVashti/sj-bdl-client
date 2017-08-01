@@ -261,6 +261,10 @@ p.admin-form-item {
   height: 100%;
 }
 
+.view-reports-container {
+  margin-bottom: 12vh;
+}
+
 .admin-form-item {
   padding: 6px;
   margin: 6px;
