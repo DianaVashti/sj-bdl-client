@@ -15,6 +15,10 @@ import TextField from 'material-ui/TextField';
 
 import AdminFormContainer from './adminFormContainer'
 
+const style = {
+  width: "35vw",
+}
+
 export default class ReportsTable extends Component {
   constructor(props) {
     super(props)
@@ -45,6 +49,7 @@ export default class ReportsTable extends Component {
         <TableRow key={report._id}>
           <TableRowColumn>{report.perpetrator.name}</TableRowColumn>
           <TableRowColumn>{report.edited.toString()}</TableRowColumn>
+          <TableRowColumn style={style}>{report.date.toString()}</TableRowColumn>
           <AdminFormContainer report={report} fetchReports={this.props.fetchReports}/>
         </TableRow>
       ))
@@ -72,6 +77,8 @@ export default class ReportsTable extends Component {
             <TableRow>
               <TableHeaderColumn tooltip="">Name</TableHeaderColumn>
               <TableHeaderColumn tooltip="">Edited</TableHeaderColumn>
+              <TableHeaderColumn tooltip="" style={style}>Date</TableHeaderColumn>
+              <TableHeaderColumn tooltip="">✎</TableHeaderColumn>
             </TableRow>
           </TableHeader>
           <TableBody
