@@ -7,7 +7,7 @@
 
 ## Set-up
 - fork/clone this repo
-- set upstream branch
+- set upstream branch: $`git remote add upstream https://github.com/DianaVashti/sji-bdl-client`
 - run the commands
   - install:          `npm i`
   - *build + nodemon:  `npm run start:dev`
