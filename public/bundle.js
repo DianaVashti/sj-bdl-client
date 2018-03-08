@@ -50542,7 +50542,7 @@
 	    value: function componentDidMount() {
 	      var _this2 = this;
 	
-	      _axios2.default.get('http://localhost:8080/api/reports').then(function (reports) {
+	      _axios2.default.get('https://st-james-bdl-api.herokuapp.com/api/reports').then(function (reports) {
 	        _this2.setState({
 	          reports: reports.data,
 	          isLoading: false
@@ -50554,7 +50554,7 @@
 	  }, {
 	    key: 'createSearchQuery',
 	    value: function createSearchQuery(terms) {
-	      var queryString = 'http://localhost:8080/api/reports/search?keywords=';
+	      var queryString = 'https://st-james-bdl-api.herokuapp.com/api/reports/search?keywords=';
 	      // could probably refactor this
 	      for (var i = 0; i < terms.length; i++) {
 	        if (i !== terms.length - 1) {
@@ -53790,7 +53790,7 @@
 	        headers: { 'x-auth': jwt }
 	      };
 	
-	      _axios2.default.get('http://localhost:8080/api/admins/reports', config).then(function (response) {
+	      _axios2.default.get('https://st-james-bdl-api.herokuapp.com/api/admins/reports', config).then(function (response) {
 	        _this2.setState({
 	          reports: response.data,
 	          isLoading: false
@@ -53808,7 +53808,7 @@
 	    key: 'logOut',
 	    value: function logOut() {
 	      _axios2.default.defaults.headers.common['x-auth'] = sessionStorage.getItem('auth');
-	      _axios2.default.delete('http://localhost:8080/api/admins/logout').then(function () {
+	      _axios2.default.delete('https://st-james-bdl-api.herokuapp.com/api/admins/logout').then(function () {
 	        _reactRouter.browserHistory.push('/');
 	        sessionStorage.clear();
 	      }).catch(function (error) {
@@ -53934,7 +53934,7 @@
 	    value: function handleOnSubmit() {
 	      var data = this.state;
 	      _axios2.default.defaults.headers.common['x-auth'] = sessionStorage.getItem('auth');
-	      _axios2.default.post('http://localhost:8080/api/services', data).then(function (res) {
+	      _axios2.default.post('https://st-james-bdl-api.herokuapp.com/api/services', data).then(function (res) {
 	        // show a success message to user
 	        setTimeout(function () {
 	          console.log('Success', res);
@@ -64584,6 +64584,10 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
+	var style = {
+	  width: "35vw"
+	};
+	
 	var ReportsTable = function (_Component) {
 	  _inherits(ReportsTable, _Component);
 	
@@ -64632,6 +64636,11 @@
 	            null,
 	            report.edited.toString()
 	          ),
+	          _react2.default.createElement(
+	            _Table.TableRowColumn,
+	            { style: style },
+	            report.date.toString()
+	          ),
 	          _react2.default.createElement(_adminFormContainer2.default, { report: report, fetchReports: _this2.props.fetchReports })
 	        );
 	      });
@@ -64677,6 +64686,16 @@
 	                _Table.TableHeaderColumn,
 	                { tooltip: '' },
 	                'Edited'
+	              ),
+	              _react2.default.createElement(
+	                _Table.TableHeaderColumn,
+	                { tooltip: '', style: style },
+	                'Date'
+	              ),
+	              _react2.default.createElement(
+	                _Table.TableHeaderColumn,
+	                { tooltip: '' },
+	                '\u270E'
 	              )
 	            )
 	          ),
@@ -67755,7 +67774,7 @@
 	      };
 	
 	      _axios2.default.defaults.headers.common['x-auth'] = sessionStorage.getItem('auth');
-	      _axios2.default.post('http://localhost:8080/api/reports/' + this.props.report._id, editedReport).then(function (res) {
+	      _axios2.default.post('https://st-james-bdl-api.herokuapp.com/api/reports/' + this.props.report._id, editedReport).then(function (res) {
 	        _this2.setState({ open: false });
 	        _this2.props.fetchReports();
 	        _reactRouter.browserHistory.push('/admin-reports');
@@ -69285,7 +69304,7 @@
 	  _createClass(AdminLogin, [{
 	    key: 'handleSubmitButtonTap',
 	    value: function handleSubmitButtonTap() {
-	      _axios2.default.post('http://localhost:8080/api/admins/login', {
+	      _axios2.default.post('https://st-james-bdl-api.herokuapp.com/api/admins/login', {
 	        email: this.refs.email.getValue(),
 	        password: this.refs.password.getValue()
 	      }).then(function (response) {
@@ -69935,7 +69954,7 @@
 	          supportDetails = _state.supportDetails,
 	          geolocationDetails = _state.geolocationDetails;
 	
-	      _axios2.default.post('http://localhost:8080/api/reports/new', {
+	      _axios2.default.post('https://st-james-bdl-api.herokuapp.com/api/reports/new', {
 	        city: incidentDetails.city,
 	        locationType: incidentDetails.locationType,
 	        gender: incidentDetails.gender,
@@ -102149,7 +102168,7 @@
 	    value: function fetchResources() {
 	      var _this2 = this;
 	
-	      _axios2.default.get('http://localhost:8080/api/services').then(function (res) {
+	      _axios2.default.get('https://st-james-bdl-api.herokuapp.com/api/services').then(function (res) {
 	
 	        _this2.setState(function (prevState) {
 	          return {
