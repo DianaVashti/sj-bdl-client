@@ -40,7 +40,7 @@ export default class Header extends Component {
         <div className="header-navbar">
           <Toolbar className="toolbar-container" style={styles}>
             <ToolbarGroup className="toolbar-container-items">
-              <img src='images/SF-BDL-Ladybug-Logo.svg' height={70} width={70}/>
+              <Link to='images/SF-BDL-Ladybug-Logo.svg'</Link>
               <ToolbarTitle style={titleStyle} text='SF BAY BAD DATE LIST'></ToolbarTitle>
             </ToolbarGroup>
           </Toolbar>
