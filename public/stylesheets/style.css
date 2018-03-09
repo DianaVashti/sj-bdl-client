@@ -94,6 +94,17 @@ h2.button-text {
   opacity: 100;
 }
 
+.footer-admin-resources {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  z-index: 101;
+  opacity: 100;
+}
+
 .container {
   display: flex;
   align-items: center;
@@ -278,7 +289,7 @@ p.admin-form-item {
 }
 
 .admin-table-container {
-  width: 80%;
+  width: 99%;
   margin: 10;
   border: 1px solid #E0E0E0
 }

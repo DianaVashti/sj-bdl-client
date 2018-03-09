@@ -10,6 +10,7 @@ import LandingPage from './Views/Home/landingPage'
 import ViewReportsLanding from './Views/Read/viewReportsLanding'
 import AdminLanding from './Views/Admin/adminLanding'
 import AdminLogin from './Views/Admin/adminLogin'
+import AdminResources from './Views/Admin/adminResources'
 import FileReportLanding from './Views/Make/fileReportLanding'
 import ResourcesLanding from './Views/Support/resourcesLanding'
 
@@ -47,6 +48,9 @@ export default class ReactRouter extends Component {
     const resourcesComponent = (props, state, params) =>
       <ResourcesLanding />
 
+    const adminResources = (props, state, params) =>
+      <AdminResources />
+
     return (
       <MuiThemeProvider >
         <Router history={browserHistory}>
@@ -54,6 +58,7 @@ export default class ReactRouter extends Component {
           <Route path="/view-reports" component={viewReportsComponent} />
           <Route path="/admin-login" component={adminLoginComponent} />
           <Route path="/admin-reports" component={adminReportsComponent} onEnter={this.requireAuth} />
+          <Route path="/admin-resources" component={adminResources} onEnter={this.requireAuth} />          
           <Route path="/submit-report" component={fileReportComponent} />
           <Route path="/support" component={resourcesComponent} />
         </Router>
