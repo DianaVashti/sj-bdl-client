@@ -7,10 +7,7 @@ import Paper from 'material-ui/Paper';
 import Popover from 'material-ui/Popover/Popover';
 import RaisedButton from 'material-ui/RaisedButton';
 
-import AdminResourceForm from './adminResourceForm'
-import Footer from '../../footer'
 import ReportsTable from './reportsTable'
-import Header from '../../header'
 import Spinner from '../../Spinner/index'
 
 export default class AdminMain extends Component {
@@ -65,13 +62,17 @@ export default class AdminMain extends Component {
 
     return (
       <div>
-        <ReportsTable reports={this.state.reports} fetchReports={this.fetchReports} />
+        <ReportsTable
+          reports={this.state.reports}
+          fetchReports={this.fetchReports}
+        />
         <RaisedButton
           label="Log Out"
           primary={false}
           backgroundColor="#E21E26"
           labelColor="#FAFAFA"
           onTouchTap={this.logOut}
+          style={{margin: "5"}}
         />
         <Link to="/admin-resources"><RaisedButton
           label="Edit Resources"
