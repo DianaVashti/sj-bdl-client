@@ -1,50 +1,49 @@
-import React, {Component}  from 'react'
-import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import { browserHistory } from 'react-router';
 import axios from 'axios';
 
-import {Form, Field} from 'simple-react-form'
+import Text from 'simple-react-form-material-ui/lib/text';
+import { Form, Field } from 'simple-react-form';
 
 import RaisedButton from 'material-ui/RaisedButton';
-import Text from 'simple-react-form-material-ui/lib/text'
 
 export default class AdminResourceForm extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-      name: "",
-      streetAddress: "",
-      city: "",
-      state: "",
-      zipCode: "",
-      phone: "",
-      type: ""
-    }
+      name: '',
+      streetAddress: '',
+      city: '',
+      state: '',
+      zipCode: '',
+      phone: '',
+      type: ''
+    };
   }
 
   handleOnSubmit() {
-    const data = this.state
+    const data = this.state;
     axios.defaults.headers.common['x-auth'] = sessionStorage.getItem('auth');
-    axios.post('https://st-james-bdl-api.herokuapp.com/api/services', data)
+    axios.post('http://localhost:8080/api/services', data)
     .then((res) => {
       // show a success message to user
       setTimeout(() => {
-        console.log('Success', res)
-        browserHistory.push('/')
-      }, 1000)
+        console.log('Success', res);
+        browserHistory.push('/');
+      }, 1000);
     })
     .catch((error) => {
       // show error message to user
       setTimeout(() => {
-        console.log('something went wrong ', error)
-        browserHistory.push('/')
-      }, 1000)
-    })
+        console.log('something went wrong ', error);
+        browserHistory.push('/');
+      }, 1000);
+    });
   }
 
 
-  render(){
-    return(
+  render() {
+    return (
       <div className="admin-add-resource">
         <h1>Add a Resource</h1>
         <Form state={this.state} onChange={changes => this.setState(changes)}>
@@ -63,6 +62,6 @@ export default class AdminResourceForm extends Component {
           onTouchTap={this.handleOnSubmit.bind(this)}
         />
       </div>
-    )
+    );
   }
 }

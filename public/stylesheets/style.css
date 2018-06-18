@@ -218,15 +218,20 @@ h2.button-text {
   font-family: 'Open Sans', sans-serif;
 }
 
-.admin-form-left {
+.admin-ui-container {
   display: flex;
   flex-direction: row;
+}
+
+.admin-form-left {
+  flex: 3;
   padding: 5px;
   margin: 5px;
   border: 1px solid #E0E0E0;
 }
 
 .admin-form-right {
+  flex: 2;
   padding: 5px;
   margin: 5px;
   border: 1px solid #E0E0E0;
@@ -240,11 +245,6 @@ p.admin-form-item {
 .admin-add-resource {
   margin: 5 5 50 5;
   padding: 5;
-}
-
-.admin-ui-container {
-  display: flex;
-  flex-direction: row;
 }
 
 .landing-page-main-btn-container {
