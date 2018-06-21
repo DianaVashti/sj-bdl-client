@@ -1,46 +1,41 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 
-import Paper from 'material-ui/Paper';
 import {
   Table,
   TableBody,
-  TableFooter,
   TableHeader,
   TableHeaderColumn,
   TableRow,
   TableRowColumn,
 } from 'material-ui/Table';
-import TextField from 'material-ui/TextField';
 
-import AdminFormContainer from './adminFormContainer'
+import AdminFormContainer from './AdminFormContainer';
 
 const style = {
-  width: "35vw",
-}
+  width: '35vw',
+};
 
-export default class ReportsTable extends Component {
+export default class ReportTable extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       fixedHeader: true,
       fixedFooter: true,
-      stripedRows: false,
+      stripedRows: true,
       multiSelectable: false,
       enableSelectAll: false,
       showCheckboxes: false,
-      height: '70%',
       open: false,
     };
   }
 
   handleOpen = () => {
-    this.setState({open: true});
+    this.setState({ open: true });
   }
 
   handleClose = () => {
-    this.setState({open:false});
+    this.setState({ open: false });
   }
 
   populateTable() {
@@ -49,16 +44,18 @@ export default class ReportsTable extends Component {
         <TableRow key={report._id}>
           <TableRowColumn>{report.perpetrator.name}</TableRowColumn>
           <TableRowColumn>{report.edited.toString()}</TableRowColumn>
-          <TableRowColumn style={style}>{report.date.toString()}</TableRowColumn>
-          <AdminFormContainer report={report} fetchReports={this.props.fetchReports}/>
+          <TableRowColumn style={style}>{report.date.toString().substr(0, 10)}</TableRowColumn>
+          <TableRowColumn>
+            <AdminFormContainer report={report} fetchReports={this.props.fetchReports} />
+          </TableRowColumn>
         </TableRow>
       ))
-    )
+    );
   }
 
   render() {
     return (
-      <div className="admin-table-container">
+      <div>
         <Table
           height={this.state.height}
           fixedHeader={this.state.fixedHeader}
@@ -70,13 +67,8 @@ export default class ReportsTable extends Component {
             enableSelectAll={this.state.enableSelectAll}
           >
             <TableRow>
-              <TableHeaderColumn colSpan="3" tooltip="All Reports" style={{textAlign: 'center'}}>
-                Admin Home Page: SJI BDL
-              </TableHeaderColumn>
-            </TableRow>
-            <TableRow>
               <TableHeaderColumn tooltip="">Name</TableHeaderColumn>
-              <TableHeaderColumn tooltip="">Edited</TableHeaderColumn>
+              <TableHeaderColumn tooltip="">Published</TableHeaderColumn>
               <TableHeaderColumn tooltip="" style={style}>Date</TableHeaderColumn>
               <TableHeaderColumn tooltip="">✎</TableHeaderColumn>
             </TableRow>
@@ -84,14 +76,10 @@ export default class ReportsTable extends Component {
           <TableBody
             displayRowCheckbox={this.state.showCheckboxes}
             showRowHover={this.state.showRowHover}
-            stripedRows={this.state.stripedRows}>
+            stripedRows={this.state.stripedRows}
+          >
             {this.populateTable()}
           </TableBody>
-          <TableFooter
-            adjustForCheckbox={this.state.showCheckboxes}>
-            <TableRow>
-            </TableRow>
-          </TableFooter>
         </Table>
       </div>
     );
