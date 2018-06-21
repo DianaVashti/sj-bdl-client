@@ -14,10 +14,11 @@ import {
   TableRow,
   TableRowColumn,
 } from 'material-ui/Table';
-import { Form, Field } from 'simple-react-form';
-import Textarea from 'simple-react-form-material-ui/lib/textarea';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
+import { Form, Field } from 'simple-react-form';
+import Textarea from 'simple-react-form-material-ui/lib/textarea';
+
 
 const styles = {
   textStyle: {
@@ -146,7 +147,7 @@ export default class AdminFormContainer extends Component {
 
     return(
       <div >
-        <RaisedButton label="Edit" onTouchTap={this.handleOpen} />
+        <RaisedButton label="Edit" primary onTouchTap={this.handleOpen} />
         <Dialog
           actions={actions}
           modal={true}
@@ -260,8 +261,8 @@ export default class AdminFormContainer extends Component {
             </div>
             <div className='admin-form-right' >
               <Form state={this.state.formContent} onChange={changes => this.setState(changes)}>
-                <Field fieldName='title' label='Title*' type={Textarea} row={2} value={this.state.title} />
-                <Field fieldName='content' label='Edited Report Content*' type={Textarea} row={7} value={this.state.content}/>
+                <Field style={{ fontSize: 12 }} fieldName='title' label='Title*' type={Textarea} row={2} value={this.state.title} />
+                <Field style={{ fontSize: 12 }} fieldName='content' label='Edited Report Content*' type={Textarea} row={7} value={this.state.content}/>
               </Form>
               <div>
                 <SelectField

@@ -8,6 +8,7 @@ import Popover from 'material-ui/Popover/Popover';
 import Header from './Header';
 import AdminReportsDetail from './AdminReportsDetail';
 import AdminResourceForm from './AdminResourceForm';
+import EditResourceContainer from './EditResourceContainer';
 
 const styles = {
   viewStyle: {
@@ -41,7 +42,8 @@ export default class AdminInterface extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: false,
+      addOpen: false,
+      editOpen: false,
       anchorOrigin: {
         horizontal: 'right',
         vertical: 'bottom',
@@ -73,15 +75,25 @@ export default class AdminInterface extends Component {
 
     handleRequestClose = () => {
       this.setState({
-        open: false,
+        editOpen: false,
+        addOpen: false,
       });
     };
 
-    handleTouchTap = (event) => {
+    handleTouchTapAdd = (event) => {
       // This prevents ghost click.
       event.preventDefault();
       this.setState({
-        open: true,
+        addOpen: true,
+        anchorEl: event.currentTarget,
+      });
+    };
+
+    handleTouchTapEdit = (event) => {
+      // This prevents ghost click.
+      event.preventDefault();
+      this.setState({
+        editOpen: true,
         anchorEl: event.currentTarget,
       });
     };
@@ -110,11 +122,11 @@ export default class AdminInterface extends Component {
               primary={false}
               backgroundColor="#a4c639"
               labelColor="#090200"
-              onTouchTap={this.handleTouchTap}
+              onTouchTap={this.handleTouchTapAdd}
               style={{ margin: 5 }}
             />
               <Popover
-                open={this.state.open}
+                open={this.state.addOpen}
                 anchorEl={this.state.anchorEl}
                 anchorOrigin={this.state.anchorOrigin}
                 targetOrigin={this.state.targetOrigin}
@@ -128,11 +140,29 @@ export default class AdminInterface extends Component {
               >
                 <AdminResourceForm />
               </Popover>
-            <RaisedButton
-              label="Edit Resources"
-              style={{ margin: 5 }}
-              secondary
-            />
+              <RaisedButton
+                label="Edit Resources"
+                secondary
+                labelColor="#090200"
+                onTouchTap={this.handleTouchTapEdit}
+                style={{ margin: 5 }}
+              />
+                <Popover
+                  open={this.state.editOpen}
+                  anchorEl={this.state.anchorEl}
+                  anchorOrigin={this.state.anchorOrigin}
+                  targetOrigin={this.state.targetOrigin}
+                  onRequestClose={this.handleRequestClose}
+                  style={{
+                    padding: 15,
+                    width: '85%',
+                    height: '85%',
+                    boxShadow: '3px 3px 3px #E0E0E0',
+                    border: '1px solid #E0E0E0'
+                  }}
+                >
+                  <EditResourceContainer />
+                </Popover>
           </div>
           <div style={styles.footerRight}>
             <RaisedButton

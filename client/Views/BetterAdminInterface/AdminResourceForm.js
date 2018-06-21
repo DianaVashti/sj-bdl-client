@@ -29,14 +29,14 @@ export default class AdminResourceForm extends Component {
       // show a success message to user
       setTimeout(() => {
         console.log('Success', res);
-        browserHistory.push('/');
+        browserHistory.push('/rupport');
       }, 1000);
     })
     .catch((error) => {
       // show error message to user
       setTimeout(() => {
         console.log('something went wrong ', error);
-        browserHistory.push('/');
+        browserHistory.push('/admin-reports');
       }, 1000);
     });
   }
