@@ -61,7 +61,7 @@ export default class AdminFormContainer extends Component {
       headers: { 'x-auth': jwt }
     };
     // fetch title content
-    axios.get(`http://localhost:8080/api/reports/${this.props.report._id}`, config)
+    axios.get(`https://st-james-bdl-api.herokuapp.com/api/reports/${this.props.report._id}`, config)
     .then(data => {
       if (data.data.editedReport.title.length !== 0) {
         if (data.data.edited === true) {
@@ -109,7 +109,7 @@ export default class AdminFormContainer extends Component {
     };
 
     axios.defaults.headers.common['x-auth'] = sessionStorage.getItem('auth');
-    axios.post(`http://localhost:8080/api/reports/${this.props.report._id}`, editedReport)
+    axios.post(`https://st-james-bdl-api.herokuapp.com/api/reports/${this.props.report._id}`, editedReport)
       .then(() => {
         this.setState({ open: false });
         this.props.fetchReports();
